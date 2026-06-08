@@ -1,680 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
+
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#2a1711" />
-  <title>Mesversário da Cecília
-  <style>
-    :root{
-      --bg: #1a0f0b;
-      --bg2:#24130e;
-      --card:#fff8ef;
-      --card2:#f8e8d8;
-      --text:#2b1610;
-      --muted:#6f4d3d;
-      --red:#b63a2b;
-      --orange:#d67a2c;
-      --yellow:#f1c24f;
-      --green:#5a7a4b;
-      --shadow: 0 18px 50px rgba(0,0,0,.25);
-      --radius: 22px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesversário da Cecília - 8 Meses
+    <style>
+        :root {
+            --bg: #1a0f0b;
+            --bg2: #24130e;
+            --card: #fff8ef;
+            --card2: #f8e8d8;
+            --text: #2b1610;
+            --muted: #6f4d3d;
+            --red: #b63a2b;
+            --orange: #d67a2c;
+            --yellow: #f1c24f;
+            --green: #5a7a4b;
+            --shadow: 0 18px 50px rgba(0,0,0,.25);
+            --radius: 22px;
+        }
+
+
+    - { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, rgba(241,194,79,.18), transparent 22%), 
+                    radial-gradient(circle at 20% 10%, rgba(214,122,44,.18), transparent 18%), 
+                    radial-gradient(circle at 85% 12%, rgba(90,122,75,.16), transparent 18%), 
+                    linear-gradient(180deg, var(--bg), var(--bg2));
+        min-height: 100vh;
+        overflow-x: hidden;
     }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(241,194,79,.18), transparent 22%),
-        radial-gradient(circle at 20% 10%, rgba(214,122,44,.18), transparent 18%),
-        radial-gradient(circle at 85% 12%, rgba(90,122,75,.16), transparent 18%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      min-height:100vh;
-      overflow-x:hidden;
+    .wrap { position: relative; max-width: 1100px; margin: 0 auto; padding: 22px 16px 36px; }
+
+    .bandeirinhas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+        pointer-events: none;
+        z-index: 1;
+        opacity: .95;
+        overflow: hidden;
     }
 
-    .wrap{
-      position:relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 22px 16px 36px;
+    .flag-row {
+        position: absolute;
+        top: 12px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
     }
 
-    .bandeirinhas{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:72px;
-      pointer-events:none;
-      z-index:1;
-      opacity:.95;
-      overflow:hidden;
+    .flag {
+        width: 18px;
+        height: 24px;
+        border-radius: 3px 3px 8px 8px;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        animation: sway 3.6s ease-in-out infinite;
+        box-shadow: 0 6px 12px rgba(0,0,0,.12);
     }
 
-    .string{
-      position:absolute;
-      top:18px;
-      left:-5%;
-      width:110%;
-      height:2px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
-      transform: rotate(-2deg);
+    .flag:nth-child(3n) { background: var(--yellow); }
+    .flag:nth-child(3n+1) { background: var(--orange); }
+    .flag:nth-child(3n+2) { background: var(--green); }
+
+    @keyframes sway {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(4px) rotate(3deg); }
     }
 
-    .flag-row{
-      position:absolute;
-      top:12px;
-      left:0;
-      width:100%;
-      display:flex;
-      justify-content:space-around;
-      gap:10px;
-    }
+    .hero { position: relative; z-index: 2; margin-top: 58px; padding: 24px 0 10px; color: #fff9f1; }
+    h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.4rem); line-height: .92; letter-spacing: -.04em; }
+    .subtitle { margin: 12px 0 0; font-size: clamp(1rem, 2.8vw, 1.2rem); color: rgba(255,255,255,.83); }
 
-    .flag{
-      width:18px;
-      height:24px;
-      border-radius: 3px 3px 8px 8px;
-      clip-path: polygon(50% 100%, 0 0, 100% 0);
-      animation: sway 3.6s ease-in-out infinite;
-      box-shadow: 0 6px 12px rgba(0,0,0,.12);
-    }
+    .grid { position: relative; z-index: 2; margin-top: 22px; display: grid; gap: 16px; }
+    .card { 
+        background: linear-gradient(180deg, rgba(255,248,239,.98), rgba(248,232,21,6,.98)); 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow); 
+            padding: 20px;
+        }
 
-    .flag:nth-child(3n){background:var(--yellow)}
-    .flag:nth-child(3n+1){background:var(--orange)}
-    .flag:nth-child(3n+2){background:var(--green)}
-    .flag:nth-child(4n){animation-duration:4.3s}
-    .flag:nth-child(5n){animation-duration:5s}
+        .details { display: grid; gap: 12px; margin-top: 14px; }
+        .detail { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+            padding: 14px; 
+            border-radius: 16px; 
+            background: rgba(255,255,255,.7); 
+            border: 1px solid rgba(82,47,31,.08); 
+        }
 
-    @keyframes sway{
-      0%,100%{transform: translateY(0) rotate(0deg)}
-      50%{transform: translateY(4px) rotate(3deg)}
-    }
+        button, .btn {
+            appearance: none;
+            border: 0;
+            cursor: pointer;
+            text-decoration: none;
+            font: inherit;
+            font-weight: 700;
+            border-radius: 16px;
+            padding: 14px 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            transition: transform .2s ease;
+        }
 
-    .hero{
-      position:relative;
-      z-index:2;
-      margin-top: 58px;
-      padding: 24px 0 10px;
-      color:#fff9f1;
-    }
+        .primary { background: var(--red); color: #fff; width: 100%; }
+        .secondary { background: rgba(43,22,16,.08); color: var(--text); }
 
-    .hero-grid{
-      display:grid;
-      gap:18px;
-    }
+        /* Modal Styles */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(16,8,6,.62);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.76);
-      margin-bottom: 10px;
-    }
+        .modal-backdrop.open { display: flex; }
+        .modal { 
+            width: 100%; 
+            max-width: 500px; 
+            background: #fffaf2; 
+            border-radius: 24px; 
+            padding: 20px; 
+            box-shadow: 0 24px 80px rgba(0,0,0,.35); 
+        }
 
-    .dot{
-      width:8px;height:8px;border-radius:999px;background:var(--yellow);
-      box-shadow: 0 0 18px rgba(241,194,79,.8);
-      animation:pulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes pulse{
-      0%,100%{transform:scale(1); opacity:.8}
-      50%{transform:scale(1.25); opacity:1}
-    }
-
-    h1{
-      margin:0;
-      font-size: clamp(2.4rem, 7vw, 5.4rem);
-      line-height: .92;
-      letter-spacing: -.04em;
-      text-wrap: balance;
-    }
-
-    .subtitle{
-      margin: 12px 0 0;
-      max-width: 54ch;
-      font-size: clamp(1rem, 2.8vw, 1.2rem);
-      color: rgba(255,255,255,.83);
-      line-height:1.6;
-    }
-
-    .event-strip{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 18px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(12px);
-      color:#fff;
-      border-radius:999px;
-      padding: 10px 14px;
-      font-size: 14px;
-    }
-
-    .pill strong{font-weight:700}
-    .grid{
-      position:relative;
-      z-index:2;
-      margin-top: 22px;
-      display:grid;
-      gap:16px;
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,248,239,.98), rgba(248,232,216,.98));
-      border: 1px solid rgba(82,47,31,.12);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(255,255,255,.85), transparent 22%),
-        linear-gradient(135deg, rgba(255,255,255,.25), transparent 40%);
-      pointer-events:none;
-      opacity:.7;
-    }
-
-    .card-inner{
-      position:relative;
-      padding: 20px;
-    }
-
-    .section-title{
-      margin:0 0 8px;
-      font-size: 1.05rem;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color: var(--red);
-    }
-
-    .section-text{
-      margin:0 0 14px;
-      color: var(--muted);
-      line-height:1.6;
-    }
-
-    .details{
-      display:grid;
-      gap:12px;
-      grid-template-columns: 1fr;
-      margin-top: 14px;
-    }
-
-    .detail{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      padding: 14px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.7);
-      border: 1px solid rgba(82,47,31,.08);
-    }
-
-    .icon{
-      flex:0 0 38px;
-      width:38px;height:38px;border-radius:14px;
-      display:grid;place-items:center;
-      background: linear-gradient(180deg, var(--yellow), #f5d980);
-      color:#593714;
-      font-size:20px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
-    }
-
-    .detail b{
-      display:block;
-      margin-bottom:4px;
-      font-size: .98rem;
-    }
-
-    .detail span{
-      color: var(--muted);
-      line-height:1.45;
-      font-size: .95rem;
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top: 14px;
-    }
-
-    button, .btn{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      text-decoration:none;
-      font: inherit;
-      font-weight:700;
-      border-radius: 16px;
-      padding: 14px 18px;
-      transition: transform .2s ease, filter .2s ease, background .2s ease, box-shadow .2s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height: 48px;
-    }
-
-    button:active, .btn:active{transform: scale(.98)}
-
-    .primary{
-      background: linear-gradient(180deg, var(--red), #8f281d);
-      color:#fff;
-      box-shadow: 0 12px 24px rgba(182,58,43,.25);
-    }
-
-    .primary:hover{filter:brightness(1.05)}
-
-    .secondary{
-      background: rgba(43,22,16,.08);
-      color: var(--text);
-      border: 1px solid rgba(43,22,16,.1);
-    }
-
-    .share{
-      background: linear-gradient(180deg, var(--green), #466138);
-      color:#fff;
-      box-shadow: 0 12px 24px rgba(90,122,75,.24);
-    }
-
-    .form{
-      display:grid;
-      gap:12px;
-      margin-top: 10px;
-    }
-
-    .row{
-      display:grid;
-      gap:12px;
-    }
-
-    label{
-      display:block;
-      font-size: .88rem;
-      font-weight:700;
-      color: #4b2a1f;
-      margin-bottom:6px;
-    }
-
-    input, textarea{
-      width:100%;
-      border: 1px solid rgba(82,47,31,.14);
-      background: rgba(255,255,255,.95);
-      border-radius: 14px;
-      padding: 14px 14px;
-      font: inherit;
-      color: var(--text);
-      outline:none;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    input:focus, textarea:focus{
-      border-color: rgba(182,58,43,.5);
-      box-shadow: 0 0 0 4px rgba(182,58,43,.12);
-    }
-
-    textarea{min-height:110px;resize:vertical}
-
-    .hint{
-      font-size:.86rem;
-      color: var(--muted);
-      margin-top:-4px;
-    }
-
-    .hidden{display:none}
-
-    .modal-backdrop{
-      position:fixed;
-      inset:0;
-      background: rgba(16,8,6,.62);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-      display:none;
-      align-items:flex-end;
-      justify-content:center;
-      padding: 18px 12px;
-    }
-
-    .modal-backdrop.open{display:flex}
-
-    .modal{
-      width:100%;
-      max-width: 680px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, #fffaf2, #f7e8d8);
-      box-shadow: 0 24px 80px rgba(0,0,0,.35);
-      border: 1px solid rgba(82,47,31,.12);
-      overflow:hidden;
-      transform: translateY(20px);
-      animation: rise .28s ease forwards;
-    }
-
-    @keyframes rise{
-      to{transform: translateY(0)}
-    }
-
-    .modal-head{
-      padding: 18px 20px;
-      background: linear-gradient(135deg, rgba(182,58,43,.96), rgba(214,122,44,.96));
-      color:#fff;
-    }
-
-    .modal-head h2{
-      margin:0;
-      font-size:1.1rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .modal-body{
-      padding: 18px 20px 20px;
-    }
-
-    .modal-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-
-    .footer{
-      text-align:center;
-      color: rgba(255,255,255,.8);
-      font-size: .95rem;
-      padding: 12px 0 4px;
-    }
-
-    .spark{
-      position:absolute;
-      width:10px;height:10px;border-radius:999px;
-      background: rgba(255,255,255,.7);
-      box-shadow: 0 0 22px rgba(255,255,255,.6);
-      animation: drift 9s linear infinite;
-      opacity:.45;
-    }
-
-    @keyframes drift{
-      0%{transform:translateY(0) translateX(0) scale(.9)}
-      50%{transform:translateY(-18px) translateX(8px) scale(1.2)}
-      100%{transform:translateY(0) translateX(0) scale(.9)}
-    }
-
-    .spark:nth-child(1){top:16%;left:8%}
-    .spark:nth-child(2){top:32%;left:76%;animation-delay:1.2s}
-    .spark:nth-child(3){top:62%;left:18%;animation-delay:2.4s}
-    .spark:nth-child(4){top:78%;left:82%;animation-delay:3.6s}
-
-    @media (min-width: 760px){
-      .wrap{padding: 26px 24px 44px}
-      .hero{margin-top: 74px}
-      .hero-grid{
-        grid-template-columns: 1.2fr .8fr;
-        align-items:end;
-      }
-      .details{
-        grid-template-columns: repeat(2, minmax(0,1fr));
-      }
-      .row{
-        grid-template-columns: repeat(2, minmax(0,1fr));
-      }
-      .modal-backdrop{
-        align-items:center;
-      }
-    }
-  
+        input, textarea {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(82,47,31,.14);
+            font: inherit;
+        }
+    
 
 <body>
-  <div class="bandeirinhas" aria-hidden="true">
-    <div class="string">
-    <div class="flag-row">
-      <div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag"><div class="flag">
-    
-  
-
-  <div class="wrap">
-    <div class="spark">
-    <div class="spark">
-    <div class="spark">
-    <div class="spark">
-
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow"><span class="dot"> festa junina premium
-          <h1>Mesversário da Cecília
-          <p class="subtitle">8 meses de doçura, alegria e muita festa junina. Um convite delicado, animado e pronto pra receber confirmações com carinho.
-
-          <div class="event-strip">
-            <div class="pill">📅 <strong>27/06
-            <div class="pill">🕒 <strong>15h
-            <div class="pill">📍 <strong>Casa da mãe dela
-          
+    <div class="bandeirinhas">
+        <div class="flag-row">
+            <div class="flag"><div class="flag"><div class="flag">
+            <div class="flag"><div class="flag"><div class="flag">
         
-
-        <div class="card">
-          <div class="card-inner">
-            <h2 class="section-title">Resumo do Evento
-            <p class="section-text">Confirmação de presença, dois pratos por convidado e envio rápido das informações direto pro WhatsApp da mãe.
-            <div class="actions">
-              <button class="primary" id="openForm">Confirmar Presença
-              <button class="secondary" id="scrollToInfo">Ver Detalhes
-            
-          
-        
-      
     
 
-    <main class="grid">
-      <section class="card" id="info">
-        <div class="card-inner">
-          <h2 class="section-title">Como Vai Funcionar
-          <p class="section-text">A pessoa preenche o nome, confirma a presença, escreve os dois pratos que vai levar e depois envia tudo direto para o WhatsApp da mãe da Cecília.
-
-          <div class="details">
-            <div class="detail">
-              <div class="icon">🎀
-              <div>
-                <b>Confirmar presença
-                <span>Um botão claro para abrir o formulário de RSVP.
-              
+    <div class="wrap">
+        <section class="hero">
+            <h1>Mesversário da Cecília
+            <p class="subtitle">8 meses de doçura e festa junina!
+            <div class="details">
+                <div class="detail">📅 27/06 às 15h
+                <div class="detail">📍 Casa da mãe dela
             
-
-            <div class="detail">
-              <div class="icon">🍰
-              <div>
-                <b>Dois pratos
-                <span>Campos obrigatórios para listar o prato 1 e o prato 2.
-              
-            
-
-            <div class="detail">
-              <div class="icon">💬
-              <div>
-                <b>Enviar no WhatsApp
-                <span>Gera a mensagem pronta com tudo preenchido.
-              
-            
-
-            <div class="detail">
-              <div class="icon">✨
-              <div>
-                <b>Animação e fluidez
-                <span>Visual junino elegante, com bandeirinhas, brilho e movimento suave.
-              
-            
-          
+            <button class="primary" id="openForm" style="margin-top: 20px;">Confirmar Presença
+            <button class="secondary" id="scrollToInfo" style="margin-top: 10px; width: 100%;">Ver Detalhes
         
-      
 
-      <section class="card">
-        <div class="card-inner">
-          <h2 class="section-title">Enviar Informações
-          <p class="section-text">Você pode deixar o site pronto para a família usar no celular, sem backend, direto do GitHub Pages.
-
-          <div class="actions">
-            <button class="primary" id="openForm2">Confirmar Presença
-            <a class="btn share" id="shareWhatsApp" href="#" target="_blank" rel="noopener">Enviar pro WhatsApp
-          
-
-          <p class="hint">Troque o número da mãe da Cecília no bloco de configuração abaixo.
+        <div id="info" style="margin-top: 50px; color: white;">
+            <h2>Como Vai Funcionar
+            <p>Preencha os pratos que vai levar e envie para o WhatsApp!
         
-      
     
 
-    <div class="footer">feito pra ficar bonito, leve e com cara de festa boa
-  
-
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-head">
-        <h2 id="modalTitle">Confirmar Presença
-      
-      <div class="modal-body">
-        <form class="form" id="rsvpForm">
-          <div class="row">
-            <div>
-              <label for="nome">Nome
-              <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
-            
-            <div>
-              <label for="presenca">Presença
-              <input id="presenca" name="presenca" type="text" value="Vou confirmar presença" readonly />
-            
-          
-
-          <div class="row">
-            <div>
-              <label for="prato1">Prato 1 que vai levar
-              <input id="prato1" name="prato1" type="text" placeholder="Ex: bolo de milho" required />
-            
-            <div>
-              <label for="prato2">Prato 2 que vai levar
-              <input id="prato2" name="prato2" type="text" placeholder="Ex: canjica" required />
-            
-          
-
-          <div>
-            <label for="recado">Recado opcional
-            <textarea id="recado" name="recado" placeholder="Se quiser deixar um recadinho, escreve aqui">
-          
-
-          <div class="modal-actions">
-            <button type="button" class="secondary" id="closeForm">Fechar
- <button type="button" class="share" id="sendWhatsapp">Enviar no WhatsApp
-          
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal">
+            <h2>RSVP
+   <input type="text" id="nome" placeholder="Seu Nome">
+            <input type="text" id="prato1" placeholder="Prato 1">
+            <input type="text" id="prato2" placeholder="Prato 2">
+            <textarea id="recado" placeholder="Recado opcional">
+            <button class="primary" id="sendWhatsapp">Enviar no WhatsApp
+            <button class="secondary" id="closeForm" style="width: 100%; margin-top: 10px;">Fechar
         
-      
     
-  
 
-  <script>
-    const CONFIG = {
-      // troque pelo número real da mãe da Cecília no formato internacional, só números
-      // exemplo: "5511999999999"
-      motherPhone: "5521974598210",
-      eventName: "Mesversário da Cecília",
-      eventDate: "27/06 às 15h",
-      eventPlace: "Casa da mãe dela"
-    }
+    <script>
+        const CONFIG = {
+            motherPhone: "5521974598210",
+            eventName: "Mesversário da Cecília",
+            eventDate: "27/06 às 15h",
+            eventPlace: "Casa da mãe dela"
+        };
 
-    const modalBackdrop = document.getElementById("modalBackdrop")
-    const openForm = document.getElementById("openForm")
-    const openForm2 = document.getElementById("openForm2")
-    const closeForm = document.getElementById("closeForm")
-    const sendWhatsapp = document.getElementById("sendWhatsapp")
-    const shareWhatsApp = document.getElementById("shareWhatsApp")
-    const scrollToInfo = document.getElementById("scrollToInfo")
+        const modalBackdrop = document.getElementById("modalBackdrop");
+        const openForm = document.getElementById("openForm");
+        const closeForm = document.getElementById("closeForm");
+        const sendWhatsapp = document.getElementById("sendWhatsapp");
+        const scrollToInfo = document.getElementById("scrollToInfo");
 
-    const form = document.getElementById("rsvpForm")
-    const nome = document.getElementById("nome")
-    const prato1 = document.getElementById("prato1")
-    const prato2 = document.getElementById("prato2")
-    const recado = document.getElementById("recado")
+        const nome = document.getElementById("nome");
+        const prato1 = document.getElementById("prato1");
+        const prato2 = document.getElementById("prato2");
+        const recado = document.getElementById("recado");
 
-    function openModal(){
-      modalBackdrop.classList.add("open")
-      modalBackdrop.setAttribute("aria-hidden", "false")
-      setTimeout(() => nome.focus(), 120)
-    }
+        function openModal() { modalBackdrop.classList.add("open"); }
+        function closeModal() { modalBackdrop.classList.remove("open"); }
 
-    function closeModal(){
-      modalBackdrop.classList.remove("open")
-      modalBackdrop.setAttribute("aria-hidden", "true")
-    }
+        function buildMessage() {
+            const n = (nome.value || "Convidado(a)").trim();
+            const p1 = (prato1.value || "não informado").trim();
+            const p2 = (prato2.value || "não informado").trim();
+            const r = (recado.value || "").trim();
+            
+            let msg = Olá! Aqui é ${n}.\nQuero confirmar presença no ${CONFIG.eventName}.\n;
+            msg += Data: ${CONFIG.eventDate}\nLocal: ${CONFIG.eventPlace}\n;
+            msg += Prato 1: ${p1}\nPrato 2: ${p2};
+            if (r) msg += \nRecado: ${r};
+            return msg;
+        }
 
-    function buildMessage(){
-      const n = (nome.value || "Convidado(a)").trim()
-      const p1 = (prato1.value || "").trim()
-      const p2 = (prato2.value || "").trim()
-      const r = (recado.value || "").trim()
+        function updateWhatsAppLink() {
+            const text = buildMessage();
+            const encoded = encodeURIComponent(text);
+            const phone = CONFIG.motherPhone.replace(/\D/g, "");
+            return
 
-      const lines = [
-        Olá! Aqui é ${n}.,
-        Quero confirmar presença no ${CONFIG.eventName}.,
-        Data: ${CONFIG.eventDate}.,
-        Local: ${CONFIG.eventPlace}.,
-        Prato 1: ${p1 || "não informado"}.,
-        Prato 2: ${p2 || "não informado"}.
-      ]
+}
 
-      if(r) lines.push(Recado: ${r}.)
+        openForm.addEventListener("click", openModal);
+        closeForm.addEventListener("click", closeModal);
+        
+        sendWhatsapp.addEventListener("click", () => {
+            const url = updateWhatsAppLink();
+            window.open(url, "_blank", "noopener");
+        });
 
-      return lines.join("\n")
-    }
+        scrollToInfo.addEventListener("click", () => {
+            document.getElementById("info").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
 
-    function updateWhatsAppLink(){
-      const text = buildMessage()
-      const encoded = encodeURIComponent(text)
-      const phone = CONFIG.motherPhone.replace(/\D/g, "")
-      const url =shareWhatsApp.href = url
-      return url
-    }
-
-    openForm.addEventListener("click", openModal)
-    openForm2.addEventListener("click", openModal)
-    closeForm.addEventListener("click", closeModal)
-
-    modalBackdrop.addEventListener("click", (e) => {
-      if(e.target === modalBackdrop) closeModal()
-    })
-
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape") closeModal()
-    })
-
-    ;[nome, prato1, prato2, recado].forEach(el => {
-      el.addEventListener("input", updateWhatsAppLink)
-    })
-
-    sendWhatsapp.addEventListener("click", () => {
-      const url = updateWhatsAppLink()
-      window.open(url, "_blank", "noopener")
-    })
-
-    scrollToInfo.addEventListener("click", () => {
-      document.getElementById("info").scr
-      ollIntoView({ behavior: "smooth", block: "start" })
-    })
-
-    updateWhatsAppLink()
+        modalBackdrop.addEventListener("click", (e) => {
+            if (e.target === modalBackdrop) closeModal();
+        modalBackdrop.addEventListener("click", (e) => {
+            if (e.target === modalBackdrop) closeModal();
+        });
