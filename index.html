@@ -1,253 +1,936 @@
 <!DOCTYPE html>
-
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesversário da Cecília - 8 Meses
-    <style>
-        :root {
-            --bg: #1a0f0b;
-            --bg2: #24130e;
-            --card: #fff8ef;
-            --card2: #f8e8d8;
-            --text: #2b1610;
-            --muted: #6f4d3d;
-            --red: #b63a2b;
-            --orange: #d67a2c;
-            --yellow: #f1c24f;
-            --green: #5a7a4b;
-            --shadow: 0 18px 50px rgba(0,0,0,.25);
-            --radius: 22px;
-        }
-
-
-    - { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-        color: var(--text);
-        background: radial-gradient(circle at top, rgba(241,194,79,.18), transparent 22%), 
-                    radial-gradient(circle at 20% 10%, rgba(214,122,44,.18), transparent 18%), 
-                    radial-gradient(circle at 85% 12%, rgba(90,122,75,.16), transparent 18%), 
-                    linear-gradient(180deg, var(--bg), var(--bg2));
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    .wrap { position: relative; max-width: 1100px; margin: 0 auto; padding: 22px 16px 36px; }
-
-    .bandeirinhas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 72px;
-        pointer-events: none;
-        z-index: 1;
-        opacity: .95;
-        overflow: hidden;
-    }
-
-    .flag-row {
-        position: absolute;
-        top: 12px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        gap: 10px;
-    }
-
-    .flag {
-        width: 18px;
-        height: 24px;
-        border-radius: 3px 3px 8px 8px;
-        clip-path: polygon(50% 100%, 0 0, 100% 0);
-        animation: sway 3.6s ease-in-out infinite;
-        box-shadow: 0 6px 12px rgba(0,0,0,.12);
-    }
-
-    .flag:nth-child(3n) { background: var(--yellow); }
-    .flag:nth-child(3n+1) { background: var(--orange); }
-    .flag:nth-child(3n+2) { background: var(--green); }
-
-    @keyframes sway {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(4px) rotate(3deg); }
-    }
-
-    .hero { position: relative; z-index: 2; margin-top: 58px; padding: 24px 0 10px; color: #fff9f1; }
-    h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.4rem); line-height: .92; letter-spacing: -.04em; }
-    .subtitle { margin: 12px 0 0; font-size: clamp(1rem, 2.8vw, 1.2rem); color: rgba(255,255,255,.83); }
-
-    .grid { position: relative; z-index: 2; margin-top: 22px; display: grid; gap: 16px; }
-    .card { 
-        background: linear-gradient(180deg, rgba(255,248,239,.98), rgba(248,232,21,6,.98)); 
-            border-radius: var(--radius); 
-            box-shadow: var(--shadow); 
-            padding: 20px;
-        }
-
-        .details { display: grid; gap: 12px; margin-top: 14px; }
-        .detail { 
-            display: flex; 
-            align-items: flex-start; 
-            gap: 12px; 
-            padding: 14px; 
-            border-radius: 16px; 
-            background: rgba(255,255,255,.7); 
-            border: 1px solid rgba(82,47,31,.08); 
-        }
-
-        button, .btn {
-            appearance: none;
-            border: 0;
-            cursor: pointer;
-            text-decoration: none;
-            font: inherit;
-            font-weight: 700;
-            border-radius: 16px;
-            padding: 14px 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-height: 48px;
-            transition: transform .2s ease;
-        }
-
-        .primary { background: var(--red); color: #fff; width: 100%; }
-        .secondary { background: rgba(43,22,16,.08); color: var(--text); }
-
-        /* Modal Styles */
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(16,8,6,.62);
-            backdrop-filter: blur(8px);
-            z-index: 10;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-        }
-
-        .modal-backdrop.open { display: flex; }
-        .modal { 
-            width: 100%; 
-            max-width: 500px; 
-            background: #fffaf2; 
-            border-radius: 24px; 
-            padding: 20px; 
-            box-shadow: 0 24px 80px rgba(0,0,0,.35); 
-        }
-
-        input, textarea {
-            width: 100%;
-            margin-bottom: 12px;
-            padding: 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(82,47,31,.14);
-            font: inherit;
-        }
-    
-
-<body>
-    <div class="bandeirinhas">
-        <div class="flag-row">
-            <div class="flag"><div class="flag"><div class="flag">
-            <div class="flag"><div class="flag"><div class="flag">
-        
-    
-
-    <div class="wrap">
-        <section class="hero">
-            <h1>Mesversário da Cecília
-            <p class="subtitle">8 meses de doçura e festa junina!
-            <div class="details">
-                <div class="detail">📅 27/06 às 15h
-                <div class="detail">📍 Casa da mãe dela
-            
-            <button class="primary" id="openForm" style="margin-top: 20px;">Confirmar Presença
-            <button class="secondary" id="scrollToInfo" style="margin-top: 10px; width: 100%;">Ver Detalhes
-        
-
-        <div id="info" style="margin-top: 50px; color: white;">
-            <h2>Como Vai Funcionar
-            <p>Preencha os pratos que vai levar e envie para o WhatsApp!
-        
-    
-
-    <div class="modal-backdrop" id="modalBackdrop">
-        <div class="modal">
-            <h2>RSVP
-   <input type="text" id="nome" placeholder="Seu Nome">
-            <input type="text" id="prato1" placeholder="Prato 1">
-            <input type="text" id="prato2" placeholder="Prato 2">
-            <textarea id="recado" placeholder="Recado opcional">
-            <button class="primary" id="sendWhatsapp">Enviar no WhatsApp
-            <button class="secondary" id="closeForm" style="width: 100%; margin-top: 10px;">Fechar
-        
-    
-
-    <script>
-        const CONFIG = {
-            motherPhone: "5521974598210",
-            eventName: "Mesversário da Cecília",
-            eventDate: "27/06 às 15h",
-            eventPlace: "Casa da mãe dela"
-        };
-
-        const modalBackdrop = document.getElementById("modalBackdrop");
-        const openForm = document.getElementById("openForm");
-        const closeForm = document.getElementById("closeForm");
-        const sendWhatsapp = document.getElementById("sendWhatsapp");
-        const scrollToInfo = document.getElementById("scrollToInfo");
-
-        const nome = document.getElementById("nome");
-        const prato1 = document.getElementById("prato1");
-        const prato2 = document.getElementById("prato2");
-        const recado = document.getElementById("recado");
-
-        function openModal() { modalBackdrop.classList.add("open"); }
-        function closeModal() { modalBackdrop.classList.remove("open"); }
-
-        function buildMessage() {
-            const n = (nome.value || "Convidado(a)").trim();
-            const p1 = (prato1.value || "não informado").trim();
-            const p2 = (prato2.value || "não informado").trim();
-            const r = (recado.value || "").trim();
-            
-            let msg = Olá! Aqui é ${n}.\nQuero confirmar presença no ${CONFIG.eventName}.\n;
-            msg += Data: ${CONFIG.eventDate}\nLocal: ${CONFIG.eventPlace}\n;
-            msg += Prato 1: ${p1}\nPrato 2: ${p2};
-            if (r) msg += \nRecado: ${r};
-            return msg;
-        }
-
-        function updateWhatsAppLink() {
-            const text = buildMessage();
-            const encoded = encodeURIComponent(text);
-            const phone = CONFIG.motherPhone.replace(/\D/g, "");
-            return
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mesversário da Cecília 🎀</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET ─────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#fdf6e3;
+  --cream2:#f9edd4;
+  --orange:#d4611a;
+  --orange-lt:#e8822e;
+  --red:#9b2335;
+  --red-lt:#c0392b;
+  --brown:#5c2e0e;
+  --brown-lt:#8b4513;
+  --yellow:#e6a817;
+  --yellow-lt:#f0c040;
+  --green:#3a6b35;
+  --green-lt:#5a9e52;
+  --tan:#c8a46a;
+  --tan-lt:#dfc08a;
+  --bg:#1a0c04;
+  --text-dark:#2c1a08;
+  --text-mid:#5c3d1e;
+  --text-lt:#8b6545;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  color:var(--text-dark);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-        openForm.addEventListener("click", openModal);
-        closeForm.addEventListener("click", closeModal);
-        
-        sendWhatsapp.addEventListener("click", () => {
-            const url = updateWhatsAppLink();
-            window.open(url, "_blank", "noopener");
-        });
+/* ─── NIGHT SKY ──────────────────────────────── */
+.sky{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse at 50% 0%,#2d0e00 0%,#150601 40%,#0a0301 100%);
+  pointer-events:none;
+}
+.stars-layer{
+  position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
+.star{
+  position:absolute;border-radius:50%;background:#fff;
+  animation:star-twinkle var(--dur) ease-in-out infinite alternate;
+  animation-delay:var(--del);
+}
+@keyframes star-twinkle{
+  from{opacity:.1;transform:scale(.7)}
+  to{opacity:var(--op);transform:scale(1.2)}
+}
 
-        scrollToInfo.addEventListener("click", () => {
-            document.getElementById("info").scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+/* ─── MOON ───────────────────────────────────── */
+.moon{
+  position:fixed;top:40px;right:8%;z-index:2;
+  width:64px;height:64px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#fff9e0,#f0c060 60%,#c89030);
+  box-shadow:0 0 30px 10px rgba(240,180,60,.25),0 0 60px 20px rgba(200,140,20,.1);
+  animation:moon-glow 4s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes moon-glow{
+  from{box-shadow:0 0 20px 8px rgba(240,180,60,.2),0 0 50px 15px rgba(200,140,20,.08)}
+  to  {box-shadow:0 0 40px 15px rgba(240,180,60,.35),0 0 80px 25px rgba(200,140,20,.15)}
+}
 
-        modalBackdrop.addEventListener("click", (e) => {
-            if (e.target === modalBackdrop) closeModal();
-        modalBackdrop.addEventListener("click", (e) => {
-            if (e.target === modalBackdrop) closeModal();
-        });
+/* ─── FIREFLIES ──────────────────────────────── */
+.ff{
+  position:fixed;z-index:3;pointer-events:none;
+  width:4px;height:4px;border-radius:50%;
+  background:#c8f060;
+  animation:ff-move var(--dur) ease-in-out infinite alternate,
+            ff-fade var(--fdur) ease-in-out infinite;
+  animation-delay:var(--del),var(--fdel);
+  filter:blur(.5px);
+}
+@keyframes ff-move{
+  from{transform:translate(0,0)}
+  to  {transform:translate(var(--tx),var(--ty))}
+}
+@keyframes ff-fade{
+  0%,100%{opacity:0}40%,60%{opacity:.85}
+}
+
+/* ─── BANNER ROPE (full width, fixed top) ─────── */
+.banner-wrap{
+  position:fixed;top:0;left:0;right:0;z-index:30;
+  height:110px;pointer-events:none;
+  overflow:hidden;
+}
+.banner-canvas{
+  width:100%;height:110px;display:block;
+}
+
+/* ─── SCROLL PAGE ────────────────────────────── */
+.page{
+  position:relative;z-index:20;
+  padding:120px 20px 260px;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+  max-width:560px;margin:0 auto;
+}
+
+/* ─── HERO CARD ──────────────────────────────── */
+.hero-card{
+  width:100%;
+  background:
+    linear-gradient(160deg,rgba(253,246,227,.97) 0%,rgba(249,237,212,.97) 100%);
+  border-radius:28px;
+  border:2px solid var(--tan);
+  box-shadow:0 6px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.6);
+  overflow:hidden;
+  animation:card-rise .9s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes card-rise{
+  from{opacity:0;transform:translateY(40px) scale(.97)}
+  to  {opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* woodgrain top bar */
+.wood-bar{
+  height:18px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--brown) 0,var(--brown) 1px,
+      var(--brown-lt) 1px,var(--brown-lt) 4px,
+      #7a3d18 4px,#7a3d18 6px,
+      var(--brown-lt) 6px,var(--brown-lt) 9px,
+      var(--brown) 9px,var(--brown) 10px
+    );
+}
+
+.hero-inner{
+  padding:2rem 2rem 1.6rem;text-align:center;
+}
+.hero-eyebrow{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--orange);font-weight:700;margin-bottom:6px;
+  animation:fadein .7s .3s both;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,8vw,50px);
+  color:var(--red);
+  line-height:1.1;
+  text-shadow:1px 2px 0 rgba(155,35,53,.2);
+  animation:fadein .7s .45s both;
+}
+.hero-sub{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(18px,4.5vw,24px);
+  color:var(--brown-lt);
+  margin-top:4px;
+  animation:fadein .7s .6s both;
+}
+.hero-badge{
+  display:inline-block;
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:700;
+  padding:5px 20px;border-radius:30px;
+  margin-top:12px;letter-spacing:.5px;
+  box-shadow:0 3px 10px rgba(155,35,53,.4);
+  animation:fadein .7s .75s both;
+}
+
+@keyframes fadein{
+  from{opacity:0;transform:translateY(10px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+
+.hero-divider{
+  display:flex;align-items:center;gap:10px;
+  margin:1.2rem 0 1rem;
+}
+.hdl{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--tan),transparent);
+}
+
+/* info pills */
+.info-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-top:.2rem;animation:fadein .7s 1s both;
+}
+.info-pill{
+  background:rgba(255,255,255,.6);
+  border:1.5px solid var(--tan-lt);
+  border-radius:16px;padding:10px 6px;text-align:center;
+}
+.info-pill-icon{font-size:20px;display:block;margin-bottom:3px;}
+.info-pill-lbl{
+  font-size:9px;text-transform:uppercase;letter-spacing:1px;
+  color:var(--text-lt);font-weight:700;display:block;
+}
+.info-pill-val{
+  font-size:13px;font-weight:700;color:var(--text-dark);display:block;margin-top:2px;
+}
+
+/* ─── SECTION CARDS ──────────────────────────── */
+.section-card{
+  width:100%;
+  background:rgba(253,246,227,.96);
+  border-radius:24px;
+  border:1.5px solid var(--tan);
+  box-shadow:0 4px 30px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.5);
+  overflow:hidden;
+  animation:card-rise .8s cubic-bezier(.22,1,.36,1) both;
+}
+.section-card:nth-child(2){animation-delay:.1s}
+.section-card:nth-child(3){animation-delay:.2s}
+.section-card:nth-child(4){animation-delay:.3s}
+
+.sc-header{
+  display:flex;align-items:center;gap:10px;
+  padding:1.1rem 1.5rem .8rem;
+  border-bottom:1px solid rgba(200,164,106,.35);
+}
+.sc-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.sc-icon-red{background:rgba(155,35,53,.12);}
+.sc-icon-orange{background:rgba(212,97,26,.12);}
+.sc-icon-green{background:rgba(58,107,53,.12);}
+.sc-title{
+  font-family:'Playfair Display',serif;
+  font-size:18px;color:var(--red);font-weight:700;
+}
+.sc-sub{font-size:12px;color:var(--text-lt);margin-top:1px;}
+
+.sc-body{padding:1.2rem 1.5rem 1.4rem;}
+
+/* ─── FORM ───────────────────────────────────── */
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.field label{
+  display:block;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.8px;
+  color:var(--text-mid);margin-bottom:6px;
+}
+.field input,.field textarea{
+  width:100%;
+  background:rgba(255,255,255,.7);
+  border:1.5px solid var(--tan);
+  border-radius:12px;
+  padding:11px 14px;
+  font-family:'Nunito',sans-serif;
+  font-size:14px;color:var(--text-dark);
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.field input:focus,.field textarea:focus{
+  border-color:var(--orange);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(212,97,26,.12);
+}
+.field textarea{resize:none;min-height:72px;line-height:1.5;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+/* ─── BUTTONS ────────────────────────────────── */
+.btn{
+  display:block;width:100%;
+  padding:14px 20px;
+  border:none;border-radius:30px;
+  font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s,filter .15s;
+  letter-spacing:.3px;
+  position:relative;overflow:hidden;
+}
+.btn::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0);
+  transition:background .2s;
+}
+.btn:hover::after{background:rgba(255,255,255,.12);}
+.btn:active{transform:translateY(2px)!important;}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--orange-lt),var(--orange));
+  color:#fff;
+  box-shadow:0 4px 18px rgba(212,97,26,.45),0 2px 0 rgba(92,46,14,.5);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(212,97,26,.55),0 2px 0 rgba(92,46,14,.5);
+  filter:brightness(1.05);
+}
+
+.btn-whatsapp{
+  background:linear-gradient(135deg,#25d366,#1da851);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,.4),0 2px 0 rgba(15,100,50,.4);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.btn-whatsapp:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(37,211,102,.5),0 2px 0 rgba(15,100,50,.4);
+  filter:brightness(1.05);
+}
+.btn-whatsapp svg{flex-shrink:0;}
+
+.btn-outline{
+  background:transparent;
+  border:1.5px solid var(--tan);
+  color:var(--text-mid);
+  padding:10px;font-size:14px;
+}
+.btn-outline:hover{background:rgba(200,164,106,.15);}
+
+/* ─── MODAL ──────────────────────────────────── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(10,3,0,.75);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+
+.modal{
+  background:var(--cream);
+  border-radius:28px;
+  border:2px solid var(--tan);
+  width:100%;max-width:460px;
+  max-height:88vh;overflow-y:auto;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  transform:translateY(30px) scale(.97);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+  overscroll-behavior:contain;
+}
+.modal-overlay.open .modal{transform:translateY(0) scale(1);}
+
+.modal-header{
+  padding:1.4rem 1.5rem 1rem;
+  border-bottom:1px solid rgba(200,164,106,.3);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+}
+.modal-title{
+  font-family:'Playfair Display',serif;
+  font-size:22px;color:var(--red);
+}
+.modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:22px;color:var(--text-lt);
+  line-height:1;padding:4px;border-radius:8px;
+  transition:color .2s,background .2s;
+  flex-shrink:0;
+}
+.modal-close:hover{color:var(--red);background:rgba(155,35,53,.1);}
+.modal-body{padding:1.2rem 1.5rem 1.6rem;}
+
+/* ─── SUCCESS STATE ──────────────────────────── */
+.success-banner{
+  display:none;
+  background:linear-gradient(135deg,#e8f8ef,#d4f0e0);
+  border:1.5px solid #5cb87a;
+  border-radius:14px;
+  padding:14px 16px;
+  margin-top:14px;
+  text-align:center;
+  font-size:14px;font-weight:600;color:#1e6e3e;
+  animation:pop-in .4s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes pop-in{
+  from{opacity:0;transform:scale(.94)}
+  to  {opacity:1;transform:scale(1)}
+}
+
+/* ─── CORN DECORATION ────────────────────────── */
+.corn-row{
+  text-align:center;font-size:16px;letter-spacing:8px;
+  margin:4px 0;opacity:.7;
+}
+
+/* ─── FOOTER ─────────────────────────────────── */
+.footer-card{
+  width:100%;
+  background:rgba(253,246,227,.85);
+  border-radius:20px;
+  border:1px solid rgba(200,164,106,.4);
+  text-align:center;
+  padding:1.4rem 1.5rem;
+  animation:card-rise .8s .4s both;
+}
+.footer-main{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(18px,4.5vw,22px);
+  color:var(--brown-lt);
+  line-height:1.5;
+}
+.footer-note{
+  font-size:12px;color:var(--text-lt);
+  margin-top:8px;
+}
+
+/* ─── BONFIRE ────────────────────────────────── */
+.bonfire-wrap{
+  position:fixed;bottom:0;left:50%;
+  transform:translateX(-50%);
+  z-index:10;pointer-events:none;
+  width:220px;
+}
+.bonfire-svg{width:220px;height:180px;display:block;}
+
+/* ─── AMBIENT GLOW ───────────────────────────── */
+.ground-glow{
+  position:fixed;bottom:0;left:0;right:0;
+  height:200px;z-index:6;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(210,80,0,.22) 0%,transparent 70%);
+  animation:glow-breathe 2.5s ease-in-out infinite alternate;
+}
+@keyframes glow-breathe{
+  from{opacity:.6}to{opacity:1}
+}
+
+/* ─── DRIFTING ELEMENTS ──────────────────────── */
+.drift{
+  position:fixed;z-index:3;pointer-events:none;
+  font-size:var(--fs);opacity:var(--op);
+  animation:drift-float var(--dur) ease-in-out infinite alternate;
+  animation-delay:var(--del);
+  left:var(--lft);top:var(--top);
+  filter:blur(var(--bl));
+}
+@keyframes drift-float{
+  from{transform:translate(0,0) rotate(var(--r1))}
+  to  {transform:translate(var(--dx),var(--dy)) rotate(var(--r2))}
+}
+
+/* ─── REQUIRED ASTERISK ──────────────────────── */
+.req{color:var(--red);}
+
+/* ─── SCROLLBAR ──────────────────────────────── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--tan);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<!-- ── ATMOSPHERE ── -->
+<div class="sky"></div>
+<div class="stars-layer" id="starsLayer"></div>
+<div class="moon"></div>
+<div class="ground-glow"></div>
+
+<!-- Drifting corn / leaf elements -->
+<div class="drift" style="--fs:22px;--op:.18;--dur:7s;--del:0s;--lft:5%;--top:25%;--bl:1px;--dx:18px;--dy:-14px;--r1:-8deg;--r2:6deg">🌽</div>
+<div class="drift" style="--fs:18px;--op:.14;--dur:9s;--del:2s;--lft:88%;--top:18%;--bl:1px;--dx:-12px;--dy:10px;--r1:5deg;--r2:-10deg">🌻</div>
+<div class="drift" style="--fs:14px;--op:.13;--dur:8s;--del:1s;--lft:3%;--top:55%;--bl:1.5px;--dx:10px;--dy:-8px;--r1:-4deg;--r2:8deg">🍂</div>
+<div class="drift" style="--fs:16px;--op:.12;--dur:11s;--del:3s;--lft:92%;--top:45%;--bl:1px;--dx:-8px;--dy:12px;--r1:10deg;--r2:-6deg">🌿</div>
+
+<!-- ── BANNER ROPE ── -->
+<div class="banner-wrap">
+  <canvas class="banner-canvas" id="bannerCanvas"></canvas>
+</div>
+
+<!-- ── BONFIRE ── -->
+<div class="bonfire-wrap">
+<svg class="bonfire-svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- ground glow -->
+  <ellipse cx="110" cy="163" rx="65" ry="14" fill="#ff5500" opacity="0">
+    <animate attributeName="opacity" values=".2;.38;.2" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="65;80;65" dur="1.8s" repeatCount="indefinite"/>
+  </ellipse>
+  <!-- logs -->
+  <rect x="65" y="154" width="90" height="9" rx="4.5" fill="#4a2008"/>
+  <rect x="58" y="157" width="46" height="7" rx="3.5" fill="#5c2e0e" transform="rotate(-14,81,161)"/>
+  <rect x="116" y="157" width="46" height="7" rx="3.5" fill="#5c2e0e" transform="rotate(14,139,161)"/>
+  <rect x="75" y="150" width="70" height="7" rx="3.5" fill="#6b3714"/>
+  <!-- embers -->
+  <ellipse cx="110" cy="156" rx="34" ry="6" fill="#bb2200" opacity=".9"/>
+  <ellipse cx="110" cy="153" rx="24" ry="4.5" fill="#e84000" opacity=".95"/>
+  <ellipse cx="110" cy="150" rx="15" ry="3.5" fill="#ff7000"/>
+
+  <!-- flame layers back→front -->
+  <g style="transform-origin:110px 155px">
+    <path d="M75,155 Q62,118 80,92 Q92,70 97,88 Q103,62 110,44 Q117,62 123,88 Q128,70 140,92 Q158,118 145,155Z" fill="#991a00" opacity=".65">
+      <animateTransform attributeName="transform" type="scale" values="1 1;1.06 .95;.97 1.05;1 1" dur="1.6s" repeatCount="indefinite" additive="sum"/>
+    </path>
+  </g>
+  <g style="transform-origin:110px 155px">
+    <path d="M82,155 Q71,124 86,102 Q95,84 100,99 Q105,76 110,58 Q115,76 120,99 Q125,84 134,102 Q149,124 138,155Z" fill="#cc3300" opacity=".8">
+      <animateTransform attributeName="transform" type="scale" values="1 1;.93 1.07;1.05 .94;1 1" dur="1.25s" repeatCount="indefinite" additive="sum"/>
+    </path>
+  </g>
+  <g style="transform-origin:110px 155px">
+    <path d="M89,155 Q80,132 92,114 Q99,99 103,112 Q107,88 110,72 Q113,88 117,112 Q121,99 128,114 Q140,132 131,155Z" fill="#e84000" opacity=".88">
+      <animateTransform attributeName="transform" type="scale" values="1 1;1.04 .96;.96 1.04;1 1" dur="1s" repeatCount="indefinite" additive="sum"/>
+    </path>
+  </g>
+  <g style="transform-origin:110px 155px">
+    <path d="M96,155 Q89,138 98,124 Q104,111 107,124 Q108,104 110,88 Q112,104 113,124 Q116,111 122,124 Q131,138 124,155Z" fill="#ff8800" opacity=".92">
+      <animateTransform attributeName="transform" type="scale" values="1 1;.97 1.06;1.04 .95;1 1" dur=".85s" repeatCount="indefinite" additive="sum"/>
+    </path>
+  </g>
+  <g style="transform-origin:110px 155px">
+    <path d="M103,155 Q99,142 105,132 Q108,121 110,108 Q112,121 115,132 Q121,142 117,155Z" fill="#ffcc00" opacity=".95">
+      <animateTransform attributeName="transform" type="scale" values="1 1;1.05 .94;.95 1.06;1 1" dur=".7s" repeatCount="indefinite" additive="sum"/>
+    </path>
+  </g>
+  <!-- white tip -->
+  <path d="M107,148 Q106,136 109,124 Q110,116 111,124 Q114,136 113,148Z" fill="#fff8e0" opacity=".8">
+    <animate attributeName="opacity" values=".8;.4;.8" dur=".55s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- sparks -->
+  <circle r="2.2" fill="#ffcc44" opacity="0" cx="100" cy="130">
+    <animate attributeName="opacity" values="0;1;0" dur="1.4s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="135;85;55" dur="1.4s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="100;92;86" dur="1.4s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="2.2;1.5;0" dur="1.4s" begin="0s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="1.8" fill="#ffaa22" opacity="0" cx="120" cy="125">
+    <animate attributeName="opacity" values="0;.9;0" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="128;78;52" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="120;130;136" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="1.8;1.2;0" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2" fill="#ffffff" opacity="0" cx="110" cy="115">
+    <animate attributeName="opacity" values="0;.7;0" dur=".95s" begin=".25s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="120;68;42" dur=".95s" begin=".25s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="110;103;98" dur=".95s" begin=".25s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="2;1.2;0" dur=".95s" begin=".25s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="1.5" fill="#ff6600" opacity="0" cx="115" cy="108">
+    <animate attributeName="opacity" values="0;.85;0" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="115;62;38" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="115;124;130" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="1.5;1;0" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2.5" fill="#ffdd44" opacity="0" cx="105" cy="100">
+    <animate attributeName="opacity" values="0;1;0" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="110;55;28" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="105;96;90" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="2.5;1.5;0" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+</div>
+
+<!-- ── PAGE ── -->
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero-card">
+    <div class="wood-bar"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">🌽 Vem festejar com a gente 🌽</p>
+      <h1 class="hero-title">Mesversário da<br>Cecília</h1>
+      <p class="hero-sub">8 meses de doçura, alegria e festa junina</p>
+      <span class="hero-badge">🎀 8 Meses 🎀</span>
+
+      <div class="hero-divider">
+        <div class="hdl"></div>
+        <span style="font-size:16px;color:var(--tan)">✦</span>
+        <div class="hdl"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-pill">
+          <span class="info-pill-icon">📅</span>
+          <span class="info-pill-lbl">Data</span>
+          <span class="info-pill-val">27 de Junho</span>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">⏰</span>
+          <span class="info-pill-lbl">Horário</span>
+          <span class="info-pill-val">15h00</span>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">🏡</span>
+          <span class="info-pill-lbl">Local</span>
+          <span class="info-pill-val">Casa da Mamãe</span>
+        </div>
+      </div>
+
+      <div class="corn-row" style="margin-top:16px">🌽 🌻 🎶 🌻 🌽</div>
+    </div>
+    <div class="wood-bar"></div>
+  </div>
+
+  <!-- RSVP CARD -->
+  <div class="section-card">
+    <div class="sc-header">
+      <div class="sc-icon sc-icon-red">🎉</div>
+      <div>
+        <div class="sc-title">Confirmar Presença</div>
+        <div class="sc-sub">Vai ser uma festa linda, não fique de fora!</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <button class="btn btn-primary" onclick="openModal()">
+        🎀 Confirmar minha presença!
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOD CARD -->
+  <div class="section-card" id="foodCard" style="display:none">
+    <div class="sc-header">
+      <div class="sc-icon sc-icon-orange">🍲</div>
+      <div>
+        <div class="sc-title">O que você vai trazer?</div>
+        <div class="sc-sub">Cada um traz um pedacinho de carinho</div>
+      </div>
+    </div>
+    <div class="sc-body" id="foodBody">
+      <!-- preenchido via JS após confirmação -->
+    </div>
+  </div>
+
+  <!-- WHATSAPP CARD -->
+  <div class="section-card" id="waCard" style="display:none">
+    <div class="sc-header">
+      <div class="sc-icon sc-icon-green">📲</div>
+      <div>
+        <div class="sc-title">Enviar no WhatsApp</div>
+        <div class="sc-sub">Mande sua confirmação pra mamãe da Cecília</div>
+      </div>
+    </div>
+    <div class="sc-body" id="waBody"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-card">
+    <div class="corn-row">🌽 🌻 🎀 🌻 🌽</div>
+    <p class="footer-main">
+      A Cecília já está contando<br>os dias pra te ver! 🥹
+    </p>
+    <p class="footer-note">Festa Junina · 27 de Junho de 2025 · 15h · Com muito amor 💛</p>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="overlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Uhuuu! Que ótimo! 🎉</div>
+        <div style="font-size:13px;color:var(--text-lt);margin-top:3px">Preencha os campos abaixo</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="mNome">Seu nome <span class="req">*</span></label>
+        <input type="text" id="mNome" placeholder="Ex: Maria Aparecida" autocomplete="name"/>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="mPrato1">Prato 1 <span class="req">*</span></label>
+          <input type="text" id="mPrato1" placeholder="Ex: Canjica"/>
+        </div>
+        <div class="field">
+          <label for="mPrato2">Prato 2 <span class="req">*</span></label>
+          <input type="text" id="mPrato2" placeholder="Ex: Pamonha"/>
+        </div>
+      </div>
+      <div class="field">
+        <label for="mMsg">Mensagem pra Cecília <span style="color:var(--text-lt);font-weight:400">(opcional)</span></label>
+        <textarea id="mMsg" placeholder="Ex: Muita saúde e felicidade, meu bem! 💛"></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="submitRsvp()" style="margin-top:8px">
+        ✅ Confirmar presença!
+      </button>
+      <div id="modalError" style="display:none;margin-top:10px;font-size:13px;color:var(--red);text-align:center;font-weight:600"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── STARS ── */
+(function(){
+  const layer = document.getElementById('starsLayer');
+  for(let i=0;i<110;i++){
+    const el=document.createElement('div');
+    el.className='star';
+    const sz=Math.random()*2.2+.4;
+    const op=.3+Math.random()*.7;
+    el.style.cssText=
+      'width:'+sz+'px;height:'+sz+'px;'
+      +'top:'+(Math.random()*72)+'%;'
+      +'left:'+(Math.random()*100)+'%;'
+      +'--dur:'+(1.5+Math.random()*3.5)+'s;'
+      +'--del:'+(Math.random()*5)+'s;'
+      +'--op:'+op+';';
+    layer.appendChild(el);
+  }
+})();
+
+/* ── FIREFLIES ── */
+(function(){
+  for(let i=0;i<12;i++){
+    const el=document.createElement('div');
+    el.className='ff';
+    const tx=(Math.random()*80-40)+'px';
+    const ty=(Math.random()*60-30)+'px';
+    el.style.cssText=
+      'left:'+(5+Math.random()*90)+'%;'
+      +'top:'+(20+Math.random()*60)+'%;'
+      +'--dur:'+(4+Math.random()*5)+'s;'
+      +'--fdur:'+(2+Math.random()*3)+'s;'
+      +'--del:'+(Math.random()*4)+'s;'
+      +'--fdel:'+(Math.random()*4)+'s;'
+      +'--tx:'+tx+';--ty:'+ty+';';
+    document.body.appendChild(el);
+  }
+})();
+
+/* ── CANVAS BANNERS ── */
+(function(){
+  const canvas=document.getElementById('bannerCanvas');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||window.innerWidth;
+  const H=110;
+  canvas.width=W*devicePixelRatio;
+  canvas.height=H*devicePixelRatio;
+  ctx.scale(devicePixelRatio,devicePixelRatio);
+
+  const colors=['#c0392b','#e8822e','#22a85a','#2563eb','#9b59b6','#e6a817','#d4611a'];
+  const FW=18, FH=26, GAP=10;
+  const total=Math.ceil(W/(FW+GAP))+1;
+
+  // build flag data
+  const flags=[];
+  for(let i=0;i<total;i++){
+    const x0=i*(FW+GAP)+(GAP/2);
+    const ropeY=getRopeY(x0+(FW/2),W);
+    flags.push({
+      x:x0, ropeY,
+      color:colors[i%colors.length],
+      phase:Math.random()*Math.PI*2,
+      speed:.4+Math.random()*.6
+    });
+  }
+
+  function getRopeY(x,W){
+    // single catenary dip
+    const t=x/W;
+    return 12+24*Math.sin(t*Math.PI);
+  }
+
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // draw rope
+    ctx.beginPath();
+    ctx.moveTo(0,getRopeY(0,W));
+    for(let x=1;x<=W;x++){
+      ctx.lineTo(x,getRopeY(x,W));
+    }
+    ctx.strokeStyle='#8b5e2a';
+    ctx.lineWidth=2;
+    ctx.stroke();
+
+    // draw flags
+    flags.forEach(f=>{
+      const swing=Math.sin(t*f.speed+f.phase)*8;
+      const rx=f.x+FW/2;
+      const ry=f.ropeY;
+
+      ctx.save();
+      ctx.translate(rx,ry);
+      ctx.rotate(swing*Math.PI/180);
+
+      // flag triangle
+      ctx.beginPath();
+      ctx.moveTo(-FW/2,0);
+      ctx.lineTo(FW/2,0);
+      ctx.lineTo(0,FH);
+      ctx.closePath();
+      ctx.fillStyle=f.color;
+      ctx.fill();
+
+      // subtle shine
+      ctx.beginPath();
+      ctx.moveTo(-FW/2,0);
+      ctx.lineTo(0,0);
+      ctx.lineTo(-FW/4,FH/2);
+      ctx.closePath();
+      ctx.fillStyle='rgba(255,255,255,.18)';
+      ctx.fill();
+
+      ctx.restore();
+
+      // pin dot
+      ctx.beginPath();
+      ctx.arc(rx,ry,3,0,Math.PI*2);
+      ctx.fillStyle='#5c2e0e';
+      ctx.fill();
+    });
+
+    t+=0.016;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener('resize',()=>{
+    const NW=window.innerWidth;
+    canvas.width=NW*devicePixelRatio;
+    canvas.height=H*devicePixelRatio;
+    ctx.scale(devicePixelRatio,devicePixelRatio);
+    flags.length=0;
+    const nt=Math.ceil(NW/(FW+GAP))+1;
+    for(let i=0;i<nt;i++){
+      const x0=i*(FW+GAP)+(GAP/2);
+      const ropeY=getRopeY(x0+(FW/2),NW);
+      flags.push({x:x0,ropeY,color:colors[i%colors.length],phase:Math.random()*Math.PI*2,speed:.4+Math.random()*.6});
+    }
+  });
+})();
+
+/* ── MODAL ── */
+function openModal(){
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>document.getElementById('mNome').focus(),350);
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function overlayClick(e){
+  if(e.target===document.getElementById('modalOverlay')) closeModal();
+}
+
+/* ── RSVP SUBMIT ── */
+let guestData={};
+
+function submitRsvp(){
+  const nome=document.getElementById('mNome').value.trim();
+  const p1=document.getElementById('mPrato1').value.trim();
+  const p2=document.getElementById('mPrato2').value.trim();
+  const msg=document.getElementById('mMsg').value.trim();
+  const err=document.getElementById('modalError');
+
+  if(!nome){ showErr('Por favor, escreva seu nome 🌻'); return; }
+  if(!p1)  { showErr('Informe o Prato 1 que vai trazer 🍲'); return; }
+  if(!p2)  { showErr('Informe o Prato 2 que vai trazer 🌽'); return; }
+
+  err.style.display='none';
+  guestData={nome,p1,p2,msg};
+  closeModal();
+  buildFoodCard();
+  buildWaCard();
+}
+
+function showErr(txt){
+  const err=document.getElementById('modalError');
+  err.textContent=txt;
+  err.style.display='block';
+}
+
+function buildFoodCard(){
+  const card=document.getElementById('foodCard');
+  const body=document.getElementById('foodBody');
+  card.style.display='block';
+  body.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div style="background:rgba(212,97,26,.08);border:1.5px solid rgba(212,97,26,.25);border-radius:14px;padding:12px;text-align:center">
+        <div style="font-size:22px;margin-bottom:4px">🍲</div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lt);font-weight:700">Prato 1</div>
+        <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-top:4px">${escHtml(guestData.p1)}</div>
+      </div>
+      <div style="background:rgba(212,97,26,.08);border:1.5px solid rgba(212,97,26,.25);border-radius:14px;padding:12px;text-align:center">
+        <div style="font-size:22px;margin-bottom:4px">🌽</div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lt);font-weight:700">Prato 2</div>
+        <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-top:4px">${escHtml(guestData.p2)}</div>
+      </div>
+    </div>
+    ${guestData.msg?`<div style="background:rgba(255,255,255,.6);border:1px solid var(--tan-lt);border-radius:12px;padding:12px;font-size:13px;color:var(--text-mid);font-style:italic">"${escHtml(guestData.msg)}"</div>`:''}
+    <div class="success-banner" style="display:block">
+      ✅ Presença confirmada, ${escHtml(guestData.nome)}! Agora envie no WhatsApp abaixo 👇
+    </div>
+  `;
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function buildWaCard(){
+  const card=document.getElementById('waCard');
+  const body=document.getElementById('waBody');
+  card.style.display='block';
+
+  const txt=buildWaText();
+  const url='https://wa.me/5521974598210?text='+encodeURIComponent(txt);
+
+  body.innerHTML=`
+    <div style="background:rgba(255,255,255,.5);border:1px solid var(--tan-lt);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--text-mid);white-space:pre-line;line-height:1.65">${escHtml(txt)}</div>
+    <a href="${url}" target="_blank" rel="noopener">
+      <button class="btn btn-whatsapp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.964-1.418A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.099-1.138l-.29-.173-3.021.864.88-2.943-.19-.302A7.948 7.948 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Enviar no WhatsApp
+      </button>
+    </a>
+  `;
+  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'center'}),200);
+}
+
+function buildWaText(){
+  const {nome,p1,p2,msg}=guestData;
+  return (
+    '🌽🎉 *CONFIRMAÇÃO DE PRESENÇA* 🎉🌽\n\n'
+    +'Olá! Confirmo minha presença no mesversário da *Cecília* 🎀\n\n'
+    +'👤 *Nome:* '+nome+'\n'
+    +'📅 *Data:* 27 de Junho, às 15h\n'
+    +'📍 *Local:* Casa da mamãe\n\n'
+    +'🍽️ *Vou levar:*\n'
+    +'  • '+p1+'\n'
+    +'  • '+p2+'\n'
+    +(msg?'\n💬 *Mensagem:* '+msg+'\n':'')
+    +'\nMal posso esperar para celebrar esse mesão! 🥳✨'
+  );
+}
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* close modal on Escape */
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
