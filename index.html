@@ -3,934 +3,1035 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mesversário da Cecília 🎀</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+<title>Arraiá da Cecília 🎀</title>
+<!-- OG Meta Tags -->
+<meta property="og:title" content="Arraiá da Cecília 🎀 — 8 Meses!"/>
+<meta property="og:description" content="Vem celebrar os 8 meses da nossa boneca Cecília! 28/06 às 15h30 🌽🎉"/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#f7a8c4"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet"/>
 <style>
-/* ─── RESET ─────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --cream:#fdf6e3;
-  --cream2:#f9edd4;
-  --orange:#d4611a;
-  --orange-lt:#e8822e;
-  --red:#9b2335;
-  --red-lt:#c0392b;
-  --brown:#5c2e0e;
-  --brown-lt:#8b4513;
-  --yellow:#e6a817;
-  --yellow-lt:#f0c040;
-  --green:#3a6b35;
-  --green-lt:#5a9e52;
-  --tan:#c8a46a;
-  --tan-lt:#dfc08a;
-  --bg:#1a0c04;
-  --text-dark:#2c1a08;
-  --text-mid:#5c3d1e;
-  --text-lt:#8b6545;
-}
 html{scroll-behavior:smooth}
+:root{
+  --pink:#f7a8c4;
+  --pink-d:#e8609a;
+  --pink-dd:#c43880;
+  --lilac:#c8a8e0;
+  --lilac-d:#9b6cc8;
+  --lilac-dd:#7040a8;
+  --yellow:#f7d860;
+  --yellow-d:#e8b820;
+  --green:#5aab50;
+  --green-d:#3d8034;
+  --orange:#f07830;
+  --wood:#8b5e30;
+  --wood-lt:#c8944a;
+  --cream:#fdf6e0;
+  --cream2:#f8edcc;
+  --bg:#fef0f8;
+  --text:#3a1a40;
+  --text2:#5a3060;
+  --white:#ffffff;
+  --shadow-pink:0 8px 30px rgba(228,96,154,.25);
+  --shadow-lilac:0 8px 30px rgba(155,108,200,.2);
+  --shadow-card:0 6px 24px rgba(100,40,120,.12),0 2px 8px rgba(100,40,120,.08);
+}
 body{
   font-family:'Nunito',sans-serif;
   background:var(--bg);
-  color:var(--text-dark);
+  color:var(--text);
   min-height:100vh;
   overflow-x:hidden;
 }
 
-/* ─── NIGHT SKY ──────────────────────────────── */
-.sky{
+/* ═══ BACKGROUND ══════════════════════════════════ */
+.bg-wrap{
   position:fixed;inset:0;z-index:0;
-  background:
-    radial-gradient(ellipse at 50% 0%,#2d0e00 0%,#150601 40%,#0a0301 100%);
-  pointer-events:none;
-}
-.stars-layer{
-  position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;
-}
-.star{
-  position:absolute;border-radius:50%;background:#fff;
-  animation:star-twinkle var(--dur) ease-in-out infinite alternate;
-  animation-delay:var(--del);
-}
-@keyframes star-twinkle{
-  from{opacity:.1;transform:scale(.7)}
-  to{opacity:var(--op);transform:scale(1.2)}
-}
-
-/* ─── MOON ───────────────────────────────────── */
-.moon{
-  position:fixed;top:40px;right:8%;z-index:2;
-  width:64px;height:64px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%,#fff9e0,#f0c060 60%,#c89030);
-  box-shadow:0 0 30px 10px rgba(240,180,60,.25),0 0 60px 20px rgba(200,140,20,.1);
-  animation:moon-glow 4s ease-in-out infinite alternate;
-  pointer-events:none;
-}
-@keyframes moon-glow{
-  from{box-shadow:0 0 20px 8px rgba(240,180,60,.2),0 0 50px 15px rgba(200,140,20,.08)}
-  to  {box-shadow:0 0 40px 15px rgba(240,180,60,.35),0 0 80px 25px rgba(200,140,20,.15)}
-}
-
-/* ─── FIREFLIES ──────────────────────────────── */
-.ff{
-  position:fixed;z-index:3;pointer-events:none;
-  width:4px;height:4px;border-radius:50%;
-  background:#c8f060;
-  animation:ff-move var(--dur) ease-in-out infinite alternate,
-            ff-fade var(--fdur) ease-in-out infinite;
-  animation-delay:var(--del),var(--fdel);
-  filter:blur(.5px);
-}
-@keyframes ff-move{
-  from{transform:translate(0,0)}
-  to  {transform:translate(var(--tx),var(--ty))}
-}
-@keyframes ff-fade{
-  0%,100%{opacity:0}40%,60%{opacity:.85}
-}
-
-/* ─── BANNER ROPE (full width, fixed top) ─────── */
-.banner-wrap{
-  position:fixed;top:0;left:0;right:0;z-index:30;
-  height:110px;pointer-events:none;
+  background:linear-gradient(180deg,#fef0f8 0%,#fdf4ff 40%,#fef8e8 100%);
   overflow:hidden;
 }
-.banner-canvas{
-  width:100%;height:110px;display:block;
+/* subtle gingham texture */
+.bg-wrap::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,168,224,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,168,224,.08) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+/* floating confetti dots */
+.dot{
+  position:absolute;border-radius:50%;
+  animation:dot-float var(--d) ease-in-out infinite alternate var(--dl);
+  pointer-events:none;
+}
+@keyframes dot-float{
+  from{transform:translate(0,0) scale(1)}
+  to  {transform:translate(var(--tx),var(--ty)) scale(var(--sc))}
+}
+/* hearts */
+.heart-bg{
+  position:absolute;font-size:var(--fs);opacity:var(--op);
+  animation:hf var(--d) ease-in-out infinite alternate var(--dl);
+  pointer-events:none;user-select:none;
+}
+@keyframes hf{
+  from{transform:translate(0,0) rotate(var(--r1))}
+  to  {transform:translate(var(--tx),var(--ty)) rotate(var(--r2))}
 }
 
-/* ─── SCROLL PAGE ────────────────────────────── */
+/* ═══ CANVAS BANNER (top) ══════════════════════════ */
+.banner-wrap{
+  position:fixed;top:0;left:0;right:0;
+  height:130px;z-index:40;pointer-events:none;
+}
+#bCanvas{display:block;width:100%;height:130px}
+
+/* ═══ PAGE ════════════════════════════════════════ */
 .page{
   position:relative;z-index:20;
-  padding:120px 20px 260px;
-  display:flex;flex-direction:column;align-items:center;gap:28px;
-  max-width:560px;margin:0 auto;
+  padding:140px 16px 60px;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  max-width:580px;margin:0 auto;
 }
 
-/* ─── HERO CARD ──────────────────────────────── */
-.hero-card{
-  width:100%;
-  background:
-    linear-gradient(160deg,rgba(253,246,227,.97) 0%,rgba(249,237,212,.97) 100%);
-  border-radius:28px;
-  border:2px solid var(--tan);
-  box-shadow:0 6px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.6);
-  overflow:hidden;
-  animation:card-rise .9s cubic-bezier(.22,1,.36,1) both;
+/* ═══ CARD BASE ═══════════════════════════════════ */
+.card{
+  width:100%;border-radius:24px;
+  position:relative;overflow:visible;
+  animation:rise .8s cubic-bezier(.22,1,.36,1) both;
 }
-@keyframes card-rise{
-  from{opacity:0;transform:translateY(40px) scale(.97)}
+@keyframes rise{
+  from{opacity:0;transform:translateY(30px) scale(.97)}
   to  {opacity:1;transform:translateY(0) scale(1)}
 }
+.card:nth-child(2){animation-delay:.06s}
+.card:nth-child(3){animation-delay:.12s}
+.card:nth-child(4){animation-delay:.18s}
+.card:nth-child(5){animation-delay:.24s}
+.card:nth-child(6){animation-delay:.30s}
 
-/* woodgrain top bar */
-.wood-bar{
-  height:18px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--brown) 0,var(--brown) 1px,
-      var(--brown-lt) 1px,var(--brown-lt) 4px,
-      #7a3d18 4px,#7a3d18 6px,
-      var(--brown-lt) 6px,var(--brown-lt) 9px,
-      var(--brown) 9px,var(--brown) 10px
-    );
+/* ═══ DASHED BORDER CARDS ════════════════════════ */
+.card-inner{
+  border-radius:22px;
+  padding:0;overflow:hidden;
+  box-shadow:var(--shadow-card);
+  border:2.5px dashed rgba(155,108,200,.3);
+  background:var(--white);
+  position:relative;
 }
-
-.hero-inner{
-  padding:2rem 2rem 1.6rem;text-align:center;
-}
-.hero-eyebrow{
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--orange);font-weight:700;margin-bottom:6px;
-  animation:fadein .7s .3s both;
-}
-.hero-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(34px,8vw,50px);
-  color:var(--red);
-  line-height:1.1;
-  text-shadow:1px 2px 0 rgba(155,35,53,.2);
-  animation:fadein .7s .45s both;
-}
-.hero-sub{
-  font-family:'Dancing Script',cursive;
-  font-size:clamp(18px,4.5vw,24px);
-  color:var(--brown-lt);
-  margin-top:4px;
-  animation:fadein .7s .6s both;
-}
-.hero-badge{
-  display:inline-block;
-  background:var(--red);color:#fff;
-  font-size:13px;font-weight:700;
-  padding:5px 20px;border-radius:30px;
-  margin-top:12px;letter-spacing:.5px;
-  box-shadow:0 3px 10px rgba(155,35,53,.4);
-  animation:fadein .7s .75s both;
+.card-inner::before{/* corner stitch effect */
+  content:'';position:absolute;inset:5px;border-radius:18px;
+  border:1px solid rgba(155,108,200,.1);pointer-events:none;z-index:1;
 }
 
-@keyframes fadein{
-  from{opacity:0;transform:translateY(10px)}
-  to  {opacity:1;transform:translateY(0)}
+/* ═══ HERO CARD ════════════════════════════════════ */
+.hero-card .card-inner{
+  background:linear-gradient(175deg,#fdf6e0 0%,#fef0f8 60%,#f8eeff 100%);
+  border:3px solid rgba(155,108,200,.35);
+  padding-bottom:1.6rem;
 }
 
-.hero-divider{
-  display:flex;align-items:center;gap:10px;
-  margin:1.2rem 0 1rem;
+/* wood sign banner */
+.wood-sign{
+  background:linear-gradient(160deg,#b87e40 0%,#8b5e30 50%,#7a4e24 100%);
+  margin:0;padding:14px 28px 12px;
+  position:relative;
+  box-shadow:0 4px 16px rgba(80,40,10,.35),inset 0 1px 0 rgba(255,255,255,.15);
 }
-.hdl{
-  flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,var(--tan),transparent);
+.wood-sign::before,.wood-sign::after{/* wood grain lines */
+  content:'';position:absolute;
+  height:1px;left:10%;right:10%;
+  background:rgba(255,255,255,.08);
 }
-
-/* info pills */
-.info-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
-  margin-top:.2rem;animation:fadein .7s 1s both;
+.wood-sign::before{top:30%}
+.wood-sign::after{bottom:30%}
+.wood-sign-text{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(22px,6vw,30px);
+  color:#fdf6e0;
+  text-align:center;
+  text-shadow:0 2px 4px rgba(0,0,0,.4),0 0 20px rgba(255,200,100,.2);
+  letter-spacing:2px;
+  position:relative;z-index:2;
 }
-.info-pill{
-  background:rgba(255,255,255,.6);
-  border:1.5px solid var(--tan-lt);
-  border-radius:16px;padding:10px 6px;text-align:center;
-}
-.info-pill-icon{font-size:20px;display:block;margin-bottom:3px;}
-.info-pill-lbl{
-  font-size:9px;text-transform:uppercase;letter-spacing:1px;
-  color:var(--text-lt);font-weight:700;display:block;
-}
-.info-pill-val{
-  font-size:13px;font-weight:700;color:var(--text-dark);display:block;margin-top:2px;
-}
-
-/* ─── SECTION CARDS ──────────────────────────── */
-.section-card{
-  width:100%;
-  background:rgba(253,246,227,.96);
-  border-radius:24px;
-  border:1.5px solid var(--tan);
-  box-shadow:0 4px 30px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.5);
-  overflow:hidden;
-  animation:card-rise .8s cubic-bezier(.22,1,.36,1) both;
-}
-.section-card:nth-child(2){animation-delay:.1s}
-.section-card:nth-child(3){animation-delay:.2s}
-.section-card:nth-child(4){animation-delay:.3s}
-
-.sc-header{
-  display:flex;align-items:center;gap:10px;
-  padding:1.1rem 1.5rem .8rem;
-  border-bottom:1px solid rgba(200,164,106,.35);
-}
-.sc-icon{
-  width:40px;height:40px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
-}
-.sc-icon-red{background:rgba(155,35,53,.12);}
-.sc-icon-orange{background:rgba(212,97,26,.12);}
-.sc-icon-green{background:rgba(58,107,53,.12);}
-.sc-title{
-  font-family:'Playfair Display',serif;
-  font-size:18px;color:var(--red);font-weight:700;
-}
-.sc-sub{font-size:12px;color:var(--text-lt);margin-top:1px;}
-
-.sc-body{padding:1.2rem 1.5rem 1.4rem;}
-
-/* ─── FORM ───────────────────────────────────── */
-.field{margin-bottom:14px;}
-.field:last-child{margin-bottom:0;}
-.field label{
-  display:block;font-size:11px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.8px;
-  color:var(--text-mid);margin-bottom:6px;
-}
-.field input,.field textarea{
-  width:100%;
-  background:rgba(255,255,255,.7);
-  border:1.5px solid var(--tan);
-  border-radius:12px;
-  padding:11px 14px;
+.wood-sign-sub{
   font-family:'Nunito',sans-serif;
-  font-size:14px;color:var(--text-dark);
-  outline:none;
-  transition:border-color .2s,box-shadow .2s,background .2s;
+  font-size:13px;font-weight:700;
+  color:rgba(253,246,224,.75);
+  text-align:center;letter-spacing:3px;text-transform:uppercase;
+  margin-top:2px;position:relative;z-index:2;
 }
-.field input:focus,.field textarea:focus{
-  border-color:var(--orange);
-  background:#fff;
-  box-shadow:0 0 0 3px rgba(212,97,26,.12);
+/* wood pegs */
+.wood-pegs{
+  display:flex;justify-content:space-between;
+  padding:0 20px;margin-top:-6px;position:relative;z-index:3;
 }
-.field textarea{resize:none;min-height:72px;line-height:1.5;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.peg{
+  width:14px;height:18px;border-radius:3px 3px 6px 6px;
+  background:linear-gradient(180deg,#7a4e24,#5c3a18);
+  box-shadow:0 2px 4px rgba(0,0,0,.3);
+}
 
-/* ─── BUTTONS ────────────────────────────────── */
+/* da pill */
+.da-pill{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--pink),var(--pink-d));
+  color:#fff;font-family:'Fredoka One',cursive;
+  font-size:18px;padding:4px 22px;border-radius:30px;
+  box-shadow:0 3px 10px rgba(232,96,154,.4);
+  margin:10px auto 0;
+  animation:bounce-in .5s .9s both;
+}
+@keyframes bounce-in{
+  0%{transform:scale(0);opacity:0}
+  70%{transform:scale(1.1)}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* big CECILIA text */
+.cecilia-wrap{
+  padding:0 12px;margin-top:4px;text-align:center;
+  animation:fi .6s .6s both;
+}
+.cecilia-svg{
+  width:100%;max-width:500px;height:auto;
+  display:block;margin:0 auto;overflow:visible;
+}
+
+/* badge strip */
+.age-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--lilac),var(--lilac-d));
+  color:#fff;border-radius:30px;
+  padding:8px 22px;margin:8px auto 0;
+  font-family:'Fredoka One',cursive;font-size:16px;
+  box-shadow:0 4px 14px rgba(155,108,200,.4);
+  animation:fi .6s 1.1s both;
+}
+.age-badge-heart{font-size:14px;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+
+/* invite text */
+.invite-text{
+  text-align:center;padding:1rem 1.6rem .5rem;
+  font-size:14.5px;line-height:1.65;color:var(--text2);
+  font-weight:500;
+  animation:fi .6s 1.3s both;
+}
+.invite-text strong{color:var(--pink-dd);font-weight:700}
+
+/* info grid */
+.info-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;padding:0 1.4rem 1rem;
+  animation:fi .6s 1.5s both;
+}
+.ig-cell{
+  background:linear-gradient(145deg,#fff,#fdf0ff);
+  border:2px dashed rgba(155,108,200,.3);
+  border-radius:16px;padding:12px 8px;text-align:center;
+}
+.ig-icon{font-size:26px;display:block;margin-bottom:4px}
+.ig-lbl{
+  font-size:9px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--lilac-d);font-weight:700;display:block;
+}
+.ig-val{
+  font-family:'Fredoka One',cursive;
+  font-size:15px;color:var(--text);
+  display:block;margin-top:3px;line-height:1.3;
+}
+
+/* scarecrow decoration (right side) */
+.deco-scarecrow{
+  position:absolute;right:-8px;top:-20px;
+  font-size:64px;
+  animation:scare-sway 3s ease-in-out infinite alternate;
+  pointer-events:none;z-index:5;
+  filter:drop-shadow(2px 4px 6px rgba(100,40,120,.2));
+}
+@keyframes scare-sway{
+  from{transform:rotate(-4deg)}
+  to  {transform:rotate(4deg)}
+}
+.deco-hat{
+  position:absolute;left:-10px;top:10px;
+  font-size:40px;
+  animation:hat-bob 4s ease-in-out infinite alternate;
+  pointer-events:none;z-index:5;
+  filter:drop-shadow(2px 3px 5px rgba(100,40,120,.15));
+}
+@keyframes hat-bob{
+  from{transform:rotate(8deg) translateY(0)}
+  to  {transform:rotate(-6deg) translateY(-6px)}
+}
+
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ SECTION CARD STYLES ═════════════════════════ */
+.sec-header{
+  display:flex;align-items:center;gap:12px;
+  padding:1.1rem 1.4rem .9rem;
+  border-bottom:1.5px dashed rgba(155,108,200,.2);
+}
+.sec-num{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fredoka One',cursive;font-size:18px;
+  flex-shrink:0;border:2.5px solid;
+}
+.sn-pink{color:var(--pink-dd);border-color:var(--pink);background:rgba(247,168,196,.12)}
+.sn-yellow{color:#b87e20;border-color:var(--yellow-d);background:rgba(247,216,96,.12)}
+.sn-green{color:var(--green-d);border-color:var(--green);background:rgba(90,171,80,.1)}
+.sec-title{
+  font-family:'Fredoka One',cursive;
+  font-size:19px;color:var(--text);line-height:1.2;
+}
+.sec-sub{font-size:12px;color:var(--text2);font-weight:500;margin-top:2px}
+.sec-body{padding:1.2rem 1.4rem 1.4rem}
+
+/* contribution banner */
+.contrib-banner{
+  background:linear-gradient(135deg,var(--pink),var(--pink-d));
+  color:#fff;
+  padding:12px 1.4rem;
+  text-align:center;
+  font-family:'Fredoka One',cursive;
+  font-size:14px;letter-spacing:.5px;
+  line-height:1.4;
+  border-bottom:1.5px dashed rgba(255,255,255,.3);
+}
+
+/* item cards (doce/salgado/refrigerante) */
+.contrib-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  padding:1rem 1.4rem 1.4rem;
+}
+.contrib-item{
+  background:linear-gradient(145deg,#fff,#fdf5ff);
+  border:2px dashed;border-radius:18px;
+  padding:16px 8px;text-align:center;
+  transition:transform .2s;
+}
+.contrib-item:hover{transform:translateY(-2px)}
+.ci-pink{border-color:rgba(247,168,196,.5)}
+.ci-yellow{border-color:rgba(247,216,96,.5)}
+.ci-blue{border-color:rgba(147,197,253,.5)}
+.contrib-icon{font-size:36px;display:block;margin-bottom:6px}
+.contrib-lbl{
+  font-family:'Nunito',sans-serif;
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--text2);display:block;line-height:1.35;
+}
+
+/* ═══ RSVP BUTTON ═════════════════════════════════ */
 .btn{
   display:block;width:100%;
-  padding:14px 20px;
-  border:none;border-radius:30px;
-  font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;
+  padding:15px 20px;border:none;border-radius:100px;
+  font-family:'Fredoka One',cursive;font-size:18px;letter-spacing:.5px;
   cursor:pointer;
-  transition:transform .15s,box-shadow .15s,filter .15s;
-  letter-spacing:.3px;
+  transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s,filter .15s;
   position:relative;overflow:hidden;
 }
-.btn::after{
+.btn::before{
   content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,0);
-  transition:background .2s;
+  background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 60%);
+  pointer-events:none;
 }
-.btn:hover::after{background:rgba(255,255,255,.12);}
-.btn:active{transform:translateY(2px)!important;}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn:active{transform:translateY(2px)!important;filter:brightness(.95)}
 
-.btn-primary{
-  background:linear-gradient(135deg,var(--orange-lt),var(--orange));
+.btn-pink{
+  background:linear-gradient(130deg,var(--pink-d),var(--pink-dd));
   color:#fff;
-  box-shadow:0 4px 18px rgba(212,97,26,.45),0 2px 0 rgba(92,46,14,.5);
+  box-shadow:0 5px 20px rgba(196,56,128,.35),0 -2px 0 rgba(0,0,0,.1) inset;
 }
-.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 28px rgba(212,97,26,.55),0 2px 0 rgba(92,46,14,.5);
-  filter:brightness(1.05);
-}
+.btn-pink:hover{box-shadow:0 9px 28px rgba(196,56,128,.45)}
 
-.btn-whatsapp{
-  background:linear-gradient(135deg,#25d366,#1da851);
+.btn-wa{
+  background:linear-gradient(130deg,#25c860,#178040);
   color:#fff;
-  box-shadow:0 4px 18px rgba(37,211,102,.4),0 2px 0 rgba(15,100,50,.4);
   display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 5px 20px rgba(23,128,64,.35);
+  text-decoration:none;
+  font-family:'Fredoka One',cursive;font-size:18px;letter-spacing:.5px;
+  padding:15px 20px;border-radius:100px;
+  transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s,filter .15s;
 }
-.btn-whatsapp:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 28px rgba(37,211,102,.5),0 2px 0 rgba(15,100,50,.4);
-  filter:brightness(1.05);
-}
-.btn-whatsapp svg{flex-shrink:0;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(23,128,64,.45);filter:brightness(1.06)}
 
-.btn-outline{
-  background:transparent;
-  border:1.5px solid var(--tan);
-  color:var(--text-mid);
-  padding:10px;font-size:14px;
-}
-.btn-outline:hover{background:rgba(200,164,106,.15);}
-
-/* ─── MODAL ──────────────────────────────────── */
-.modal-overlay{
+/* ═══ MODAL ═══════════════════════════════════════ */
+.overlay{
   position:fixed;inset:0;z-index:100;
-  background:rgba(10,3,0,.75);
-  backdrop-filter:blur(4px);
-  display:flex;align-items:center;justify-content:center;
-  padding:20px;
-  opacity:0;pointer-events:none;
-  transition:opacity .3s;
+  background:rgba(60,20,80,.7);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0;opacity:0;pointer-events:none;
+  transition:opacity .28s;
 }
-.modal-overlay.open{opacity:1;pointer-events:all;}
+@media(min-width:520px){.overlay{align-items:center;padding:20px}}
+.overlay.open{opacity:1;pointer-events:all}
 
 .modal{
   background:var(--cream);
-  border-radius:28px;
-  border:2px solid var(--tan);
-  width:100%;max-width:460px;
-  max-height:88vh;overflow-y:auto;
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  transform:translateY(30px) scale(.97);
-  transition:transform .35s cubic-bezier(.22,1,.36,1);
-  overscroll-behavior:contain;
+  border-radius:28px 28px 0 0;
+  border:2.5px dashed rgba(155,108,200,.35);
+  border-bottom:none;
+  width:100%;max-width:500px;
+  max-height:92vh;overflow-y:auto;overscroll-behavior:contain;
+  box-shadow:0 -16px 60px rgba(60,20,80,.4);
+  transform:translateY(50px);
+  transition:transform .38s cubic-bezier(.22,1,.36,1);
 }
-.modal-overlay.open .modal{transform:translateY(0) scale(1);}
+@media(min-width:520px){
+  .modal{border-radius:28px;border-bottom:2.5px dashed rgba(155,108,200,.35)}
+}
+.overlay.open .modal{transform:translateY(0)}
 
-.modal-header{
-  padding:1.4rem 1.5rem 1rem;
-  border-bottom:1px solid rgba(200,164,106,.3);
-  display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+.modal-pill{width:40px;height:5px;border-radius:3px;background:var(--lilac);margin:14px auto 0;opacity:.5}
+@media(min-width:520px){.modal-pill{display:none}}
+
+.modal-head{
+  padding:1.3rem 1.5rem 1rem;
+  border-bottom:1.5px dashed rgba(155,108,200,.2);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
 }
-.modal-title{
-  font-family:'Playfair Display',serif;
-  font-size:22px;color:var(--red);
-}
-.modal-close{
+.modal-title{font-family:'Fredoka One',cursive;font-size:22px;color:var(--text)}
+.modal-sub{font-size:12px;color:var(--text2);font-weight:500;margin-top:3px}
+.modal-x{
   background:none;border:none;cursor:pointer;
-  font-size:22px;color:var(--text-lt);
-  line-height:1;padding:4px;border-radius:8px;
-  transition:color .2s,background .2s;
-  flex-shrink:0;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--lilac-d);font-size:18px;flex-shrink:0;
+  transition:background .2s;
 }
-.modal-close:hover{color:var(--red);background:rgba(155,35,53,.1);}
-.modal-body{padding:1.2rem 1.5rem 1.6rem;}
+.modal-x:hover{background:rgba(155,108,200,.15)}
+.modal-b{padding:1.2rem 1.5rem 2rem}
 
-/* ─── SUCCESS STATE ──────────────────────────── */
-.success-banner{
-  display:none;
-  background:linear-gradient(135deg,#e8f8ef,#d4f0e0);
-  border:1.5px solid #5cb87a;
-  border-radius:14px;
-  padding:14px 16px;
-  margin-top:14px;
-  text-align:center;
-  font-size:14px;font-weight:600;color:#1e6e3e;
-  animation:pop-in .4s cubic-bezier(.22,1,.36,1) both;
+/* form fields */
+.fl{margin-bottom:15px}.fl:last-of-type{margin-bottom:0}
+.fl label{
+  display:block;font-size:11px;font-weight:800;
+  letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--lilac-dd);margin-bottom:7px;
 }
-@keyframes pop-in{
-  from{opacity:0;transform:scale(.94)}
-  to  {opacity:1;transform:scale(1)}
-}
-
-/* ─── CORN DECORATION ────────────────────────── */
-.corn-row{
-  text-align:center;font-size:16px;letter-spacing:8px;
-  margin:4px 0;opacity:.7;
-}
-
-/* ─── FOOTER ─────────────────────────────────── */
-.footer-card{
+.fl input,.fl textarea{
   width:100%;
-  background:rgba(253,246,227,.85);
-  border-radius:20px;
-  border:1px solid rgba(200,164,106,.4);
+  background:rgba(255,255,255,.8);
+  border:2px solid rgba(155,108,200,.3);
+  border-radius:14px;
+  padding:12px 14px;
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;color:var(--text);
+  outline:none;-webkit-appearance:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.fl input::placeholder,.fl textarea::placeholder{color:#c0a8d0;font-weight:400}
+.fl input:focus,.fl textarea:focus{
+  border-color:var(--pink-d);background:#fff;
+  box-shadow:0 0 0 3px rgba(232,96,154,.12);
+}
+.fl textarea{resize:none;min-height:78px;line-height:1.55}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.req{color:var(--pink-dd)}
+#formErr{
+  display:none;margin-top:12px;
+  font-size:13px;font-weight:700;color:var(--pink-dd);text-align:center;
+  padding:10px 14px;background:rgba(232,96,154,.08);
+  border-radius:12px;border:1.5px dashed rgba(232,96,154,.3);
+}
+
+/* ═══ RESULTS ═════════════════════════════════════ */
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.res-item{
+  background:linear-gradient(145deg,#fff,#fdf0ff);
+  border:2px dashed rgba(155,108,200,.3);
+  border-radius:16px;padding:12px 8px;text-align:center;
+}
+.res-ico{font-size:22px;display:block;margin-bottom:5px}
+.res-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--lilac-d);font-weight:700;display:block}
+.res-val{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);display:block;margin-top:3px;line-height:1.3}
+
+.msg-box{
+  background:rgba(255,255,255,.6);
+  border:1.5px dashed rgba(155,108,200,.25);
+  border-radius:14px;padding:13px 15px;
+  font-size:13.5px;color:var(--text2);
+  font-style:italic;line-height:1.65;
+  white-space:pre-line;
+}
+.ok-badge{
+  display:flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,#edfaf4,#d4f0e4);
+  border:1.5px dashed rgba(37,200,96,.35);
+  border-radius:16px;padding:13px 15px;margin-top:14px;
+  animation:pop .4s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.ok-ico{font-size:22px;flex-shrink:0}
+.ok-txt{font-size:13px;font-weight:700;color:#167840;line-height:1.45}
+
+/* ═══ COUNTDOWN ═══════════════════════════════════ */
+.countdown-card .card-inner{
+  background:linear-gradient(135deg,var(--pink) 0%,var(--pink-d) 50%,var(--lilac-d) 100%);
+  border:none;
+  padding:1.6rem 1.4rem;
   text-align:center;
-  padding:1.4rem 1.5rem;
-  animation:card-rise .8s .4s both;
+}
+.cd-label{
+  font-family:'Fredoka One',cursive;
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.8);margin-bottom:12px;
+  display:block;
+}
+.cd-grid{display:flex;justify-content:center;gap:12px}
+.cd-unit{
+  background:rgba(255,255,255,.2);
+  border:1.5px solid rgba(255,255,255,.3);
+  border-radius:16px;padding:12px 14px;min-width:64px;
+  backdrop-filter:blur(4px);
+}
+.cd-num{
+  font-family:'Fredoka One',cursive;
+  font-size:36px;color:#fff;display:block;line-height:1;
+  text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.cd-unit-lbl{
+  font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;
+  color:rgba(255,255,255,.75);font-weight:700;display:block;margin-top:4px;
+}
+.cd-over{
+  font-family:'Fredoka One',cursive;
+  font-size:28px;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+/* ═══ FOOTER ══════════════════════════════════════ */
+.footer-card .card-inner{
+  background:linear-gradient(155deg,#fdf0ff,#fef6e0);
+  border:2.5px dashed rgba(155,108,200,.25);
+  text-align:center;padding:2rem 1.6rem;
+}
+.footer-caipira{
+  font-family:'Pacifico',cursive;
+  font-size:clamp(13px,3.2vw,16px);
+  color:var(--wood);margin-bottom:.5rem;display:block;
+  line-height:1.6;
 }
 .footer-main{
-  font-family:'Dancing Script',cursive;
-  font-size:clamp(18px,4.5vw,22px);
-  color:var(--brown-lt);
-  line-height:1.5;
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(19px,5vw,24px);
+  color:var(--pink-dd);display:block;margin-bottom:.8rem;
 }
-.footer-note{
-  font-size:12px;color:var(--text-lt);
-  margin-top:8px;
-}
-
-/* ─── BONFIRE ────────────────────────────────── */
-.bonfire-wrap{
-  position:fixed;bottom:0;left:50%;
-  transform:translateX(-50%);
-  z-index:10;pointer-events:none;
-  width:220px;
-}
-.bonfire-svg{width:220px;height:180px;display:block;}
-
-/* ─── AMBIENT GLOW ───────────────────────────── */
-.ground-glow{
-  position:fixed;bottom:0;left:0;right:0;
-  height:200px;z-index:6;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 100%,rgba(210,80,0,.22) 0%,transparent 70%);
-  animation:glow-breathe 2.5s ease-in-out infinite alternate;
-}
-@keyframes glow-breathe{
-  from{opacity:.6}to{opacity:1}
+.footer-sub{
+  font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;
+  color:var(--lilac-d);display:block;
 }
 
-/* ─── DRIFTING ELEMENTS ──────────────────────── */
-.drift{
-  position:fixed;z-index:3;pointer-events:none;
-  font-size:var(--fs);opacity:var(--op);
-  animation:drift-float var(--dur) ease-in-out infinite alternate;
-  animation-delay:var(--del);
-  left:var(--lft);top:var(--top);
-  filter:blur(var(--bl));
+/* ═══ SUNFLOWERS (bottom decoration) ═════════════ */
+.sunflower{
+  position:fixed;bottom:0;font-size:var(--fs);z-index:6;pointer-events:none;
+  animation:sf-sway var(--d) ease-in-out infinite alternate var(--dl);
+  filter:drop-shadow(0 4px 8px rgba(100,60,0,.2));
+  transform-origin:bottom center;
 }
-@keyframes drift-float{
-  from{transform:translate(0,0) rotate(var(--r1))}
-  to  {transform:translate(var(--dx),var(--dy)) rotate(var(--r2))}
+@keyframes sf-sway{
+  from{transform:rotate(var(--r1))}
+  to  {transform:rotate(var(--r2))}
 }
 
-/* ─── REQUIRED ASTERISK ──────────────────────── */
-.req{color:var(--red);}
-
-/* ─── SCROLLBAR ──────────────────────────────── */
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:var(--tan);border-radius:3px;}
+/* ═══ CAIPIRA NOTE ════════════════════════════════ */
+.caipira-note{
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#fff9e8,#fffbf0);
+  border:2px dashed rgba(200,148,74,.4);
+  border-radius:16px;padding:12px 14px;
+  margin-top:14px;
+}
+.cn-ico{font-size:20px;flex-shrink:0}
+.cn-txt{font-size:13px;font-weight:600;color:var(--wood);line-height:1.5}
+.cn-txt strong{color:var(--pink-dd)}
 </style>
 </head>
 <body>
 
-<!-- ── ATMOSPHERE ── -->
-<div class="sky"></div>
-<div class="stars-layer" id="starsLayer"></div>
-<div class="moon"></div>
-<div class="ground-glow"></div>
+<!-- ═══ BG ═══════════════════════════════════════════ -->
+<div class="bg-wrap" id="bgWrap"></div>
 
-<!-- Drifting corn / leaf elements -->
-<div class="drift" style="--fs:22px;--op:.18;--dur:7s;--del:0s;--lft:5%;--top:25%;--bl:1px;--dx:18px;--dy:-14px;--r1:-8deg;--r2:6deg">🌽</div>
-<div class="drift" style="--fs:18px;--op:.14;--dur:9s;--del:2s;--lft:88%;--top:18%;--bl:1px;--dx:-12px;--dy:10px;--r1:5deg;--r2:-10deg">🌻</div>
-<div class="drift" style="--fs:14px;--op:.13;--dur:8s;--del:1s;--lft:3%;--top:55%;--bl:1.5px;--dx:10px;--dy:-8px;--r1:-4deg;--r2:8deg">🍂</div>
-<div class="drift" style="--fs:16px;--op:.12;--dur:11s;--del:3s;--lft:92%;--top:45%;--bl:1px;--dx:-8px;--dy:12px;--r1:10deg;--r2:-6deg">🌿</div>
+<!-- ═══ BANNER ROPE ═══════════════════════════════════ -->
+<div class="banner-wrap"><canvas id="bCanvas"></canvas></div>
 
-<!-- ── BANNER ROPE ── -->
-<div class="banner-wrap">
-  <canvas class="banner-canvas" id="bannerCanvas"></canvas>
-</div>
+<!-- ═══ SUNFLOWERS ════════════════════════════════════ -->
+<div class="sunflower" style="left:2%;--fs:42px;--d:3.5s;--dl:0s;--r1:-8deg;--r2:5deg">🌻</div>
+<div class="sunflower" style="left:8%;--fs:28px;--d:4s;--dl:.5s;--r1:-5deg;--r2:8deg">🌼</div>
+<div class="sunflower" style="right:2%;--fs:40px;--d:3.2s;--dl:.3s;--r1:6deg;--r2:-7deg">🌻</div>
+<div class="sunflower" style="right:9%;--fs:24px;--d:4.5s;--dl:.8s;--r1:4deg;--r2:-9deg">🌼</div>
+<div class="sunflower" style="left:50%;transform:translateX(-50%);--fs:22px;--d:5s;--dl:1s;--r1:-4deg;--r2:4deg">🌾</div>
 
-<!-- ── BONFIRE ── -->
-<div class="bonfire-wrap">
-<svg class="bonfire-svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
-  <!-- ground glow -->
-  <ellipse cx="110" cy="163" rx="65" ry="14" fill="#ff5500" opacity="0">
-    <animate attributeName="opacity" values=".2;.38;.2" dur="1.8s" repeatCount="indefinite"/>
-    <animate attributeName="rx" values="65;80;65" dur="1.8s" repeatCount="indefinite"/>
-  </ellipse>
-  <!-- logs -->
-  <rect x="65" y="154" width="90" height="9" rx="4.5" fill="#4a2008"/>
-  <rect x="58" y="157" width="46" height="7" rx="3.5" fill="#5c2e0e" transform="rotate(-14,81,161)"/>
-  <rect x="116" y="157" width="46" height="7" rx="3.5" fill="#5c2e0e" transform="rotate(14,139,161)"/>
-  <rect x="75" y="150" width="70" height="7" rx="3.5" fill="#6b3714"/>
-  <!-- embers -->
-  <ellipse cx="110" cy="156" rx="34" ry="6" fill="#bb2200" opacity=".9"/>
-  <ellipse cx="110" cy="153" rx="24" ry="4.5" fill="#e84000" opacity=".95"/>
-  <ellipse cx="110" cy="150" rx="15" ry="3.5" fill="#ff7000"/>
-
-  <!-- flame layers back→front -->
-  <g style="transform-origin:110px 155px">
-    <path d="M75,155 Q62,118 80,92 Q92,70 97,88 Q103,62 110,44 Q117,62 123,88 Q128,70 140,92 Q158,118 145,155Z" fill="#991a00" opacity=".65">
-      <animateTransform attributeName="transform" type="scale" values="1 1;1.06 .95;.97 1.05;1 1" dur="1.6s" repeatCount="indefinite" additive="sum"/>
-    </path>
-  </g>
-  <g style="transform-origin:110px 155px">
-    <path d="M82,155 Q71,124 86,102 Q95,84 100,99 Q105,76 110,58 Q115,76 120,99 Q125,84 134,102 Q149,124 138,155Z" fill="#cc3300" opacity=".8">
-      <animateTransform attributeName="transform" type="scale" values="1 1;.93 1.07;1.05 .94;1 1" dur="1.25s" repeatCount="indefinite" additive="sum"/>
-    </path>
-  </g>
-  <g style="transform-origin:110px 155px">
-    <path d="M89,155 Q80,132 92,114 Q99,99 103,112 Q107,88 110,72 Q113,88 117,112 Q121,99 128,114 Q140,132 131,155Z" fill="#e84000" opacity=".88">
-      <animateTransform attributeName="transform" type="scale" values="1 1;1.04 .96;.96 1.04;1 1" dur="1s" repeatCount="indefinite" additive="sum"/>
-    </path>
-  </g>
-  <g style="transform-origin:110px 155px">
-    <path d="M96,155 Q89,138 98,124 Q104,111 107,124 Q108,104 110,88 Q112,104 113,124 Q116,111 122,124 Q131,138 124,155Z" fill="#ff8800" opacity=".92">
-      <animateTransform attributeName="transform" type="scale" values="1 1;.97 1.06;1.04 .95;1 1" dur=".85s" repeatCount="indefinite" additive="sum"/>
-    </path>
-  </g>
-  <g style="transform-origin:110px 155px">
-    <path d="M103,155 Q99,142 105,132 Q108,121 110,108 Q112,121 115,132 Q121,142 117,155Z" fill="#ffcc00" opacity=".95">
-      <animateTransform attributeName="transform" type="scale" values="1 1;1.05 .94;.95 1.06;1 1" dur=".7s" repeatCount="indefinite" additive="sum"/>
-    </path>
-  </g>
-  <!-- white tip -->
-  <path d="M107,148 Q106,136 109,124 Q110,116 111,124 Q114,136 113,148Z" fill="#fff8e0" opacity=".8">
-    <animate attributeName="opacity" values=".8;.4;.8" dur=".55s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- sparks -->
-  <circle r="2.2" fill="#ffcc44" opacity="0" cx="100" cy="130">
-    <animate attributeName="opacity" values="0;1;0" dur="1.4s" begin="0s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="135;85;55" dur="1.4s" begin="0s" repeatCount="indefinite"/>
-    <animate attributeName="cx" values="100;92;86" dur="1.4s" begin="0s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="2.2;1.5;0" dur="1.4s" begin="0s" repeatCount="indefinite"/>
-  </circle>
-  <circle r="1.8" fill="#ffaa22" opacity="0" cx="120" cy="125">
-    <animate attributeName="opacity" values="0;.9;0" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="128;78;52" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
-    <animate attributeName="cx" values="120;130;136" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="1.8;1.2;0" dur="1.1s" begin=".5s" repeatCount="indefinite"/>
-  </circle>
-  <circle r="2" fill="#ffffff" opacity="0" cx="110" cy="115">
-    <animate attributeName="opacity" values="0;.7;0" dur=".95s" begin=".25s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="120;68;42" dur=".95s" begin=".25s" repeatCount="indefinite"/>
-    <animate attributeName="cx" values="110;103;98" dur=".95s" begin=".25s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="2;1.2;0" dur=".95s" begin=".25s" repeatCount="indefinite"/>
-  </circle>
-  <circle r="1.5" fill="#ff6600" opacity="0" cx="115" cy="108">
-    <animate attributeName="opacity" values="0;.85;0" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="115;62;38" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
-    <animate attributeName="cx" values="115;124;130" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="1.5;1;0" dur="1.2s" begin=".75s" repeatCount="indefinite"/>
-  </circle>
-  <circle r="2.5" fill="#ffdd44" opacity="0" cx="105" cy="100">
-    <animate attributeName="opacity" values="0;1;0" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="110;55;28" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
-    <animate attributeName="cx" values="105;96;90" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="2.5;1.5;0" dur="1.6s" begin=".4s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
-
-<!-- ── PAGE ── -->
+<!-- ═══ PAGE ══════════════════════════════════════════ -->
 <div class="page">
 
-  <!-- HERO -->
-  <div class="hero-card">
-    <div class="wood-bar"></div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow">🌽 Vem festejar com a gente 🌽</p>
-      <h1 class="hero-title">Mesversário da<br>Cecília</h1>
-      <p class="hero-sub">8 meses de doçura, alegria e festa junina</p>
-      <span class="hero-badge">🎀 8 Meses 🎀</span>
+  <!-- ── HERO ── -->
+  <div class="card hero-card">
+    <div class="card-inner">
+      <!-- decorations -->
+      <div class="deco-hat">🎩</div>
+      <div class="deco-scarecrow">🪆</div>
 
-      <div class="hero-divider">
-        <div class="hdl"></div>
-        <span style="font-size:16px;color:var(--tan)">✦</span>
-        <div class="hdl"></div>
+      <!-- wood sign -->
+      <div class="wood-sign">
+        <div class="wood-sign-text">Arraiá</div>
+        <div class="wood-sign-sub">✦ celebração especial ✦</div>
+      </div>
+      <div class="wood-pegs"><div class="peg"></div><div class="peg"></div></div>
+
+      <!-- "da" pill -->
+      <div style="text-align:center">
+        <span class="da-pill">da</span>
       </div>
 
+      <!-- SVG name CECÍLIA — big, fun, pink+lilac gingham style -->
+      <div class="cecilia-wrap">
+        <svg class="cecilia-svg" viewBox="0 0 520 105" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- pink gingham fill -->
+            <pattern id="ging1" patternUnits="userSpaceOnUse" width="10" height="10">
+              <rect width="10" height="10" fill="#f7a8c4"/>
+              <rect width="5" height="5" fill="rgba(232,96,154,.3)"/>
+              <rect x="5" y="5" width="5" height="5" fill="rgba(232,96,154,.3)"/>
+            </pattern>
+            <!-- lilac fill -->
+            <pattern id="ging2" patternUnits="userSpaceOnUse" width="10" height="10">
+              <rect width="10" height="10" fill="#c8a8e0"/>
+              <rect width="5" height="5" fill="rgba(155,108,200,.35)"/>
+              <rect x="5" y="5" width="5" height="5" fill="rgba(155,108,200,.35)"/>
+            </pattern>
+            <filter id="textShadow">
+              <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="rgba(155,60,160,.2)"/>
+            </filter>
+          </defs>
+          <!-- stroke/shadow layer -->
+          <text x="262" y="92" text-anchor="middle"
+            font-family="'Fredoka One', 'Nunito', sans-serif"
+            font-size="100" font-weight="400" letter-spacing="6"
+            fill="none" stroke="white" stroke-width="8" stroke-linejoin="round"
+            filter="url(#textShadow)"
+          >CECÍLIA</text>
+          <!-- alternating pink/lilac letters -->
+          <!-- C -->
+          <text x="18" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">C</text>
+          <!-- E -->
+          <text x="89" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">E</text>
+          <!-- C -->
+          <text x="158" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">C</text>
+          <!-- Í -->
+          <text x="230" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">Í</text>
+          <!-- L -->
+          <text x="278" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">L</text>
+          <!-- I -->
+          <text x="345" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">I</text>
+          <!-- A -->
+          <text x="376" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">A</text>
+          <!-- hearts above -->
+          <text x="248" y="12" font-size="16" text-anchor="middle" fill="#e8609a">♥</text>
+          <text x="178" y="6" font-size="11" text-anchor="middle" fill="#c8a8e0" opacity=".8">♥</text>
+          <text x="318" y="8" font-size="10" text-anchor="middle" fill="#c8a8e0" opacity=".7">♥</text>
+        </svg>
+      </div>
+
+      <!-- age badge -->
+      <div style="text-align:center">
+        <div class="age-badge">
+          <span class="age-badge-heart">💗</span>
+          8 Meses de Muito Amor e Alegria!
+          <span class="age-badge-heart">💗</span>
+        </div>
+      </div>
+
+      <!-- invite text -->
+      <p class="invite-text">
+        Vamos comemorar os 8 meses da nossa boneca <strong>Cecília</strong>!<br>
+        Esperamos você e sua família para uma tarde de muita diversão,
+        comidas gostosas e momentos inesquecíveis! 🥰
+      </p>
+
+      <!-- info grid -->
       <div class="info-grid">
-        <div class="info-pill">
-          <span class="info-pill-icon">📅</span>
-          <span class="info-pill-lbl">Data</span>
-          <span class="info-pill-val">27 de Junho</span>
+        <div class="ig-cell">
+          <span class="ig-icon">📅</span>
+          <span class="ig-lbl">Dia</span>
+          <span class="ig-val">28/06/2026</span>
         </div>
-        <div class="info-pill">
-          <span class="info-pill-icon">⏰</span>
-          <span class="info-pill-lbl">Horário</span>
-          <span class="info-pill-val">15h00</span>
+        <div class="ig-cell">
+          <span class="ig-icon">🕐</span>
+          <span class="ig-lbl">Horário</span>
+          <span class="ig-val">15h30</span>
         </div>
-        <div class="info-pill">
-          <span class="info-pill-icon">🏡</span>
-          <span class="info-pill-lbl">Local</span>
-          <span class="info-pill-val">Casa da Mamãe</span>
+        <div class="ig-cell">
+          <span class="ig-icon">🏡</span>
+          <span class="ig-lbl">Local</span>
+          <span class="ig-val">Casa da Mamãe</span>
         </div>
       </div>
-
-      <div class="corn-row" style="margin-top:16px">🌽 🌻 🎶 🌻 🌽</div>
     </div>
-    <div class="wood-bar"></div>
   </div>
 
-  <!-- RSVP CARD -->
-  <div class="section-card">
-    <div class="sc-header">
-      <div class="sc-icon sc-icon-red">🎉</div>
-      <div>
-        <div class="sc-title">Confirmar Presença</div>
-        <div class="sc-sub">Vai ser uma festa linda, não fique de fora!</div>
+  <!-- ── COUNTDOWN ── -->
+  <div class="card countdown-card">
+    <div class="card-inner">
+      <span class="cd-label">⏳ faltam para a festa</span>
+      <div class="cd-grid" id="cdGrid">
+        <div class="cd-unit"><span class="cd-num" id="cdD">--</span><span class="cd-unit-lbl">dias</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cdH">--</span><span class="cd-unit-lbl">horas</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cdM">--</span><span class="cd-unit-lbl">min</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cdS">--</span><span class="cd-unit-lbl">seg</span></div>
       </div>
     </div>
-    <div class="sc-body">
-      <button class="btn btn-primary" onclick="openModal()">
-        🎀 Confirmar minha presença!
-      </button>
-    </div>
   </div>
 
-  <!-- FOOD CARD -->
-  <div class="section-card" id="foodCard" style="display:none">
-    <div class="sc-header">
-      <div class="sc-icon sc-icon-orange">🍲</div>
-      <div>
-        <div class="sc-title">O que você vai trazer?</div>
-        <div class="sc-sub">Cada um traz um pedacinho de carinho</div>
+  <!-- ── CONTRIBUTION ── -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="contrib-banner">
+        🌽 PARA DEIXAR NOSSO ARRAIÁ AINDA MAIS GOSTOSO,<br>
+        CADA FAMÍLIA TRAZ:
+      </div>
+      <div class="contrib-grid">
+        <div class="contrib-item ci-pink">
+          <span class="contrib-icon">🧁</span>
+          <span class="contrib-lbl">1 Prato de Doce Típico</span>
+        </div>
+        <div class="contrib-item ci-yellow">
+          <span class="contrib-icon">🥘</span>
+          <span class="contrib-lbl">1 Prato de Salgado</span>
+        </div>
+        <div class="contrib-item ci-blue">
+          <span class="contrib-icon">🥤</span>
+          <span class="contrib-lbl">1 Refrigerante</span>
+        </div>
+      </div>
+      <div class="caipira-note" style="margin:0 1.4rem 1.4rem">
+        <span class="cn-ico">👒</span>
+        <span class="cn-txt">Vista seu traje caipira, traga seu sorriso e venha celebrar com a gente os <strong>8 meses</strong> da nossa pequena caipirinha!</span>
       </div>
     </div>
-    <div class="sc-body" id="foodBody">
-      <!-- preenchido via JS após confirmação -->
-    </div>
   </div>
 
-  <!-- WHATSAPP CARD -->
-  <div class="section-card" id="waCard" style="display:none">
-    <div class="sc-header">
-      <div class="sc-icon sc-icon-green">📲</div>
-      <div>
-        <div class="sc-title">Enviar no WhatsApp</div>
-        <div class="sc-sub">Mande sua confirmação pra mamãe da Cecília</div>
+  <!-- ── RSVP ── -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="sec-header">
+        <div class="sec-num sn-pink">I</div>
+        <div>
+          <div class="sec-title">Confirmar Presença</div>
+          <div class="sec-sub">Ô trem bão ter você aqui! 💗</div>
+        </div>
+      </div>
+      <div class="sec-body">
+        <button class="btn btn-pink" onclick="openModal()">
+          🎉 Confirmar minha presença!
+        </button>
       </div>
     </div>
-    <div class="sc-body" id="waBody"></div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer-card">
-    <div class="corn-row">🌽 🌻 🎀 🌻 🌽</div>
-    <p class="footer-main">
-      A Cecília já está contando<br>os dias pra te ver! 🥹
-    </p>
-    <p class="footer-note">Festa Junina · 27 de Junho de 2025 · 15h · Com muito amor 💛</p>
+  <!-- ── FOOD (hidden) ── -->
+  <div class="card" id="foodCard" style="display:none">
+    <div class="card-inner">
+      <div class="sec-header">
+        <div class="sec-num sn-yellow">II</div>
+        <div>
+          <div class="sec-title">Sua contribuição</div>
+          <div class="sec-sub">Obrigada por fazer parte da festa! 🌻</div>
+        </div>
+      </div>
+      <div class="sec-body" id="foodBody"></div>
+    </div>
+  </div>
+
+  <!-- ── WHATSAPP (hidden) ── -->
+  <div class="card" id="waCard" style="display:none">
+    <div class="card-inner">
+      <div class="sec-header">
+        <div class="sec-num sn-green">III</div>
+        <div>
+          <div class="sec-title">Enviar no WhatsApp</div>
+          <div class="sec-sub">Mande pra mamãe da Cecília 💬</div>
+        </div>
+      </div>
+      <div class="sec-body" id="waBody"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="card footer-card">
+    <div class="card-inner">
+      <span style="font-size:36px;display:block;margin-bottom:8px">🌽🎀🌻</span>
+      <span class="footer-caipira">
+        "Ô trem bão ter você aqui!"<br>
+        Vista seu traje caipira e venha arrasar! 👒
+      </span>
+      <span class="footer-main">Contamos com sua presença! 🥰</span>
+      <span class="footer-sub">Com carinho · Família da Cecília</span>
+    </div>
   </div>
 
 </div><!-- /page -->
 
-<!-- ── MODAL ── -->
-<div class="modal-overlay" id="modalOverlay" onclick="overlayClick(event)">
-  <div class="modal">
-    <div class="modal-header">
+<!-- ═══ MODAL ════════════════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="outsideClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-pill"></div>
+    <div class="modal-head">
       <div>
-        <div class="modal-title">Uhuuu! Que ótimo! 🎉</div>
-        <div style="font-size:13px;color:var(--text-lt);margin-top:3px">Preencha os campos abaixo</div>
+        <div class="modal-title">🎉 Que alegria!</div>
+        <div class="modal-sub">Preencha os campos para confirmar presença</div>
       </div>
-      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+      <button class="modal-x" onclick="closeModal()" aria-label="Fechar">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="field">
-        <label for="mNome">Seu nome <span class="req">*</span></label>
-        <input type="text" id="mNome" placeholder="Ex: Maria Aparecida" autocomplete="name"/>
+    <div class="modal-b">
+      <div class="fl">
+        <label for="fNome">Seu nome <span class="req">*</span></label>
+        <input type="text" id="fNome" placeholder="Ex: Ana Aparecida" autocomplete="name"/>
       </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="mPrato1">Prato 1 <span class="req">*</span></label>
-          <input type="text" id="mPrato1" placeholder="Ex: Canjica"/>
+      <div class="two">
+        <div class="fl">
+          <label for="fP1">Prato de Doce <span class="req">*</span></label>
+          <input type="text" id="fP1" placeholder="Ex: Canjica"/>
         </div>
-        <div class="field">
-          <label for="mPrato2">Prato 2 <span class="req">*</span></label>
-          <input type="text" id="mPrato2" placeholder="Ex: Pamonha"/>
+        <div class="fl">
+          <label for="fP2">Prato de Salgado <span class="req">*</span></label>
+          <input type="text" id="fP2" placeholder="Ex: Coxinha"/>
         </div>
       </div>
-      <div class="field">
-        <label for="mMsg">Mensagem pra Cecília <span style="color:var(--text-lt);font-weight:400">(opcional)</span></label>
-        <textarea id="mMsg" placeholder="Ex: Muita saúde e felicidade, meu bem! 💛"></textarea>
+      <div class="fl">
+        <label for="fRefri">Refrigerante <span class="req">*</span></label>
+        <input type="text" id="fRefri" placeholder="Ex: Guaraná 2L"/>
       </div>
-      <button class="btn btn-primary" onclick="submitRsvp()" style="margin-top:8px">
+      <div class="fl">
+        <label for="fMsg">Mensagem carinhosa para a Cecília
+          <span style="color:#a080c0;font-weight:500;text-transform:none;letter-spacing:0"> — opcional 💛</span>
+        </label>
+        <textarea id="fMsg" placeholder="Uma mensagem de carinho pra ela ler quando crescer..."></textarea>
+      </div>
+      <button class="btn btn-pink" onclick="submitForm()" style="margin-top:4px">
         ✅ Confirmar presença!
       </button>
-      <div id="modalError" style="display:none;margin-top:10px;font-size:13px;color:var(--red);text-align:center;font-weight:600"></div>
+      <div id="formErr"></div>
     </div>
   </div>
 </div>
 
 <script>
-/* ── STARS ── */
+/* ── BG DECORATIONS ── */
 (function(){
-  const layer = document.getElementById('starsLayer');
-  for(let i=0;i<110;i++){
-    const el=document.createElement('div');
-    el.className='star';
-    const sz=Math.random()*2.2+.4;
-    const op=.3+Math.random()*.7;
-    el.style.cssText=
-      'width:'+sz+'px;height:'+sz+'px;'
-      +'top:'+(Math.random()*72)+'%;'
-      +'left:'+(Math.random()*100)+'%;'
-      +'--dur:'+(1.5+Math.random()*3.5)+'s;'
-      +'--del:'+(Math.random()*5)+'s;'
-      +'--op:'+op+';';
-    layer.appendChild(el);
+  const wrap=document.getElementById('bgWrap');
+  const colors=['#f7a8c4','#c8a8e0','#f7d860','#a8d8a0','#a8d0f8'];
+  const hearts=['💛','💜','🩷','🌸','⭐'];
+  // dots
+  for(let i=0;i<22;i++){
+    const d=document.createElement('div');d.className='dot';
+    const sz=4+Math.random()*12;
+    const col=colors[i%colors.length];
+    d.style.cssText='width:'+sz+'px;height:'+sz+'px;'
+      +'background:'+col+';opacity:'+(0.12+Math.random()*.18)+';'
+      +'top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;'
+      +'--d:'+(5+Math.random()*8)+'s;--dl:'+(Math.random()*5)+'s;'
+      +'--tx:'+(Math.random()*40-20)+'px;--ty:'+(Math.random()*40-20)+'px;'
+      +'--sc:'+(0.8+Math.random()*.5)+';';
+    wrap.appendChild(d);
+  }
+  // hearts
+  for(let i=0;i<14;i++){
+    const h=document.createElement('div');h.className='heart-bg';
+    h.textContent=hearts[i%hearts.length];
+    const fs=10+Math.random()*14;
+    h.style.cssText='font-size:'+fs+'px;opacity:'+(0.1+Math.random()*.15)+';'
+      +'top:'+(Math.random()*90)+'%;left:'+(Math.random()*100)+'%;'
+      +'--fs:'+fs+'px;--op:'+(0.1+Math.random()*.15)+';'
+      +'--d:'+(6+Math.random()*8)+'s;--dl:'+(Math.random()*6)+'s;'
+      +'--tx:'+(Math.random()*30-15)+'px;--ty:'+(Math.random()*30-15)+'px;'
+      +'--r1:'+(Math.random()*20-10)+'deg;--r2:'+(Math.random()*20-10)+'deg;';
+    wrap.appendChild(h);
   }
 })();
 
-/* ── FIREFLIES ── */
+/* ── CANVAS BANNER ── */
 (function(){
-  for(let i=0;i<12;i++){
-    const el=document.createElement('div');
-    el.className='ff';
-    const tx=(Math.random()*80-40)+'px';
-    const ty=(Math.random()*60-30)+'px';
-    el.style.cssText=
-      'left:'+(5+Math.random()*90)+'%;'
-      +'top:'+(20+Math.random()*60)+'%;'
-      +'--dur:'+(4+Math.random()*5)+'s;'
-      +'--fdur:'+(2+Math.random()*3)+'s;'
-      +'--del:'+(Math.random()*4)+'s;'
-      +'--fdel:'+(Math.random()*4)+'s;'
-      +'--tx:'+tx+';--ty:'+ty+';';
-    document.body.appendChild(el);
+  const cv=document.getElementById('bCanvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  let W,H=130,DPR=Math.min(devicePixelRatio||1,2);
+  function resize(){
+    W=window.innerWidth;
+    cv.width=W*DPR;cv.height=H*DPR;
+    cv.style.width=W+'px';cv.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    buildFlags();
   }
-})();
-
-/* ── CANVAS BANNERS ── */
-(function(){
-  const canvas=document.getElementById('bannerCanvas');
-  const ctx=canvas.getContext('2d');
-  const W=canvas.offsetWidth||window.innerWidth;
-  const H=110;
-  canvas.width=W*devicePixelRatio;
-  canvas.height=H*devicePixelRatio;
-  ctx.scale(devicePixelRatio,devicePixelRatio);
-
-  const colors=['#c0392b','#e8822e','#22a85a','#2563eb','#9b59b6','#e6a817','#d4611a'];
-  const FW=18, FH=26, GAP=10;
-  const total=Math.ceil(W/(FW+GAP))+1;
-
-  // build flag data
-  const flags=[];
-  for(let i=0;i<total;i++){
-    const x0=i*(FW+GAP)+(GAP/2);
-    const ropeY=getRopeY(x0+(FW/2),W);
-    flags.push({
-      x:x0, ropeY,
-      color:colors[i%colors.length],
-      phase:Math.random()*Math.PI*2,
-      speed:.4+Math.random()*.6
+  // festa junina palette from the flyer
+  const COLORS=['#f7a8c4','#c8a8e0','#f7d860','#9bc86c','#a8d0f8','#f09060'];
+  const ROPES=[
+    {y0:10,sag:18,spacing:28,offset:6,pal:0},
+    {y0:18,sag:26,spacing:32,offset:18,pal:1}
+  ];
+  const FW=16,FH=24;
+  let flags=[];
+  function cat(x,W,rope){return rope.y0+rope.sag*Math.sin((x/W)*Math.PI)}
+  function buildFlags(){
+    flags=[];
+    ROPES.forEach((rope,ri)=>{
+      for(let i=0;(rope.offset+i*rope.spacing)<W+20;i++){
+        const cx=rope.offset+i*rope.spacing;
+        flags.push({
+          cx,cy:cat(cx,W,rope),
+          col:COLORS[(i+ri*2)%COLORS.length],
+          phase:i*1.15+ri*2.6+Math.random()*.4,
+          s1:.6+Math.random()*.7,s2:.4+Math.random()*.5,s3:.2+Math.random()*.4,
+          rope
+        });
+      }
     });
   }
-
-  function getRopeY(x,W){
-    // single catenary dip
-    const t=x/W;
-    return 12+24*Math.sin(t*Math.PI);
-  }
-
-  let t=0;
+  resize();window.addEventListener('resize',resize);
+  let t=0,raf;
   function draw(){
     ctx.clearRect(0,0,W,H);
-
-    // draw rope
-    ctx.beginPath();
-    ctx.moveTo(0,getRopeY(0,W));
-    for(let x=1;x<=W;x++){
-      ctx.lineTo(x,getRopeY(x,W));
-    }
-    ctx.strokeStyle='#8b5e2a';
-    ctx.lineWidth=2;
-    ctx.stroke();
-
-    // draw flags
-    flags.forEach(f=>{
-      const swing=Math.sin(t*f.speed+f.phase)*8;
-      const rx=f.x+FW/2;
-      const ry=f.ropeY;
-
-      ctx.save();
-      ctx.translate(rx,ry);
-      ctx.rotate(swing*Math.PI/180);
-
-      // flag triangle
+    ROPES.forEach(rope=>{
       ctx.beginPath();
-      ctx.moveTo(-FW/2,0);
-      ctx.lineTo(FW/2,0);
-      ctx.lineTo(0,FH);
-      ctx.closePath();
-      ctx.fillStyle=f.color;
-      ctx.fill();
-
-      // subtle shine
-      ctx.beginPath();
-      ctx.moveTo(-FW/2,0);
-      ctx.lineTo(0,0);
-      ctx.lineTo(-FW/4,FH/2);
-      ctx.closePath();
-      ctx.fillStyle='rgba(255,255,255,.18)';
-      ctx.fill();
-
-      ctx.restore();
-
-      // pin dot
-      ctx.beginPath();
-      ctx.arc(rx,ry,3,0,Math.PI*2);
-      ctx.fillStyle='#5c2e0e';
-      ctx.fill();
+      for(let x=0;x<=W;x++){
+        const y=cat(x,W,rope);x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle='rgba(155,80,40,.45)';ctx.lineWidth=1.6;ctx.stroke();
     });
-
-    t+=0.016;
-    requestAnimationFrame(draw);
+    flags.forEach(f=>{
+      const sw=Math.sin(t*f.s1+f.phase)*7+Math.sin(t*f.s2+f.phase*1.4)*3+Math.sin(t*f.s3+f.phase*.8)*1.5;
+      ctx.save();ctx.translate(f.cx,f.cy);ctx.rotate(sw*Math.PI/180);
+      // shadow
+      ctx.beginPath();ctx.moveTo(-FW/2+1,1);ctx.lineTo(FW/2+1,1);ctx.lineTo(1,FH+1);
+      ctx.closePath();ctx.fillStyle='rgba(0,0,0,.12)';ctx.fill();
+      // body
+      ctx.beginPath();ctx.moveTo(-FW/2,0);ctx.lineTo(FW/2,0);ctx.lineTo(0,FH);
+      ctx.closePath();ctx.fillStyle=f.col;ctx.fill();
+      // white outline
+      ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1;ctx.stroke();
+      // shine
+      ctx.beginPath();ctx.moveTo(-FW/2,0);ctx.lineTo(-FW*.08,0);ctx.lineTo(-FW*.25,FH*.48);
+      ctx.closePath();ctx.fillStyle='rgba(255,255,255,.22)';ctx.fill();
+      // small heart on some flags
+      if(Math.abs(Math.round(f.phase))%3===0){
+        ctx.font='8px serif';ctx.fillStyle='rgba(255,255,255,.7)';ctx.textAlign='center';
+        ctx.fillText('♥',0,FH*.55);
+      }
+      ctx.restore();
+      ctx.beginPath();ctx.arc(f.cx,f.cy,2.2,0,Math.PI*2);
+      ctx.fillStyle='rgba(100,50,20,.5)';ctx.fill();
+    });
+    t+=.013;
+    if(!document.hidden)raf=requestAnimationFrame(draw);
   }
-  draw();
-
-  window.addEventListener('resize',()=>{
-    const NW=window.innerWidth;
-    canvas.width=NW*devicePixelRatio;
-    canvas.height=H*devicePixelRatio;
-    ctx.scale(devicePixelRatio,devicePixelRatio);
-    flags.length=0;
-    const nt=Math.ceil(NW/(FW+GAP))+1;
-    for(let i=0;i<nt;i++){
-      const x0=i*(FW+GAP)+(GAP/2);
-      const ropeY=getRopeY(x0+(FW/2),NW);
-      flags.push({x:x0,ropeY,color:colors[i%colors.length],phase:Math.random()*Math.PI*2,speed:.4+Math.random()*.6});
-    }
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)cancelAnimationFrame(raf);else draw();
   });
+  draw();
+})();
+
+/* ── COUNTDOWN ── */
+(function tick(){
+  const target=new Date('2026-06-28T15:30:00');
+  const now=new Date();
+  const diff=target-now;
+  if(diff<=0){
+    document.getElementById('cdGrid').innerHTML='<p class="cd-over">🎉 É hoje!! 🎉</p>';
+    return;
+  }
+  const d=Math.floor(diff/864e5);
+  const h=Math.floor((diff%864e5)/36e5);
+  const m=Math.floor((diff%36e5)/6e4);
+  const s=Math.floor((diff%6e4)/1e3);
+  const pad=n=>String(n).padStart(2,'0');
+  document.getElementById('cdD').textContent=pad(d);
+  document.getElementById('cdH').textContent=pad(h);
+  document.getElementById('cdM').textContent=pad(m);
+  document.getElementById('cdS').textContent=pad(s);
+  setTimeout(tick,1000);
 })();
 
 /* ── MODAL ── */
 function openModal(){
-  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
-  setTimeout(()=>document.getElementById('mNome').focus(),350);
+  setTimeout(()=>document.getElementById('fNome').focus(),380);
 }
 function closeModal(){
-  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
 }
-function overlayClick(e){
-  if(e.target===document.getElementById('modalOverlay')) closeModal();
-}
-
-/* ── RSVP SUBMIT ── */
-let guestData={};
-
-function submitRsvp(){
-  const nome=document.getElementById('mNome').value.trim();
-  const p1=document.getElementById('mPrato1').value.trim();
-  const p2=document.getElementById('mPrato2').value.trim();
-  const msg=document.getElementById('mMsg').value.trim();
-  const err=document.getElementById('modalError');
-
-  if(!nome){ showErr('Por favor, escreva seu nome 🌻'); return; }
-  if(!p1)  { showErr('Informe o Prato 1 que vai trazer 🍲'); return; }
-  if(!p2)  { showErr('Informe o Prato 2 que vai trazer 🌽'); return; }
-
-  err.style.display='none';
-  guestData={nome,p1,p2,msg};
-  closeModal();
-  buildFoodCard();
-  buildWaCard();
-}
-
-function showErr(txt){
-  const err=document.getElementById('modalError');
-  err.textContent=txt;
-  err.style.display='block';
-}
-
-function buildFoodCard(){
-  const card=document.getElementById('foodCard');
-  const body=document.getElementById('foodBody');
-  card.style.display='block';
-  body.innerHTML=`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-      <div style="background:rgba(212,97,26,.08);border:1.5px solid rgba(212,97,26,.25);border-radius:14px;padding:12px;text-align:center">
-        <div style="font-size:22px;margin-bottom:4px">🍲</div>
-        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lt);font-weight:700">Prato 1</div>
-        <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-top:4px">${escHtml(guestData.p1)}</div>
-      </div>
-      <div style="background:rgba(212,97,26,.08);border:1.5px solid rgba(212,97,26,.25);border-radius:14px;padding:12px;text-align:center">
-        <div style="font-size:22px;margin-bottom:4px">🌽</div>
-        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--text-lt);font-weight:700">Prato 2</div>
-        <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-top:4px">${escHtml(guestData.p2)}</div>
-      </div>
-    </div>
-    ${guestData.msg?`<div style="background:rgba(255,255,255,.6);border:1px solid var(--tan-lt);border-radius:12px;padding:12px;font-size:13px;color:var(--text-mid);font-style:italic">"${escHtml(guestData.msg)}"</div>`:''}
-    <div class="success-banner" style="display:block">
-      ✅ Presença confirmada, ${escHtml(guestData.nome)}! Agora envie no WhatsApp abaixo 👇
-    </div>
-  `;
-  card.scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-function buildWaCard(){
-  const card=document.getElementById('waCard');
-  const body=document.getElementById('waBody');
-  card.style.display='block';
-
-  const txt=buildWaText();
-  const url='https://wa.me/5521974598210?text='+encodeURIComponent(txt);
-
-  body.innerHTML=`
-    <div style="background:rgba(255,255,255,.5);border:1px solid var(--tan-lt);border-radius:14px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--text-mid);white-space:pre-line;line-height:1.65">${escHtml(txt)}</div>
-    <a href="${url}" target="_blank" rel="noopener">
-      <button class="btn btn-whatsapp">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.964-1.418A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.099-1.138l-.29-.173-3.021.864.88-2.943-.19-.302A7.948 7.948 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
-        Enviar no WhatsApp
-      </button>
-    </a>
-  `;
-  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'center'}),200);
-}
-
-function buildWaText(){
-  const {nome,p1,p2,msg}=guestData;
-  return (
-    '🌽🎉 *CONFIRMAÇÃO DE PRESENÇA* 🎉🌽\n\n'
-    +'Olá! Confirmo minha presença no mesversário da *Cecília* 🎀\n\n'
-    +'👤 *Nome:* '+nome+'\n'
-    +'📅 *Data:* 27 de Junho, às 15h\n'
-    +'📍 *Local:* Casa da mamãe\n\n'
-    +'🍽️ *Vou levar:*\n'
-    +'  • '+p1+'\n'
-    +'  • '+p2+'\n'
-    +(msg?'\n💬 *Mensagem:* '+msg+'\n':'')
-    +'\nMal posso esperar para celebrar esse mesão! 🥳✨'
-  );
-}
-
-function escHtml(s){
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-/* close modal on Escape */
+function outsideClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ── FORM ── */
+let G={};
+function submitForm(){
+  const nome=v('fNome'),p1=v('fP1'),p2=v('fP2'),refri=v('fRefri'),msg=v('fMsg');
+  if(!nome){er('Por favor, escreva seu nome 🌻');return}
+  if(!p1){er('Informe o prato de doce! 🧁');return}
+  if(!p2){er('Informe o prato de salgado! 🥘');return}
+  if(!refri){er('Informe qual refrigerante vai trazer! 🥤');return}
+  document.getElementById('formErr').style.display='none';
+  G={nome,p1,p2,refri,msg};
+  closeModal();
+  renderFood();renderWa();
+}
+function v(id){return document.getElementById(id).value.trim()}
+function er(t){const e=document.getElementById('formErr');e.textContent=t;e.style.display='block'}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function renderFood(){
+  const c=document.getElementById('foodCard');c.style.display='block';
+  document.getElementById('foodBody').innerHTML=`
+    <div class="result-grid">
+      <div class="res-item"><span class="res-ico">🧁</span><span class="res-lbl">Doce</span><span class="res-val">${esc(G.p1)}</span></div>
+      <div class="res-item"><span class="res-ico">🥘</span><span class="res-lbl">Salgado</span><span class="res-val">${esc(G.p2)}</span></div>
+      <div class="res-item"><span class="res-ico">🥤</span><span class="res-lbl">Refrigerante</span><span class="res-val">${esc(G.refri)}</span></div>
+    </div>
+    ${G.msg?`<div class="msg-box" style="margin-bottom:14px">"${esc(G.msg)}"</div>`:''}
+    <div class="ok-badge">
+      <span class="ok-ico">✅</span>
+      <span class="ok-txt">Presença confirmada, ${esc(G.nome)}! 🎉<br>Agora envie no WhatsApp abaixo 👇</span>
+    </div>`;
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'center'}),100);
+}
+function waText(){
+  return '🌽🎉 *CONFIRMAÇÃO DE PRESENÇA* 🎉🌽\n\n'
+    +'Olá! Confirmo minha presença no *Arraiá da Cecília* 🎀\n\n'
+    +'👤 *Nome:* '+G.nome+'\n'
+    +'📅 *Data:* 28 de Junho de 2026, às 15h30\n'
+    +'📍 *Local:* Casa da Mamãe\n\n'
+    +'🍽️ *Vou levar:*\n'
+    +'   🧁 Doce: '+G.p1+'\n'
+    +'   🥘 Salgado: '+G.p2+'\n'
+    +'   🥤 Refrigerante: '+G.refri+'\n'
+    +(G.msg?'\n💬 *Mensagem pra Cecília:* '+G.msg+'\n':'')
+    +'\n👒 Contamos com a sua presença!\n_Com carinho, Família da Cecília_ 💗';
+}
+function renderWa(){
+  const c=document.getElementById('waCard');c.style.display='block';
+  const url='https://wa.me/5521974598210?text='+encodeURIComponent(waText());
+  document.getElementById('waBody').innerHTML=`
+    <div class="msg-box" style="margin-bottom:16px">${esc(waText())}</div>
+    <a href="${url}" target="_blank" rel="noopener" class="btn-wa">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.964-1.418A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.099-1.138l-.29-.173-3.021.864.88-2.943-.19-.302A7.948 7.948 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+      </svg>
+      Enviar no WhatsApp
+    </a>`;
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'center'}),200);
+}
 </script>
 </body>
 </html>
