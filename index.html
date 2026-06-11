@@ -4,40 +4,38 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Arraiá da Cecília 🎀</title>
-<!-- OG Meta Tags -->
 <meta property="og:title" content="Arraiá da Cecília 🎀 — 8 Meses!"/>
-<meta property="og:description" content="Vem celebrar os 8 meses da nossa boneca Cecília! 28/06 às 15h30 🌽🎉"/>
+<meta property="og:description" content="Vem celebrar os 8 meses da nossa boneca! 28/06 às 15h30 🌽🎉"/>
 <meta property="og:type" content="website"/>
-<meta name="theme-color" content="#f7a8c4"/>
+<meta name="theme-color" content="#f5e6c0"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --pink:#f7a8c4;
-  --pink-d:#e8609a;
-  --pink-dd:#c43880;
-  --lilac:#c8a8e0;
-  --lilac-d:#9b6cc8;
-  --lilac-dd:#7040a8;
-  --yellow:#f7d860;
-  --yellow-d:#e8b820;
-  --green:#5aab50;
-  --green-d:#3d8034;
-  --orange:#f07830;
-  --wood:#8b5e30;
-  --wood-lt:#c8944a;
-  --cream:#fdf6e0;
-  --cream2:#f8edcc;
-  --bg:#fef0f8;
-  --text:#3a1a40;
-  --text2:#5a3060;
+  /* exact flyer palette */
+  --cream:#faf0d0;
+  --cream2:#f5e6b8;
+  --bg:#fdf5dc;
+  --pink:#e8609a;
+  --pink-lt:#f4a0c4;
+  --pink-d:#c04080;
+  --lilac:#b090d8;
+  --lilac-lt:#d4bce8;
+  --lilac-d:#7850b0;
+  --yellow:#f0c020;
+  --yellow-lt:#f8dc60;
+  --wood:#9a6030;
+  --wood-lt:#c88840;
+  --wood-d:#6a3e18;
+  --green:#40880a;
+  --green-lt:#70b830;
+  --text:#3a1a0a;
+  --text2:#5a3020;
+  --muted:#9a7050;
   --white:#ffffff;
-  --shadow-pink:0 8px 30px rgba(228,96,154,.25);
-  --shadow-lilac:0 8px 30px rgba(155,108,200,.2);
-  --shadow-card:0 6px 24px rgba(100,40,120,.12),0 2px 8px rgba(100,40,120,.08);
 }
 body{
   font-family:'Nunito',sans-serif;
@@ -47,752 +45,679 @@ body{
   overflow-x:hidden;
 }
 
-/* ═══ BACKGROUND ══════════════════════════════════ */
-.bg-wrap{
+/* ══ BACKGROUND ══════════════════════════════════════ */
+.bg{
   position:fixed;inset:0;z-index:0;
-  background:linear-gradient(180deg,#fef0f8 0%,#fdf4ff 40%,#fef8e8 100%);
-  overflow:hidden;
+  background:linear-gradient(175deg,#fdf8e4 0%,#f8eecc 45%,#f2e4b0 100%);
 }
-/* subtle gingham texture */
-.bg-wrap::before{
-  content:'';position:absolute;inset:0;
+/* gingham texture overlay — very subtle */
+.bg::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
   background-image:
-    linear-gradient(rgba(200,168,224,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(200,168,224,.08) 1px,transparent 1px);
-  background-size:32px 32px;
+    linear-gradient(rgba(200,140,60,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,140,60,.05) 1px,transparent 1px);
+  background-size:28px 28px;
 }
-/* floating confetti dots */
-.dot{
-  position:absolute;border-radius:50%;
-  animation:dot-float var(--d) ease-in-out infinite alternate var(--dl);
-  pointer-events:none;
+
+/* ══ FLOATING ELEMENTS (girassóis, corações) ═════════ */
+.floater{
+  position:fixed;z-index:2;pointer-events:none;
+  font-size:var(--fs);opacity:var(--op);
+  animation:float-ele var(--d) ease-in-out infinite alternate var(--dl);
 }
-@keyframes dot-float{
-  from{transform:translate(0,0) scale(1)}
-  to  {transform:translate(var(--tx),var(--ty)) scale(var(--sc))}
-}
-/* hearts */
-.heart-bg{
-  position:absolute;font-size:var(--fs);opacity:var(--op);
-  animation:hf var(--d) ease-in-out infinite alternate var(--dl);
-  pointer-events:none;user-select:none;
-}
-@keyframes hf{
+@keyframes float-ele{
   from{transform:translate(0,0) rotate(var(--r1))}
   to  {transform:translate(var(--tx),var(--ty)) rotate(var(--r2))}
 }
 
-/* ═══ CANVAS BANNER (top) ══════════════════════════ */
+/* ══ CANVAS BANNER ═══════════════════════════════════ */
 .banner-wrap{
   position:fixed;top:0;left:0;right:0;
-  height:130px;z-index:40;pointer-events:none;
+  height:120px;z-index:40;pointer-events:none;
 }
-#bCanvas{display:block;width:100%;height:130px}
+#bCanvas{display:block;width:100%;height:120px}
 
-/* ═══ PAGE ════════════════════════════════════════ */
+/* ══ PAGE ════════════════════════════════════════════ */
 .page{
-  position:relative;z-index:20;
-  padding:140px 16px 60px;
-  display:flex;flex-direction:column;align-items:center;gap:20px;
-  max-width:580px;margin:0 auto;
+  position:relative;z-index:10;
+  padding:128px 16px 60px;
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  max-width:560px;margin:0 auto;
 }
 
-/* ═══ CARD BASE ═══════════════════════════════════ */
+/* ══ CARD BASE ═══════════════════════════════════════ */
 .card{
-  width:100%;border-radius:24px;
-  position:relative;overflow:visible;
-  animation:rise .8s cubic-bezier(.22,1,.36,1) both;
+  width:100%;border-radius:22px;overflow:hidden;
+  position:relative;
+  animation:rise .75s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes rise{
-  from{opacity:0;transform:translateY(30px) scale(.97)}
+  from{opacity:0;transform:translateY(28px) scale(.975)}
   to  {opacity:1;transform:translateY(0) scale(1)}
 }
-.card:nth-child(2){animation-delay:.06s}
-.card:nth-child(3){animation-delay:.12s}
-.card:nth-child(4){animation-delay:.18s}
-.card:nth-child(5){animation-delay:.24s}
-.card:nth-child(6){animation-delay:.30s}
+.card:nth-child(2){animation-delay:.07s}
+.card:nth-child(3){animation-delay:.13s}
+.card:nth-child(4){animation-delay:.19s}
+.card:nth-child(5){animation-delay:.25s}
+.card:nth-child(6){animation-delay:.31s}
+.card:nth-child(7){animation-delay:.37s}
 
-/* ═══ DASHED BORDER CARDS ════════════════════════ */
-.card-inner{
-  border-radius:22px;
-  padding:0;overflow:hidden;
-  box-shadow:var(--shadow-card);
-  border:2.5px dashed rgba(155,108,200,.3);
-  background:var(--white);
-  position:relative;
+/* ══ HERO CARD ═══════════════════════════════════════ */
+.hero{
+  background:linear-gradient(175deg,#fdf5dc 0%,#f8ecc0 60%,#f0e0a8 100%);
+  border:3px solid var(--lilac-lt);
+  box-shadow:
+    0 0 0 7px rgba(176,144,216,.1),
+    0 10px 48px rgba(100,60,20,.2),
+    0 2px 10px rgba(100,60,20,.1),
+    inset 0 1px 0 rgba(255,255,255,.7);
 }
-.card-inner::before{/* corner stitch effect */
-  content:'';position:absolute;inset:5px;border-radius:18px;
-  border:1px solid rgba(155,108,200,.1);pointer-events:none;z-index:1;
+/* lilac zigzag top strip */
+.hero-topstrip{
+  height:12px;
+  background:var(--lilac-lt);
+  position:relative;overflow:hidden;
+}
+.hero-topstrip::after{
+  content:'';position:absolute;bottom:-6px;left:0;right:0;height:12px;
+  background:var(--bg);
+  clip-path:polygon(0 100%,2% 0,4% 100%,6% 0,8% 100%,10% 0,12% 100%,14% 0,16% 100%,18% 0,20% 100%,22% 0,24% 100%,26% 0,28% 100%,30% 0,32% 100%,34% 0,36% 100%,38% 0,40% 100%,42% 0,44% 100%,46% 0,48% 100%,50% 0,52% 100%,54% 0,56% 100%,58% 0,60% 100%,62% 0,64% 100%,66% 0,68% 100%,70% 0,72% 100%,74% 0,76% 100%,78% 0,80% 100%,82% 0,84% 100%,86% 0,88% 100%,90% 0,92% 100%,94% 0,96% 100%,98% 0,100% 100%);
 }
 
-/* ═══ HERO CARD ════════════════════════════════════ */
-.hero-card .card-inner{
-  background:linear-gradient(175deg,#fdf6e0 0%,#fef0f8 60%,#f8eeff 100%);
-  border:3px solid rgba(155,108,200,.35);
-  padding-bottom:1.6rem;
-}
+.hero-body{padding:1.4rem 1.6rem 0;text-align:center;position:relative}
 
-/* wood sign banner */
+/* WOOD SIGN — matches flyer exactly */
 .wood-sign{
-  background:linear-gradient(160deg,#b87e40 0%,#8b5e30 50%,#7a4e24 100%);
-  margin:0;padding:14px 28px 12px;
+  margin:0 -1.6rem;
+  padding:.9rem 2rem .8rem;
+  background:linear-gradient(165deg,#c08840 0%,#9a6030 40%,#7a4820 100%);
   position:relative;
-  box-shadow:0 4px 16px rgba(80,40,10,.35),inset 0 1px 0 rgba(255,255,255,.15);
+  box-shadow:0 4px 18px rgba(60,20,0,.35),inset 0 1px 0 rgba(255,255,255,.14);
 }
-.wood-sign::before,.wood-sign::after{/* wood grain lines */
-  content:'';position:absolute;
-  height:1px;left:10%;right:10%;
-  background:rgba(255,255,255,.08);
-}
-.wood-sign::before{top:30%}
-.wood-sign::after{bottom:30%}
-.wood-sign-text{
+.wood-sign::before{content:'';position:absolute;top:26%;left:0;right:0;height:1px;background:rgba(255,255,255,.08)}
+.wood-sign::after {content:'';position:absolute;top:60%;left:0;right:0;height:1px;background:rgba(0,0,0,.1)}
+.ws-text{
   font-family:'Fredoka One',cursive;
-  font-size:clamp(22px,6vw,30px);
-  color:#fdf6e0;
-  text-align:center;
-  text-shadow:0 2px 4px rgba(0,0,0,.4),0 0 20px rgba(255,200,100,.2);
-  letter-spacing:2px;
+  font-size:clamp(30px,9vw,46px);
+  color:var(--lilac-d);
+  text-shadow:
+    -2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff,
+    0 1px 0 rgba(255,255,255,.6),
+    0 4px 10px rgba(40,10,0,.45);
+  letter-spacing:6px;
   position:relative;z-index:2;
 }
-.wood-sign-sub{
-  font-family:'Nunito',sans-serif;
-  font-size:13px;font-weight:700;
-  color:rgba(253,246,224,.75);
-  text-align:center;letter-spacing:3px;text-transform:uppercase;
-  margin-top:2px;position:relative;z-index:2;
-}
-/* wood pegs */
-.wood-pegs{
-  display:flex;justify-content:space-between;
-  padding:0 20px;margin-top:-6px;position:relative;z-index:3;
+.ws-pegs{
+  display:flex;justify-content:space-between;padding:0 14px;
+  margin-top:-4px;position:relative;z-index:3;
 }
 .peg{
-  width:14px;height:18px;border-radius:3px 3px 6px 6px;
-  background:linear-gradient(180deg,#7a4e24,#5c3a18);
+  width:11px;height:14px;border-radius:2px 2px 4px 4px;
+  background:linear-gradient(180deg,#6a3e18,#4a2808);
   box-shadow:0 2px 4px rgba(0,0,0,.3);
 }
 
-/* da pill */
+/* DA pill — pink like flyer */
 .da-pill{
   display:inline-block;
   background:linear-gradient(135deg,var(--pink),var(--pink-d));
-  color:#fff;font-family:'Fredoka One',cursive;
-  font-size:18px;padding:4px 22px;border-radius:30px;
-  box-shadow:0 3px 10px rgba(232,96,154,.4);
-  margin:10px auto 0;
-  animation:bounce-in .5s .9s both;
+  color:#fff;font-family:'Fredoka One',cursive;font-size:20px;
+  padding:4px 24px 5px;border-radius:30px;
+  box-shadow:0 3px 12px rgba(192,64,128,.4),0 1px 0 rgba(255,255,255,.2) inset;
+  margin-top:10px;
+  animation:bounce-in .5s .7s both;
 }
-@keyframes bounce-in{
-  0%{transform:scale(0);opacity:0}
-  70%{transform:scale(1.1)}
-  100%{transform:scale(1);opacity:1}
-}
+@keyframes bounce-in{0%{transform:scale(0);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
 
-/* big CECILIA text */
-.cecilia-wrap{
-  padding:0 12px;margin-top:4px;text-align:center;
-  animation:fi .6s .6s both;
+/* Cecília name — pink gingham + white border, flyer-style */
+.name-wrap{
+  margin:.4rem -1.6rem 0;
+  padding:.3rem 1.2rem .6rem;
+  position:relative;
+  animation:fi .5s .5s both;
+  overflow:visible;
 }
-.cecilia-svg{
-  width:100%;max-width:500px;height:auto;
-  display:block;margin:0 auto;overflow:visible;
-}
+.name-svg{width:100%;max-width:520px;height:auto;display:block;margin:0 auto;overflow:visible}
 
-/* badge strip */
-.age-badge{
+/* 8 MESES banner — lilac pill like flyer */
+.age-banner{
   display:inline-flex;align-items:center;gap:8px;
   background:linear-gradient(135deg,var(--lilac),var(--lilac-d));
-  color:#fff;border-radius:30px;
-  padding:8px 22px;margin:8px auto 0;
-  font-family:'Fredoka One',cursive;font-size:16px;
-  box-shadow:0 4px 14px rgba(155,108,200,.4);
-  animation:fi .6s 1.1s both;
+  color:#fff;border-radius:8px;
+  padding:9px 24px;margin-top:.5rem;
+  font-family:'Fredoka One',cursive;font-size:15px;letter-spacing:.5px;
+  box-shadow:0 4px 14px rgba(120,80,176,.35);
+  animation:fi .5s .9s both;
 }
-.age-badge-heart{font-size:14px;animation:pulse 1.2s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+.hrt{animation:pulse 1.3s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 
 /* invite text */
-.invite-text{
-  text-align:center;padding:1rem 1.6rem .5rem;
-  font-size:14.5px;line-height:1.65;color:var(--text2);
-  font-weight:500;
-  animation:fi .6s 1.3s both;
+.invite-p{
+  font-size:14.5px;line-height:1.75;color:var(--text2);font-weight:600;
+  padding:.9rem 1.6rem .4rem;text-align:center;
+  animation:fi .5s 1.1s both;
 }
-.invite-text strong{color:var(--pink-dd);font-weight:700}
+.invite-p b{color:var(--pink-d);font-weight:800}
+.invite-p .em{color:var(--lilac-d);font-weight:800}
 
-/* info grid */
-.info-grid{
+/* info strip — like flyer's date/time/local row */
+.info-strip{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:10px;padding:0 1.4rem 1rem;
-  animation:fi .6s 1.5s both;
+  margin-top:.3rem;
+  border-top:2px dashed rgba(176,144,216,.3);
+  background:rgba(253,245,220,.7);
 }
-.ig-cell{
-  background:linear-gradient(145deg,#fff,#fdf0ff);
-  border:2px dashed rgba(155,108,200,.3);
-  border-radius:16px;padding:12px 8px;text-align:center;
+.is-cell{padding:14px 6px;text-align:center;position:relative}
+.is-cell:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:18%;height:64%;
+  width:1.5px;background:rgba(176,144,216,.3);
 }
-.ig-icon{font-size:26px;display:block;margin-bottom:4px}
-.ig-lbl{
-  font-size:9px;text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--lilac-d);font-weight:700;display:block;
+.is-icon{font-size:22px;display:block;margin-bottom:3px}
+.is-lbl{
+  font-size:8.5px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);display:block;
 }
-.ig-val{
+.is-val{
   font-family:'Fredoka One',cursive;
-  font-size:15px;color:var(--text);
-  display:block;margin-top:3px;line-height:1.3;
+  font-size:15px;color:var(--text);display:block;margin-top:3px;line-height:1.3;
 }
 
-/* scarecrow decoration (right side) */
-.deco-scarecrow{
-  position:absolute;right:-8px;top:-20px;
-  font-size:64px;
-  animation:scare-sway 3s ease-in-out infinite alternate;
-  pointer-events:none;z-index:5;
-  filter:drop-shadow(2px 4px 6px rgba(100,40,120,.2));
-}
-@keyframes scare-sway{
-  from{transform:rotate(-4deg)}
-  to  {transform:rotate(4deg)}
-}
-.deco-hat{
-  position:absolute;left:-10px;top:10px;
-  font-size:40px;
-  animation:hat-bob 4s ease-in-out infinite alternate;
-  pointer-events:none;z-index:5;
-  filter:drop-shadow(2px 3px 5px rgba(100,40,120,.15));
-}
-@keyframes hat-bob{
-  from{transform:rotate(8deg) translateY(0)}
-  to  {transform:rotate(-6deg) translateY(-6px)}
-}
+/* lilac bottom strip — mirror of top */
+.hero-botstrip{height:12px;background:var(--lilac-lt);}
 
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ═══ SECTION CARD STYLES ═════════════════════════ */
-.sec-header{
-  display:flex;align-items:center;gap:12px;
-  padding:1.1rem 1.4rem .9rem;
-  border-bottom:1.5px dashed rgba(155,108,200,.2);
+/* ══ CONTRIBUTION CARD ═══════════════════════════════ */
+.contrib-card{
+  background:linear-gradient(160deg,var(--cream) 0%,var(--cream2) 100%);
+  border:2px solid rgba(232,96,154,.25);
+  box-shadow:0 6px 24px rgba(100,40,20,.12),0 2px 6px rgba(100,40,20,.08);
 }
-.sec-num{
+/* pink banner — like flyer */
+.contrib-banner{
+  background:linear-gradient(135deg,var(--pink),var(--pink-d));
+  color:#fff;padding:11px 1.4rem;
+  font-family:'Fredoka One',cursive;font-size:13px;letter-spacing:1px;text-align:center;
+  line-height:1.45;
+}
+.contrib-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;padding:1rem 1.4rem;
+}
+.ci{
+  background:rgba(255,255,255,.7);
+  border:2.5px dashed;
+  border-radius:50%;
+  width:100%;aspect-ratio:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;
+  transition:transform .2s;
+  padding:8px;
+}
+.ci:hover{transform:scale(1.05)}
+.ci-pink{border-color:rgba(232,96,154,.5)}
+.ci-yellow{border-color:rgba(200,136,0,.4)}
+.ci-blue{border-color:rgba(100,140,220,.4)}
+.ci-icon{font-size:32px;line-height:1}
+.ci-lbl{font-size:10.5px;font-weight:800;text-align:center;color:var(--text2);line-height:1.3}
+.contrib-note{
+  display:flex;align-items:flex-start;gap:10px;
+  margin:0 1.4rem 1.2rem;
+  background:rgba(253,245,220,.8);
+  border:1.5px dashed rgba(180,120,48,.3);
+  border-radius:14px;padding:11px 13px;
+}
+.cn-ico{font-size:20px;flex-shrink:0;margin-top:1px}
+.cn-txt{font-size:13px;font-weight:600;color:var(--text2);line-height:1.55}
+.cn-txt b{color:var(--pink-d)}
+.cn-txt .em2{color:var(--lilac-d)}
+
+/* ══ CONTENT CARDS (shared) ══════════════════════════ */
+.light-card{
+  background:linear-gradient(160deg,var(--cream) 0%,var(--cream2) 100%);
+  border:2px solid rgba(176,144,216,.25);
+  box-shadow:0 6px 24px rgba(100,40,20,.12),0 2px 6px rgba(100,40,20,.08);
+}
+.card-head{
+  display:flex;align-items:center;gap:13px;
+  padding:1.1rem 1.4rem .9rem;
+  border-bottom:1.5px dashed rgba(176,144,216,.25);
+}
+.cn-badge{
   width:36px;height:36px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-family:'Fredoka One',cursive;font-size:18px;
   flex-shrink:0;border:2.5px solid;
 }
-.sn-pink{color:var(--pink-dd);border-color:var(--pink);background:rgba(247,168,196,.12)}
-.sn-yellow{color:#b87e20;border-color:var(--yellow-d);background:rgba(247,216,96,.12)}
-.sn-green{color:var(--green-d);border-color:var(--green);background:rgba(90,171,80,.1)}
-.sec-title{
+.cb-pink{color:var(--pink-d);border-color:var(--pink-lt);background:rgba(232,96,154,.1)}
+.cb-yellow{color:var(--wood);border-color:var(--yellow);background:rgba(200,136,0,.1)}
+.cb-green{color:var(--green);border-color:var(--green-lt);background:rgba(64,136,10,.08)}
+.card-title{
   font-family:'Fredoka One',cursive;
-  font-size:19px;color:var(--text);line-height:1.2;
+  font-size:18px;color:var(--text);line-height:1.2;
 }
-.sec-sub{font-size:12px;color:var(--text2);font-weight:500;margin-top:2px}
-.sec-body{padding:1.2rem 1.4rem 1.4rem}
+.card-sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+.card-body{padding:1.2rem 1.4rem 1.4rem}
 
-/* contribution banner */
-.contrib-banner{
-  background:linear-gradient(135deg,var(--pink),var(--pink-d));
-  color:#fff;
-  padding:12px 1.4rem;
-  text-align:center;
+/* ══ COUNTDOWN ═══════════════════════════════════════ */
+.cd-card{
+  background:linear-gradient(135deg,#b82858 0%,#7a1848 40%,#6030a8 100%);
+  border:2px solid rgba(232,96,154,.25);
+  box-shadow:0 8px 32px rgba(120,24,72,.35),0 2px 8px rgba(96,48,168,.2);
+}
+.cd-inner{padding:1.4rem;text-align:center}
+.cd-lbl{
   font-family:'Fredoka One',cursive;
-  font-size:14px;letter-spacing:.5px;
-  line-height:1.4;
-  border-bottom:1.5px dashed rgba(255,255,255,.3);
+  font-size:13px;letter-spacing:2px;
+  color:rgba(255,255,255,.75);margin-bottom:12px;display:block;
 }
+.cd-row{display:flex;justify-content:center;gap:10px}
+.cd-unit{
+  background:rgba(255,255,255,.18);
+  border:1.5px solid rgba(255,255,255,.28);
+  border-radius:14px;padding:11px 10px;min-width:60px;
+  backdrop-filter:blur(4px);
+}
+.cd-n{
+  font-family:'Fredoka One',cursive;
+  font-size:32px;color:#fff;display:block;line-height:1;
+  text-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.cd-u{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:1.5px;
+  color:rgba(255,255,255,.65);font-weight:700;display:block;margin-top:4px;
+}
+.cd-over{font-family:'Fredoka One',cursive;font-size:24px;color:#fff}
 
-/* item cards (doce/salgado/refrigerante) */
-.contrib-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
-  padding:1rem 1.4rem 1.4rem;
-}
-.contrib-item{
-  background:linear-gradient(145deg,#fff,#fdf5ff);
-  border:2px dashed;border-radius:18px;
-  padding:16px 8px;text-align:center;
-  transition:transform .2s;
-}
-.contrib-item:hover{transform:translateY(-2px)}
-.ci-pink{border-color:rgba(247,168,196,.5)}
-.ci-yellow{border-color:rgba(247,216,96,.5)}
-.ci-blue{border-color:rgba(147,197,253,.5)}
-.contrib-icon{font-size:36px;display:block;margin-bottom:6px}
-.contrib-lbl{
-  font-family:'Nunito',sans-serif;
-  font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.8px;color:var(--text2);display:block;line-height:1.35;
-}
-
-/* ═══ RSVP BUTTON ═════════════════════════════════ */
+/* ══ BUTTONS ═════════════════════════════════════════ */
 .btn{
   display:block;width:100%;
   padding:15px 20px;border:none;border-radius:100px;
-  font-family:'Fredoka One',cursive;font-size:18px;letter-spacing:.5px;
+  font-family:'Fredoka One',cursive;font-size:17px;letter-spacing:.5px;
   cursor:pointer;
   transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s,filter .15s;
   position:relative;overflow:hidden;
 }
 .btn::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 60%);
+  background:linear-gradient(180deg,rgba(255,255,255,.16) 0%,transparent 55%);
   pointer-events:none;
 }
 .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.btn:active{transform:translateY(2px)!important;filter:brightness(.95)}
+.btn:active{transform:translateY(1px)!important}
 
 .btn-pink{
-  background:linear-gradient(130deg,var(--pink-d),var(--pink-dd));
+  background:linear-gradient(130deg,var(--pink),var(--pink-d));
   color:#fff;
-  box-shadow:0 5px 20px rgba(196,56,128,.35),0 -2px 0 rgba(0,0,0,.1) inset;
+  box-shadow:0 5px 20px rgba(192,64,128,.4),0 -2px 0 rgba(0,0,0,.12) inset,0 1px 0 rgba(255,255,255,.12) inset;
 }
-.btn-pink:hover{box-shadow:0 9px 28px rgba(196,56,128,.45)}
+.btn-pink:hover{box-shadow:0 9px 28px rgba(192,64,128,.5)}
 
 .btn-wa{
-  background:linear-gradient(130deg,#25c860,#178040);
+  background:linear-gradient(130deg,#25c860,#158040);
   color:#fff;
   display:flex;align-items:center;justify-content:center;gap:10px;
-  box-shadow:0 5px 20px rgba(23,128,64,.35);
-  text-decoration:none;
-  font-family:'Fredoka One',cursive;font-size:18px;letter-spacing:.5px;
+  box-shadow:0 5px 20px rgba(21,128,64,.35),0 1px 0 rgba(255,255,255,.08) inset;
+  text-decoration:none;font-family:'Fredoka One',cursive;font-size:17px;
   padding:15px 20px;border-radius:100px;
   transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s,filter .15s;
 }
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(23,128,64,.45);filter:brightness(1.06)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(21,128,64,.48);filter:brightness(1.07)}
 
-/* ═══ MODAL ═══════════════════════════════════════ */
+/* ══ MODAL ═══════════════════════════════════════════ */
 .overlay{
   position:fixed;inset:0;z-index:100;
-  background:rgba(60,20,80,.7);
-  backdrop-filter:blur(8px);
+  background:rgba(50,20,10,.75);backdrop-filter:blur(8px);
   display:flex;align-items:flex-end;justify-content:center;
-  padding:0;opacity:0;pointer-events:none;
-  transition:opacity .28s;
+  opacity:0;pointer-events:none;transition:opacity .28s;
 }
 @media(min-width:520px){.overlay{align-items:center;padding:20px}}
 .overlay.open{opacity:1;pointer-events:all}
-
 .modal{
   background:var(--cream);
-  border-radius:28px 28px 0 0;
-  border:2.5px dashed rgba(155,108,200,.35);
-  border-bottom:none;
-  width:100%;max-width:500px;
-  max-height:92vh;overflow-y:auto;overscroll-behavior:contain;
-  box-shadow:0 -16px 60px rgba(60,20,80,.4);
-  transform:translateY(50px);
-  transition:transform .38s cubic-bezier(.22,1,.36,1);
+  border-radius:26px 26px 0 0;
+  border:2px solid var(--lilac-lt);border-bottom:none;
+  width:100%;max-width:500px;max-height:92vh;
+  overflow-y:auto;overscroll-behavior:contain;
+  box-shadow:0 -14px 50px rgba(50,20,10,.4);
+  transform:translateY(50px);transition:transform .38s cubic-bezier(.22,1,.36,1);
 }
-@media(min-width:520px){
-  .modal{border-radius:28px;border-bottom:2.5px dashed rgba(155,108,200,.35)}
-}
+@media(min-width:520px){.modal{border-radius:26px;border-bottom:2px solid var(--lilac-lt)}}
 .overlay.open .modal{transform:translateY(0)}
-
-.modal-pill{width:40px;height:5px;border-radius:3px;background:var(--lilac);margin:14px auto 0;opacity:.5}
-@media(min-width:520px){.modal-pill{display:none}}
-
-.modal-head{
+.m-pill{width:38px;height:4px;border-radius:2px;background:var(--lilac-lt);margin:13px auto 0}
+@media(min-width:520px){.m-pill{display:none}}
+.m-head{
   padding:1.3rem 1.5rem 1rem;
-  border-bottom:1.5px dashed rgba(155,108,200,.2);
+  border-bottom:1.5px dashed rgba(176,144,216,.25);
   display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
 }
-.modal-title{font-family:'Fredoka One',cursive;font-size:22px;color:var(--text)}
-.modal-sub{font-size:12px;color:var(--text2);font-weight:500;margin-top:3px}
-.modal-x{
+.m-title{font-family:'Fredoka One',cursive;font-size:22px;color:var(--text)}
+.m-sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+.m-x{
   background:none;border:none;cursor:pointer;
   width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  color:var(--lilac-d);font-size:18px;flex-shrink:0;
-  transition:background .2s;
+  color:var(--muted);font-size:17px;flex-shrink:0;
+  transition:background .2s,color .2s;
 }
-.modal-x:hover{background:rgba(155,108,200,.15)}
-.modal-b{padding:1.2rem 1.5rem 2rem}
-
-/* form fields */
-.fl{margin-bottom:15px}.fl:last-of-type{margin-bottom:0}
+.m-x:hover{background:var(--cream2);color:var(--pink-d)}
+.m-body{padding:1.2rem 1.5rem 2rem}
+.fl{margin-bottom:15px}
 .fl label{
-  display:block;font-size:11px;font-weight:800;
-  letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--lilac-dd);margin-bottom:7px;
+  display:block;font-size:10.5px;font-weight:900;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--lilac-d);margin-bottom:7px;
 }
 .fl input,.fl textarea{
-  width:100%;
-  background:rgba(255,255,255,.8);
-  border:2px solid rgba(155,108,200,.3);
-  border-radius:14px;
+  width:100%;background:rgba(255,255,255,.75);
+  border:2px solid rgba(176,144,216,.35);border-radius:13px;
   padding:12px 14px;
-  font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;color:var(--text);
+  font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;color:var(--text);
   outline:none;-webkit-appearance:none;
   transition:border-color .2s,box-shadow .2s,background .2s;
 }
 .fl input::placeholder,.fl textarea::placeholder{color:#c0a8d0;font-weight:400}
 .fl input:focus,.fl textarea:focus{
-  border-color:var(--pink-d);background:#fff;
+  border-color:var(--pink);background:#fff;
   box-shadow:0 0 0 3px rgba(232,96,154,.12);
 }
-.fl textarea{resize:none;min-height:78px;line-height:1.55}
+.fl textarea{resize:none;min-height:76px;line-height:1.55}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-.req{color:var(--pink-dd)}
+.req{color:var(--pink-d)}
 #formErr{
-  display:none;margin-top:12px;
-  font-size:13px;font-weight:700;color:var(--pink-dd);text-align:center;
-  padding:10px 14px;background:rgba(232,96,154,.08);
-  border-radius:12px;border:1.5px dashed rgba(232,96,154,.3);
+  display:none;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--pink-d);
+  text-align:center;padding:10px 14px;
+  background:rgba(232,96,154,.08);border-radius:12px;border:1.5px dashed rgba(232,96,154,.3);
 }
 
-/* ═══ RESULTS ═════════════════════════════════════ */
-.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.res-item{
-  background:linear-gradient(145deg,#fff,#fdf0ff);
-  border:2px dashed rgba(155,108,200,.3);
-  border-radius:16px;padding:12px 8px;text-align:center;
+/* ══ RESULTS ════════════════════════════════════════ */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.res-chip{
+  background:rgba(255,255,255,.65);border:2px dashed rgba(176,144,216,.3);
+  border-radius:14px;padding:12px 8px;text-align:center;
 }
-.res-ico{font-size:22px;display:block;margin-bottom:5px}
-.res-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--lilac-d);font-weight:700;display:block}
-.res-val{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);display:block;margin-top:3px;line-height:1.3}
-
+.rc-ico{font-size:20px;display:block;margin-bottom:5px}
+.rc-lbl{font-size:8.5px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:800;display:block}
+.rc-val{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);display:block;margin-top:3px;line-height:1.3}
 .msg-box{
-  background:rgba(255,255,255,.6);
-  border:1.5px dashed rgba(155,108,200,.25);
-  border-radius:14px;padding:13px 15px;
-  font-size:13.5px;color:var(--text2);
-  font-style:italic;line-height:1.65;
-  white-space:pre-line;
+  background:rgba(255,255,255,.55);border:1.5px dashed rgba(176,144,216,.28);
+  border-radius:13px;padding:13px 15px;
+  font-size:13.5px;font-weight:600;color:var(--text2);
+  font-style:italic;line-height:1.65;white-space:pre-line;
 }
 .ok-badge{
-  display:flex;align-items:center;gap:12px;
-  background:linear-gradient(135deg,#edfaf4,#d4f0e4);
-  border:1.5px dashed rgba(37,200,96,.35);
-  border-radius:16px;padding:13px 15px;margin-top:14px;
+  display:flex;align-items:center;gap:11px;
+  background:linear-gradient(135deg,#eaf8ee,#d2f2e0);
+  border:2px dashed rgba(30,160,70,.28);border-radius:14px;
+  padding:13px 15px;margin-top:14px;
   animation:pop .4s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
 .ok-ico{font-size:22px;flex-shrink:0}
-.ok-txt{font-size:13px;font-weight:700;color:#167840;line-height:1.45}
+.ok-txt{font-size:13px;font-weight:700;color:#167040;line-height:1.45}
 
-/* ═══ COUNTDOWN ═══════════════════════════════════ */
-.countdown-card .card-inner{
-  background:linear-gradient(135deg,var(--pink) 0%,var(--pink-d) 50%,var(--lilac-d) 100%);
-  border:none;
-  padding:1.6rem 1.4rem;
+/* ══ FOOTER ══════════════════════════════════════════ */
+.footer-card{
+  background:linear-gradient(145deg,#a070c8 0%,#7850b0 50%,#5c3a98 100%);
+  border:2px solid rgba(176,144,216,.35);
+  box-shadow:0 8px 32px rgba(96,48,168,.3);
   text-align:center;
 }
-.cd-label{
-  font-family:'Fredoka One',cursive;
-  font-size:14px;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,.8);margin-bottom:12px;
-  display:block;
-}
-.cd-grid{display:flex;justify-content:center;gap:12px}
-.cd-unit{
-  background:rgba(255,255,255,.2);
-  border:1.5px solid rgba(255,255,255,.3);
-  border-radius:16px;padding:12px 14px;min-width:64px;
-  backdrop-filter:blur(4px);
-}
-.cd-num{
-  font-family:'Fredoka One',cursive;
-  font-size:36px;color:#fff;display:block;line-height:1;
-  text-shadow:0 2px 8px rgba(0,0,0,.2);
-}
-.cd-unit-lbl{
-  font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;
-  color:rgba(255,255,255,.75);font-weight:700;display:block;margin-top:4px;
-}
-.cd-over{
-  font-family:'Fredoka One',cursive;
-  font-size:28px;color:#fff;
-  text-shadow:0 2px 8px rgba(0,0,0,.2);
-}
-
-/* ═══ FOOTER ══════════════════════════════════════ */
-.footer-card .card-inner{
-  background:linear-gradient(155deg,#fdf0ff,#fef6e0);
-  border:2.5px dashed rgba(155,108,200,.25);
-  text-align:center;padding:2rem 1.6rem;
-}
-.footer-caipira{
-  font-family:'Pacifico',cursive;
-  font-size:clamp(13px,3.2vw,16px);
-  color:var(--wood);margin-bottom:.5rem;display:block;
-  line-height:1.6;
-}
+.footer-inner{padding:1.8rem 1.6rem}
 .footer-main{
   font-family:'Fredoka One',cursive;
-  font-size:clamp(19px,5vw,24px);
-  color:var(--pink-dd);display:block;margin-bottom:.8rem;
+  font-size:clamp(18px,4.5vw,24px);color:#fff;
+  display:block;line-height:1.45;margin-bottom:.5rem;
+  text-shadow:0 2px 8px rgba(80,40,120,.3);
 }
 .footer-sub{
-  font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;
-  color:var(--lilac-d);display:block;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.7);display:block;
 }
 
-/* ═══ SUNFLOWERS (bottom decoration) ═════════════ */
-.sunflower{
-  position:fixed;bottom:0;font-size:var(--fs);z-index:6;pointer-events:none;
-  animation:sf-sway var(--d) ease-in-out infinite alternate var(--dl);
-  filter:drop-shadow(0 4px 8px rgba(100,60,0,.2));
-  transform-origin:bottom center;
-}
-@keyframes sf-sway{
-  from{transform:rotate(var(--r1))}
-  to  {transform:rotate(var(--r2))}
-}
-
-/* ═══ CAIPIRA NOTE ════════════════════════════════ */
-.caipira-note{
-  display:flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,#fff9e8,#fffbf0);
-  border:2px dashed rgba(200,148,74,.4);
-  border-radius:16px;padding:12px 14px;
-  margin-top:14px;
-}
-.cn-ico{font-size:20px;flex-shrink:0}
-.cn-txt{font-size:13px;font-weight:600;color:var(--wood);line-height:1.5}
-.cn-txt strong{color:var(--pink-dd)}
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--lilac-lt);border-radius:3px}
 </style>
 </head>
 <body>
 
-<!-- ═══ BG ═══════════════════════════════════════════ -->
-<div class="bg-wrap" id="bgWrap"></div>
+<div class="bg"></div>
 
-<!-- ═══ BANNER ROPE ═══════════════════════════════════ -->
+<!-- floating decorations — girassóis, corações, estrelinhas -->
+<div class="floater" style="left:2%;top:18%;--fs:32px;--op:.22;--d:5s;--dl:0s;--tx:10px;--ty:-8px;--r1:-8deg;--r2:6deg">🌻</div>
+<div class="floater" style="left:88%;top:14%;--fs:26px;--op:.20;--d:6s;--dl:.8s;--tx:-8px;--ty:10px;--r1:6deg;--r2:-8deg">🌻</div>
+<div class="floater" style="left:5%;top:55%;--fs:18px;--op:.18;--d:7s;--dl:1.5s;--tx:6px;--ty:-10px;--r1:-4deg;--r2:8deg">🌼</div>
+<div class="floater" style="left:91%;top:48%;--fs:20px;--op:.16;--d:8s;--dl:2s;--tx:-10px;--ty:7px;--r1:8deg;--r2:-5deg">🌸</div>
+<div class="floater" style="left:3%;top:78%;--fs:16px;--op:.20;--d:6s;--dl:.3s;--tx:8px;--ty:-6px;--r1:-5deg;--r2:7deg">💛</div>
+<div class="floater" style="left:89%;top:72%;--fs:16px;--op:.18;--d:7s;--dl:1.2s;--tx:-7px;--ty:9px;--r1:5deg;--r2:-7deg">💜</div>
+<div class="floater" style="left:6%;top:36%;--fs:14px;--op:.15;--d:9s;--dl:2.5s;--tx:5px;--ty:-12px;--r1:-3deg;--r2:9deg">💗</div>
+<div class="floater" style="left:87%;top:32%;--fs:14px;--op:.14;--d:8.5s;--dl:.6s;--tx:-6px;--ty:8px;--r1:7deg;--r2:-4deg">✨</div>
+
+<!-- BANDEIRINHAS CANVAS -->
 <div class="banner-wrap"><canvas id="bCanvas"></canvas></div>
 
-<!-- ═══ SUNFLOWERS ════════════════════════════════════ -->
-<div class="sunflower" style="left:2%;--fs:42px;--d:3.5s;--dl:0s;--r1:-8deg;--r2:5deg">🌻</div>
-<div class="sunflower" style="left:8%;--fs:28px;--d:4s;--dl:.5s;--r1:-5deg;--r2:8deg">🌼</div>
-<div class="sunflower" style="right:2%;--fs:40px;--d:3.2s;--dl:.3s;--r1:6deg;--r2:-7deg">🌻</div>
-<div class="sunflower" style="right:9%;--fs:24px;--d:4.5s;--dl:.8s;--r1:4deg;--r2:-9deg">🌼</div>
-<div class="sunflower" style="left:50%;transform:translateX(-50%);--fs:22px;--d:5s;--dl:1s;--r1:-4deg;--r2:4deg">🌾</div>
-
-<!-- ═══ PAGE ══════════════════════════════════════════ -->
+<!-- PAGE -->
 <div class="page">
 
   <!-- ── HERO ── -->
-  <div class="card hero-card">
-    <div class="card-inner">
-      <!-- decorations -->
-      <div class="deco-hat">🎩</div>
-      <div class="deco-scarecrow">🪆</div>
+  <div class="card hero">
+    <div class="hero-topstrip"></div>
+    <div class="hero-body">
 
-      <!-- wood sign -->
+      <!-- wood sign ARRAIÁ -->
       <div class="wood-sign">
-        <div class="wood-sign-text">Arraiá</div>
-        <div class="wood-sign-sub">✦ celebração especial ✦</div>
+        <div class="ws-text">ARRAIÁ</div>
       </div>
-      <div class="wood-pegs"><div class="peg"></div><div class="peg"></div></div>
+      <div class="ws-pegs"><div class="peg"></div><div class="peg"></div></div>
 
-      <!-- "da" pill -->
+      <!-- DA -->
       <div style="text-align:center">
         <span class="da-pill">da</span>
       </div>
 
-      <!-- SVG name CECÍLIA — big, fun, pink+lilac gingham style -->
-      <div class="cecilia-wrap">
-        <svg class="cecilia-svg" viewBox="0 0 520 105" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cecília name — mixed case, pink gingham, white border, flyer-faithful -->
+      <div class="name-wrap">
+        <svg class="name-svg" viewBox="0 0 500 122" xmlns="http://www.w3.org/2000/svg"
+             style="overflow:visible">
           <defs>
-            <!-- pink gingham fill -->
-            <pattern id="ging1" patternUnits="userSpaceOnUse" width="10" height="10">
-              <rect width="10" height="10" fill="#f7a8c4"/>
-              <rect width="5" height="5" fill="rgba(232,96,154,.3)"/>
-              <rect x="5" y="5" width="5" height="5" fill="rgba(232,96,154,.3)"/>
+            <pattern id="gingham" patternUnits="userSpaceOnUse" width="12" height="12">
+              <rect width="12" height="12" fill="#f0a0c0"/>
+              <rect width="6" height="6" fill="rgba(210,50,110,.38)"/>
+              <rect x="6" y="6" width="6" height="6" fill="rgba(210,50,110,.38)"/>
+              <rect x="0" y="6" width="6" height="6" fill="rgba(210,50,110,.13)"/>
+              <rect x="6" y="0" width="6" height="6" fill="rgba(210,50,110,.13)"/>
             </pattern>
-            <!-- lilac fill -->
-            <pattern id="ging2" patternUnits="userSpaceOnUse" width="10" height="10">
-              <rect width="10" height="10" fill="#c8a8e0"/>
-              <rect width="5" height="5" fill="rgba(155,108,200,.35)"/>
-              <rect x="5" y="5" width="5" height="5" fill="rgba(155,108,200,.35)"/>
-            </pattern>
-            <filter id="textShadow">
-              <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="rgba(155,60,160,.2)"/>
+            <filter id="nshadow" x="-10%" y="-20%" width="120%" height="150%">
+              <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="rgba(150,30,70,.28)"/>
             </filter>
           </defs>
-          <!-- stroke/shadow layer -->
-          <text x="262" y="92" text-anchor="middle"
-            font-family="'Fredoka One', 'Nunito', sans-serif"
-            font-size="100" font-weight="400" letter-spacing="6"
-            fill="none" stroke="white" stroke-width="8" stroke-linejoin="round"
-            filter="url(#textShadow)"
-          >CECÍLIA</text>
-          <!-- alternating pink/lilac letters -->
-          <!-- C -->
-          <text x="18" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">C</text>
-          <!-- E -->
-          <text x="89" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">E</text>
-          <!-- C -->
-          <text x="158" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">C</text>
-          <!-- Í -->
-          <text x="230" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">Í</text>
-          <!-- L -->
-          <text x="278" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">L</text>
-          <!-- I -->
-          <text x="345" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging2)" stroke="white" stroke-width="3" stroke-linejoin="round">I</text>
-          <!-- A -->
-          <text x="376" y="92" font-family="'Fredoka One','Nunito',sans-serif" font-size="100" font-weight="400" fill="url(#ging1)" stroke="white" stroke-width="3" stroke-linejoin="round">A</text>
-          <!-- hearts above -->
-          <text x="248" y="12" font-size="16" text-anchor="middle" fill="#e8609a">♥</text>
-          <text x="178" y="6" font-size="11" text-anchor="middle" fill="#c8a8e0" opacity=".8">♥</text>
-          <text x="318" y="8" font-size="10" text-anchor="middle" fill="#c8a8e0" opacity=".7">♥</text>
+
+          <!-- decorative hearts top -->
+          <text x="68"  y="18" text-anchor="middle" font-size="13" fill="#e8609a" opacity=".65">♥</text>
+          <text x="250" y="12" text-anchor="middle" font-size="16" fill="#e8609a">♥</text>
+          <text x="432" y="18" text-anchor="middle" font-size="13" fill="#b090d8" opacity=".65">♥</text>
+
+          <!-- lilac drop shadow -->
+          <text x="252" y="101"
+            text-anchor="middle"
+            font-family="'Fredoka One','Nunito',sans-serif"
+            font-size="92" letter-spacing="3"
+            fill="rgba(150,90,190,.2)"
+            stroke="rgba(150,90,190,.12)" stroke-width="16" stroke-linejoin="round"
+            paint-order="stroke fill"
+          >Cecília</text>
+
+          <!-- white outline -->
+          <text x="250" y="99"
+            text-anchor="middle"
+            font-family="'Fredoka One','Nunito',sans-serif"
+            font-size="92" letter-spacing="3"
+            fill="none"
+            stroke="white" stroke-width="13" stroke-linejoin="round"
+            paint-order="stroke fill"
+          >Cecília</text>
+
+          <!-- gingham fill — main -->
+          <text x="250" y="99"
+            text-anchor="middle"
+            font-family="'Fredoka One','Nunito',sans-serif"
+            font-size="92" letter-spacing="3"
+            fill="url(#gingham)"
+            filter="url(#nshadow)"
+          >Cecília</text>
         </svg>
       </div>
 
-      <!-- age badge -->
-      <div style="text-align:center">
-        <div class="age-badge">
-          <span class="age-badge-heart">💗</span>
-          8 Meses de Muito Amor e Alegria!
-          <span class="age-badge-heart">💗</span>
+      <!-- 8 MESES badge -->
+      <div style="text-align:center;margin-top:.3rem">
+        <div class="age-banner">
+          <span class="hrt">💗</span>
+          8 MESES DE MUITO AMOR E ALEGRIA!
+          <span class="hrt">💗</span>
         </div>
       </div>
 
       <!-- invite text -->
-      <p class="invite-text">
-        Vamos comemorar os 8 meses da nossa boneca <strong>Cecília</strong>!<br>
+      <p class="invite-p">
+        Vamos comemorar os 8 meses da nossa boneca <b>Cecília</b>!<br>
         Esperamos você e sua família para uma tarde de muita diversão,
         comidas gostosas e momentos inesquecíveis! 🥰
       </p>
 
-      <!-- info grid -->
-      <div class="info-grid">
-        <div class="ig-cell">
-          <span class="ig-icon">📅</span>
-          <span class="ig-lbl">Dia</span>
-          <span class="ig-val">28/06/2026</span>
-        </div>
-        <div class="ig-cell">
-          <span class="ig-icon">🕐</span>
-          <span class="ig-lbl">Horário</span>
-          <span class="ig-val">15h30</span>
-        </div>
-        <div class="ig-cell">
-          <span class="ig-icon">🏡</span>
-          <span class="ig-lbl">Local</span>
-          <span class="ig-val">Casa da Mamãe</span>
-        </div>
+    </div>
+
+    <!-- info strip -->
+    <div class="info-strip">
+      <div class="is-cell">
+        <span class="is-icon">📅</span>
+        <span class="is-lbl">Dia</span>
+        <span class="is-val">28/06/2026</span>
+      </div>
+      <div class="is-cell">
+        <span class="is-icon">🕞</span>
+        <span class="is-lbl">Horário</span>
+        <span class="is-val">15:30</span>
+      </div>
+      <div class="is-cell">
+        <span class="is-icon">🏡</span>
+        <span class="is-lbl">Local</span>
+        <span class="is-val">Casa da Mamãe</span>
       </div>
     </div>
+    <div class="hero-botstrip"></div>
   </div>
 
   <!-- ── COUNTDOWN ── -->
-  <div class="card countdown-card">
-    <div class="card-inner">
-      <span class="cd-label">⏳ faltam para a festa</span>
-      <div class="cd-grid" id="cdGrid">
-        <div class="cd-unit"><span class="cd-num" id="cdD">--</span><span class="cd-unit-lbl">dias</span></div>
-        <div class="cd-unit"><span class="cd-num" id="cdH">--</span><span class="cd-unit-lbl">horas</span></div>
-        <div class="cd-unit"><span class="cd-num" id="cdM">--</span><span class="cd-unit-lbl">min</span></div>
-        <div class="cd-unit"><span class="cd-num" id="cdS">--</span><span class="cd-unit-lbl">seg</span></div>
+  <div class="card cd-card">
+    <div class="cd-inner">
+      <span class="cd-lbl">⏳ Faltam para o Arraiá</span>
+      <div class="cd-row" id="cdRow">
+        <div class="cd-unit"><span class="cd-n" id="cdD">--</span><span class="cd-u">dias</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cdH">--</span><span class="cd-u">horas</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cdM">--</span><span class="cd-u">min</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cdS">--</span><span class="cd-u">seg</span></div>
       </div>
     </div>
   </div>
 
   <!-- ── CONTRIBUTION ── -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="contrib-banner">
-        🌽 PARA DEIXAR NOSSO ARRAIÁ AINDA MAIS GOSTOSO,<br>
-        CADA FAMÍLIA TRAZ:
+  <div class="card contrib-card">
+    <div class="contrib-banner">
+      💗 PARA DEIXAR NOSSO ARRAIÁ AINDA MAIS GOSTOSO,<br>
+      CADA FAMÍLIA TRAZ:
+    </div>
+    <div class="contrib-grid">
+      <div class="ci ci-pink">
+        <span class="ci-icon">🧁</span>
+        <span class="ci-lbl">1 Prato de Doce Típico</span>
       </div>
-      <div class="contrib-grid">
-        <div class="contrib-item ci-pink">
-          <span class="contrib-icon">🧁</span>
-          <span class="contrib-lbl">1 Prato de Doce Típico</span>
-        </div>
-        <div class="contrib-item ci-yellow">
-          <span class="contrib-icon">🥘</span>
-          <span class="contrib-lbl">1 Prato de Salgado</span>
-        </div>
-        <div class="contrib-item ci-blue">
-          <span class="contrib-icon">🥤</span>
-          <span class="contrib-lbl">1 Refrigerante</span>
-        </div>
+      <div class="ci ci-yellow">
+        <span class="ci-icon">🥘</span>
+        <span class="ci-lbl">1 Prato de Salgado</span>
       </div>
-      <div class="caipira-note" style="margin:0 1.4rem 1.4rem">
-        <span class="cn-ico">👒</span>
-        <span class="cn-txt">Vista seu traje caipira, traga seu sorriso e venha celebrar com a gente os <strong>8 meses</strong> da nossa pequena caipirinha!</span>
+      <div class="ci ci-blue">
+        <span class="ci-icon">🥤</span>
+        <span class="ci-lbl">1 Refrigerante</span>
       </div>
+    </div>
+    <div class="contrib-note">
+      <span class="cn-ico">👒</span>
+      <span class="cn-txt">
+        Vista seu traje caipira, traga seu sorriso e venha celebrar com a gente os
+        <b>8 meses</b> da nossa pequena caipirinha! <span class="em2">Ô trem bão ter você aqui!</span> 💛
+      </span>
     </div>
   </div>
 
   <!-- ── RSVP ── -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="sec-header">
-        <div class="sec-num sn-pink">I</div>
-        <div>
-          <div class="sec-title">Confirmar Presença</div>
-          <div class="sec-sub">Ô trem bão ter você aqui! 💗</div>
-        </div>
+  <div class="card light-card">
+    <div class="card-head">
+      <div class="cn-badge cb-pink">I</div>
+      <div>
+        <div class="card-title">Confirmar Presença</div>
+        <div class="card-sub">Contamos com você! 💗</div>
       </div>
-      <div class="sec-body">
-        <button class="btn btn-pink" onclick="openModal()">
-          🎉 Confirmar minha presença!
-        </button>
-      </div>
+    </div>
+    <div class="card-body">
+      <button class="btn btn-pink" onclick="openModal()">
+        🎉 &nbsp;Confirmar minha presença!
+      </button>
     </div>
   </div>
 
   <!-- ── FOOD (hidden) ── -->
-  <div class="card" id="foodCard" style="display:none">
-    <div class="card-inner">
-      <div class="sec-header">
-        <div class="sec-num sn-yellow">II</div>
-        <div>
-          <div class="sec-title">Sua contribuição</div>
-          <div class="sec-sub">Obrigada por fazer parte da festa! 🌻</div>
-        </div>
+  <div class="card light-card" id="foodCard" style="display:none">
+    <div class="card-head">
+      <div class="cn-badge cb-yellow">II</div>
+      <div>
+        <div class="card-title">Sua contribuição</div>
+        <div class="card-sub">Obrigada por fazer parte! 🌻</div>
       </div>
-      <div class="sec-body" id="foodBody"></div>
     </div>
+    <div class="card-body" id="foodBody"></div>
   </div>
 
   <!-- ── WHATSAPP (hidden) ── -->
-  <div class="card" id="waCard" style="display:none">
-    <div class="card-inner">
-      <div class="sec-header">
-        <div class="sec-num sn-green">III</div>
-        <div>
-          <div class="sec-title">Enviar no WhatsApp</div>
-          <div class="sec-sub">Mande pra mamãe da Cecília 💬</div>
-        </div>
+  <div class="card light-card" id="waCard" style="display:none">
+    <div class="card-head">
+      <div class="cn-badge cb-green">III</div>
+      <div>
+        <div class="card-title">Enviar no WhatsApp</div>
+        <div class="card-sub">Mande pra mamãe da Cecília 💬</div>
       </div>
-      <div class="sec-body" id="waBody"></div>
     </div>
+    <div class="card-body" id="waBody"></div>
   </div>
 
   <!-- ── FOOTER ── -->
   <div class="card footer-card">
-    <div class="card-inner">
-      <span style="font-size:36px;display:block;margin-bottom:8px">🌽🎀🌻</span>
-      <span class="footer-caipira">
-        "Ô trem bão ter você aqui!"<br>
-        Vista seu traje caipira e venha arrasar! 👒
+    <div class="footer-inner">
+      <div style="font-size:28px;letter-spacing:8px;margin-bottom:10px">🌻 🎀 🌽</div>
+      <span class="footer-main">
+        Contamos com a sua presença! 🥰<br>
+        <span style="font-size:.85em;opacity:.9">Ô trem bão ter você aqui! 💛</span>
       </span>
-      <span class="footer-main">Contamos com sua presença! 🥰</span>
-      <span class="footer-sub">Com carinho · Família da Cecília</span>
+      <span class="footer-sub" style="margin-top:8px">Com carinho · Família da Cecília</span>
     </div>
   </div>
 
 </div><!-- /page -->
 
-<!-- ═══ MODAL ════════════════════════════════════════ -->
-<div class="overlay" id="overlay" onclick="outsideClick(event)">
-  <div class="modal" id="modal">
-    <div class="modal-pill"></div>
-    <div class="modal-head">
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="oClick(event)">
+  <div class="modal">
+    <div class="m-pill"></div>
+    <div class="m-head">
       <div>
-        <div class="modal-title">🎉 Que alegria!</div>
-        <div class="modal-sub">Preencha os campos para confirmar presença</div>
+        <div class="m-title">Que alegria! 🎉</div>
+        <div class="m-sub">Preencha os campos para confirmar presença</div>
       </div>
-      <button class="modal-x" onclick="closeModal()" aria-label="Fechar">✕</button>
+      <button class="m-x" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-b">
+    <div class="m-body">
       <div class="fl">
         <label for="fNome">Seu nome <span class="req">*</span></label>
         <input type="text" id="fNome" placeholder="Ex: Ana Aparecida" autocomplete="name"/>
@@ -812,13 +737,11 @@ body{
         <input type="text" id="fRefri" placeholder="Ex: Guaraná 2L"/>
       </div>
       <div class="fl">
-        <label for="fMsg">Mensagem carinhosa para a Cecília
-          <span style="color:#a080c0;font-weight:500;text-transform:none;letter-spacing:0"> — opcional 💛</span>
-        </label>
-        <textarea id="fMsg" placeholder="Uma mensagem de carinho pra ela ler quando crescer..."></textarea>
+        <label for="fMsg">Mensagem carinhosa <span style="color:#b090d8;font-weight:600;text-transform:none;letter-spacing:0">— opcional 💛</span></label>
+        <textarea id="fMsg" placeholder="Uma mensagem de amor pra ela ler quando crescer..."></textarea>
       </div>
       <button class="btn btn-pink" onclick="submitForm()" style="margin-top:4px">
-        ✅ Confirmar presença!
+        ✅ &nbsp;Confirmar presença!
       </button>
       <div id="formErr"></div>
     </div>
@@ -826,141 +749,139 @@ body{
 </div>
 
 <script>
-/* ── BG DECORATIONS ── */
-(function(){
-  const wrap=document.getElementById('bgWrap');
-  const colors=['#f7a8c4','#c8a8e0','#f7d860','#a8d8a0','#a8d0f8'];
-  const hearts=['💛','💜','🩷','🌸','⭐'];
-  // dots
-  for(let i=0;i<22;i++){
-    const d=document.createElement('div');d.className='dot';
-    const sz=4+Math.random()*12;
-    const col=colors[i%colors.length];
-    d.style.cssText='width:'+sz+'px;height:'+sz+'px;'
-      +'background:'+col+';opacity:'+(0.12+Math.random()*.18)+';'
-      +'top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;'
-      +'--d:'+(5+Math.random()*8)+'s;--dl:'+(Math.random()*5)+'s;'
-      +'--tx:'+(Math.random()*40-20)+'px;--ty:'+(Math.random()*40-20)+'px;'
-      +'--sc:'+(0.8+Math.random()*.5)+';';
-    wrap.appendChild(d);
-  }
-  // hearts
-  for(let i=0;i<14;i++){
-    const h=document.createElement('div');h.className='heart-bg';
-    h.textContent=hearts[i%hearts.length];
-    const fs=10+Math.random()*14;
-    h.style.cssText='font-size:'+fs+'px;opacity:'+(0.1+Math.random()*.15)+';'
-      +'top:'+(Math.random()*90)+'%;left:'+(Math.random()*100)+'%;'
-      +'--fs:'+fs+'px;--op:'+(0.1+Math.random()*.15)+';'
-      +'--d:'+(6+Math.random()*8)+'s;--dl:'+(Math.random()*6)+'s;'
-      +'--tx:'+(Math.random()*30-15)+'px;--ty:'+(Math.random()*30-15)+'px;'
-      +'--r1:'+(Math.random()*20-10)+'deg;--r2:'+(Math.random()*20-10)+'deg;';
-    wrap.appendChild(h);
-  }
-})();
-
-/* ── CANVAS BANNER ── */
+/* ══ CANVAS BANDEIRINHAS — xadrez São João style ══════ */
 (function(){
   const cv=document.getElementById('bCanvas');
   if(!cv)return;
   const ctx=cv.getContext('2d');
-  let W,H=130,DPR=Math.min(devicePixelRatio||1,2);
+  let W,H=120,DPR=Math.min(devicePixelRatio||1,2);
+
+  // Exact palette from the flyer
+  const COLORS=[
+    {main:'#f0a0c0',dark:'#d06090',check:'rgba(200,60,100,.35)'},  // pink
+    {main:'#b890d8',dark:'#8060b0',check:'rgba(140,80,180,.3)'},   // lilac
+    {main:'#f0d040',dark:'#c0a010',check:'rgba(180,130,0,.3)'},    // yellow
+    {main:'#80c840',dark:'#508010',check:'rgba(80,130,0,.28)'},    // green
+    {main:'#60a0e0',dark:'#3060a0',check:'rgba(40,80,160,.28)'},   // blue
+  ];
+  const ROPES=[
+    {y0:10,sag:20,sp:28,off:4},
+    {y0:20,sag:30,sp:32,off:20}
+  ];
+  const FW=20,FH=28;
+  let flags=[];
+
+  // pre-draw gingham patterns into offscreen canvases
+  const patterns=COLORS.map(c=>{
+    const oc=document.createElement('canvas');oc.width=12;oc.height=12;
+    const ox=oc.getContext('2d');
+    ox.fillStyle=c.main;ox.fillRect(0,0,12,12);
+    ox.fillStyle=c.check;ox.fillRect(0,0,6,6);ox.fillRect(6,6,6,6);
+    ox.fillStyle=c.check.replace('.35','.15').replace('.3','.12').replace('.28','.12');
+    ox.fillRect(6,0,6,6);ox.fillRect(0,6,6,6);
+    return ctx.createPattern(oc,'repeat');
+  });
+
+  function cat(x,W,r){return r.y0+r.sag*Math.sin((x/W)*Math.PI)}
+  function build(){
+    flags=[];
+    ROPES.forEach((r,ri)=>{
+      for(let i=0;(r.off+i*r.sp)<W+30;i++){
+        const cx=r.off+i*r.sp;
+        const ci=(i+ri*2)%COLORS.length;
+        flags.push({
+          cx,cy:cat(cx,W,r),
+          ci,
+          phase:i*1.18+ri*2.7+Math.random()*.5,
+          s1:.55+Math.random()*.75,
+          s2:.35+Math.random()*.5,
+          s3:.2+Math.random()*.38,
+        });
+      }
+    });
+  }
   function resize(){
     W=window.innerWidth;
     cv.width=W*DPR;cv.height=H*DPR;
     cv.style.width=W+'px';cv.style.height=H+'px';
     ctx.setTransform(DPR,0,0,DPR,0,0);
-    buildFlags();
-  }
-  // festa junina palette from the flyer
-  const COLORS=['#f7a8c4','#c8a8e0','#f7d860','#9bc86c','#a8d0f8','#f09060'];
-  const ROPES=[
-    {y0:10,sag:18,spacing:28,offset:6,pal:0},
-    {y0:18,sag:26,spacing:32,offset:18,pal:1}
-  ];
-  const FW=16,FH=24;
-  let flags=[];
-  function cat(x,W,rope){return rope.y0+rope.sag*Math.sin((x/W)*Math.PI)}
-  function buildFlags(){
-    flags=[];
-    ROPES.forEach((rope,ri)=>{
-      for(let i=0;(rope.offset+i*rope.spacing)<W+20;i++){
-        const cx=rope.offset+i*rope.spacing;
-        flags.push({
-          cx,cy:cat(cx,W,rope),
-          col:COLORS[(i+ri*2)%COLORS.length],
-          phase:i*1.15+ri*2.6+Math.random()*.4,
-          s1:.6+Math.random()*.7,s2:.4+Math.random()*.5,s3:.2+Math.random()*.4,
-          rope
-        });
-      }
+    // re-create patterns (context may reset)
+    patterns.length=0;
+    COLORS.forEach(c=>{
+      const oc=document.createElement('canvas');oc.width=12;oc.height=12;
+      const ox=oc.getContext('2d');
+      ox.fillStyle=c.main;ox.fillRect(0,0,12,12);
+      ox.fillStyle=c.check;ox.fillRect(0,0,6,6);ox.fillRect(6,6,6,6);
+      ox.fillStyle=c.check.replace('.35','.15').replace('.3','.12').replace('.28','.12');
+      ox.fillRect(6,0,6,6);ox.fillRect(0,6,6,6);
+      patterns.push(ctx.createPattern(oc,'repeat'));
     });
+    build();
   }
   resize();window.addEventListener('resize',resize);
+
   let t=0,raf;
   function draw(){
     ctx.clearRect(0,0,W,H);
-    ROPES.forEach(rope=>{
+    // ropes
+    ROPES.forEach(r=>{
       ctx.beginPath();
-      for(let x=0;x<=W;x++){
-        const y=cat(x,W,rope);x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-      }
-      ctx.strokeStyle='rgba(155,80,40,.45)';ctx.lineWidth=1.6;ctx.stroke();
+      for(let x=0;x<=W;x++){const y=cat(x,W,r);x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.strokeStyle='rgba(140,90,30,.55)';ctx.lineWidth=1.8;ctx.stroke();
     });
+    // flags
     flags.forEach(f=>{
-      const sw=Math.sin(t*f.s1+f.phase)*7+Math.sin(t*f.s2+f.phase*1.4)*3+Math.sin(t*f.s3+f.phase*.8)*1.5;
-      ctx.save();ctx.translate(f.cx,f.cy);ctx.rotate(sw*Math.PI/180);
-      // shadow
-      ctx.beginPath();ctx.moveTo(-FW/2+1,1);ctx.lineTo(FW/2+1,1);ctx.lineTo(1,FH+1);
-      ctx.closePath();ctx.fillStyle='rgba(0,0,0,.12)';ctx.fill();
-      // body
-      ctx.beginPath();ctx.moveTo(-FW/2,0);ctx.lineTo(FW/2,0);ctx.lineTo(0,FH);
-      ctx.closePath();ctx.fillStyle=f.col;ctx.fill();
-      // white outline
-      ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1;ctx.stroke();
-      // shine
-      ctx.beginPath();ctx.moveTo(-FW/2,0);ctx.lineTo(-FW*.08,0);ctx.lineTo(-FW*.25,FH*.48);
-      ctx.closePath();ctx.fillStyle='rgba(255,255,255,.22)';ctx.fill();
-      // small heart on some flags
-      if(Math.abs(Math.round(f.phase))%3===0){
-        ctx.font='8px serif';ctx.fillStyle='rgba(255,255,255,.7)';ctx.textAlign='center';
-        ctx.fillText('♥',0,FH*.55);
-      }
+      const sw=
+        Math.sin(t*f.s1+f.phase)*7+
+        Math.sin(t*f.s2+f.phase*1.38)*3+
+        Math.sin(t*f.s3+f.phase*.72)*1.4;
+
+      ctx.save();
+      ctx.translate(f.cx,f.cy);ctx.rotate(sw*Math.PI/180);
+
+      // clip for gingham fill
+      ctx.beginPath();
+      ctx.moveTo(-FW/2,0);ctx.lineTo(FW/2,0);ctx.lineTo(0,FH);ctx.closePath();
+
+      // gingham fill
+      ctx.fillStyle=patterns[f.ci]||COLORS[f.ci].main;ctx.fill();
+
+      // white border — key for flyer look
+      ctx.strokeStyle='rgba(255,255,255,.88)';ctx.lineWidth=1.6;ctx.stroke();
+
+      // subtle shadow on right side
+      ctx.beginPath();
+      ctx.moveTo(FW/2,0);ctx.lineTo(0,FH);ctx.closePath();
+      ctx.fillStyle='rgba(0,0,0,.1)';ctx.fill();
+
       ctx.restore();
-      ctx.beginPath();ctx.arc(f.cx,f.cy,2.2,0,Math.PI*2);
-      ctx.fillStyle='rgba(100,50,20,.5)';ctx.fill();
+
+      // rope attachment dot
+      ctx.beginPath();ctx.arc(f.cx,f.cy,2.8,0,Math.PI*2);
+      ctx.fillStyle='rgba(120,70,20,.6)';ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,.4)';ctx.lineWidth=.5;ctx.stroke();
     });
     t+=.013;
     if(!document.hidden)raf=requestAnimationFrame(draw);
   }
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden)cancelAnimationFrame(raf);else draw();
-  });
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else draw();});
   draw();
 })();
 
-/* ── COUNTDOWN ── */
+/* ══ COUNTDOWN ══════════════════════════════════════ */
 (function tick(){
-  const target=new Date('2026-06-28T15:30:00');
-  const now=new Date();
-  const diff=target-now;
-  if(diff<=0){
-    document.getElementById('cdGrid').innerHTML='<p class="cd-over">🎉 É hoje!! 🎉</p>';
-    return;
-  }
-  const d=Math.floor(diff/864e5);
-  const h=Math.floor((diff%864e5)/36e5);
-  const m=Math.floor((diff%36e5)/6e4);
-  const s=Math.floor((diff%6e4)/1e3);
+  const tgt=new Date('2026-06-28T15:30:00');
+  const diff=tgt-new Date();
+  if(diff<=0){document.getElementById('cdRow').innerHTML='<p class="cd-over">🎉 É hoje!! 🎉</p>';return;}
   const pad=n=>String(n).padStart(2,'0');
-  document.getElementById('cdD').textContent=pad(d);
-  document.getElementById('cdH').textContent=pad(h);
-  document.getElementById('cdM').textContent=pad(m);
-  document.getElementById('cdS').textContent=pad(s);
+  document.getElementById('cdD').textContent=pad(Math.floor(diff/864e5));
+  document.getElementById('cdH').textContent=pad(Math.floor((diff%864e5)/36e5));
+  document.getElementById('cdM').textContent=pad(Math.floor((diff%36e5)/6e4));
+  document.getElementById('cdS').textContent=pad(Math.floor((diff%6e4)/1e3));
   setTimeout(tick,1000);
 })();
 
-/* ── MODAL ── */
+/* ══ MODAL ══════════════════════════════════════════ */
 function openModal(){
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -970,47 +891,45 @@ function closeModal(){
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow='';
 }
-function outsideClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function oClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-/* ── FORM ── */
+/* ══ FORM ════════════════════════════════════════════ */
 let G={};
+const v=id=>document.getElementById(id).value.trim();
 function submitForm(){
   const nome=v('fNome'),p1=v('fP1'),p2=v('fP2'),refri=v('fRefri'),msg=v('fMsg');
   if(!nome){er('Por favor, escreva seu nome 🌻');return}
-  if(!p1){er('Informe o prato de doce! 🧁');return}
-  if(!p2){er('Informe o prato de salgado! 🥘');return}
-  if(!refri){er('Informe qual refrigerante vai trazer! 🥤');return}
+  if(!p1)  {er('Informe o prato de doce! 🧁');return}
+  if(!p2)  {er('Informe o prato de salgado! 🥘');return}
+  if(!refri){er('Informe o refrigerante! 🥤');return}
   document.getElementById('formErr').style.display='none';
   G={nome,p1,p2,refri,msg};
-  closeModal();
-  renderFood();renderWa();
+  closeModal();renderFood();renderWa();
 }
-function v(id){return document.getElementById(id).value.trim()}
 function er(t){const e=document.getElementById('formErr');e.textContent=t;e.style.display='block'}
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
 function renderFood(){
   const c=document.getElementById('foodCard');c.style.display='block';
+  c.style.animation='rise .6s cubic-bezier(.22,1,.36,1) both';
   document.getElementById('foodBody').innerHTML=`
-    <div class="result-grid">
-      <div class="res-item"><span class="res-ico">🧁</span><span class="res-lbl">Doce</span><span class="res-val">${esc(G.p1)}</span></div>
-      <div class="res-item"><span class="res-ico">🥘</span><span class="res-lbl">Salgado</span><span class="res-val">${esc(G.p2)}</span></div>
-      <div class="res-item"><span class="res-ico">🥤</span><span class="res-lbl">Refrigerante</span><span class="res-val">${esc(G.refri)}</span></div>
+    <div class="res-grid">
+      <div class="res-chip"><span class="rc-ico">🧁</span><span class="rc-lbl">Doce</span><span class="rc-val">${esc(G.p1)}</span></div>
+      <div class="res-chip"><span class="rc-ico">🥘</span><span class="rc-lbl">Salgado</span><span class="rc-val">${esc(G.p2)}</span></div>
+      <div class="res-chip"><span class="rc-ico">🥤</span><span class="rc-lbl">Refrigerante</span><span class="rc-val">${esc(G.refri)}</span></div>
     </div>
     ${G.msg?`<div class="msg-box" style="margin-bottom:14px">"${esc(G.msg)}"</div>`:''}
-    <div class="ok-badge">
-      <span class="ok-ico">✅</span>
-      <span class="ok-txt">Presença confirmada, ${esc(G.nome)}! 🎉<br>Agora envie no WhatsApp abaixo 👇</span>
-    </div>`;
-  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'center'}),100);
+    <div class="ok-badge"><span class="ok-ico">✅</span><span class="ok-txt">Presença confirmada, ${esc(G.nome)}! 🎉<br>Agora envie no WhatsApp abaixo 👇</span></div>`;
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'center'}),120);
 }
+
 function waText(){
   return '🌽🎉 *CONFIRMAÇÃO DE PRESENÇA* 🎉🌽\n\n'
-    +'Olá! Confirmo minha presença no *Arraiá da Cecília* 🎀\n\n'
+    +'Olá! Confirmo presença no *Arraiá da Cecília* 🎀\n\n'
     +'👤 *Nome:* '+G.nome+'\n'
     +'📅 *Data:* 28 de Junho de 2026, às 15h30\n'
-    +'📍 *Local:* Casa da Mamãe\n\n'
+    +'📍 *Local:* Minha Casa\n\n'
     +'🍽️ *Vou levar:*\n'
     +'   🧁 Doce: '+G.p1+'\n'
     +'   🥘 Salgado: '+G.p2+'\n'
@@ -1018,8 +937,10 @@ function waText(){
     +(G.msg?'\n💬 *Mensagem pra Cecília:* '+G.msg+'\n':'')
     +'\n👒 Contamos com a sua presença!\n_Com carinho, Família da Cecília_ 💗';
 }
+
 function renderWa(){
   const c=document.getElementById('waCard');c.style.display='block';
+  c.style.animation='rise .6s cubic-bezier(.22,1,.36,1) both';
   const url='https://wa.me/5521974598210?text='+encodeURIComponent(waText());
   document.getElementById('waBody').innerHTML=`
     <div class="msg-box" style="margin-bottom:16px">${esc(waText())}</div>
